@@ -1,0 +1,903 @@
+{
+  "additions": {
+    "locations": [
+      {
+        "id": "lh_2_1",
+        "name": "Part of lh_2",
+        "type": "hallway_part",
+        "bounds": {
+          "type": "rectangle",
+          "coordinates": [
+            {
+              "x": -2089,
+              "z": 152
+            },
+            {
+              "x": -2048,
+              "z": 156
+            }
+          ]
+        }
+      },
+      {
+        "id": "lh_2_2",
+        "name": "Part of lh_2",
+        "type": "hallway_part",
+        "bounds": {
+          "type": "rectangle",
+          "coordinates": [
+            {
+              "x": -2047,
+              "z": 152
+            },
+            {
+              "x": -2037,
+              "z": 156
+            }
+          ]
+        }
+      },
+      {
+        "id": "rh_1",
+        "name": "Part of rh",
+        "type": "hallway",
+        "bounds": {
+          "type": "rectangle",
+          "coordinates": [
+            {
+              "x": -2108,
+              "z": 179
+            },
+            {
+              "x": -2079,
+              "z": 183
+            }
+          ]
+        }
+      },
+      {
+        "id": "rh_2",
+        "name": "Part of rh",
+        "type": "hallway",
+        "bounds": {
+          "type": "rectangle",
+          "coordinates": [
+            {
+              "x": -2078,
+              "z": 179
+            },
+            {
+              "x": -2028,
+              "z": 183
+            }
+          ]
+        }
+      }
+    ],
+    "connections": [
+      {
+        "id": "c_128_115_129_116",
+        "type": "opening",
+        "bounds": {
+          "type": "rectangle",
+          "coordinates": [
+            {
+              "x": -2073,
+              "z": 190
+            },
+            {
+              "x": -2072,
+              "z": 191
+            }
+          ]
+        },
+        "connected_locations": [
+          "r108_2",
+          "r107_1"
+        ]
+      },
+      {
+        "id": "c_119_115_120_116",
+        "type": "opening",
+        "bounds": {
+          "type": "rectangle",
+          "coordinates": [
+            {
+              "x": -2082,
+              "z": 190
+            },
+            {
+              "x": -2081,
+              "z": 191
+            }
+          ]
+        },
+        "connected_locations": [
+          "r109_2",
+          "r108_1"
+        ]
+      },
+      {
+        "id": "c_110_115_111_116",
+        "type": "opening",
+        "bounds": {
+          "type": "rectangle",
+          "coordinates": [
+            {
+              "x": -2091,
+              "z": 190
+            },
+            {
+              "x": -2090,
+              "z": 191
+            }
+          ]
+        },
+        "connected_locations": [
+          "r110_2",
+          "r109_1"
+        ]
+      },
+      {
+        "id": "c_135_89_137_90",
+        "type": "opening",
+        "bounds": {
+          "type": "rectangle",
+          "coordinates": [
+            {
+              "x": -2066,
+              "z": 164
+            },
+            {
+              "x": -2064,
+              "z": 165
+            }
+          ]
+        },
+        "connected_locations": [
+          "mb_2",
+          "acr_1"
+        ]
+      },
+      {
+        "id": "c_128_115_129_116",
+        "type": "opening",
+        "bounds": {
+          "type": "rectangle",
+          "coordinates": [
+            {
+              "x": -2073,
+              "z": 190
+            },
+            {
+              "x": -2072,
+              "z": 191
+            }
+          ]
+        },
+        "connected_locations": [
+          "r108_2",
+          "r107_1"
+        ]
+      },
+      {
+        "id": "c_119_115_120_116",
+        "type": "opening",
+        "bounds": {
+          "type": "rectangle",
+          "coordinates": [
+            {
+              "x": -2082,
+              "z": 190
+            },
+            {
+              "x": -2081,
+              "z": 191
+            }
+          ]
+        },
+        "connected_locations": [
+          "r109_2",
+          "r108_1"
+        ]
+      },
+      {
+        "id": "c_110_115_111_116",
+        "type": "opening",
+        "bounds": {
+          "type": "rectangle",
+          "coordinates": [
+            {
+              "x": -2091,
+              "z": 190
+            },
+            {
+              "x": -2090,
+              "z": 191
+            }
+          ]
+        },
+        "connected_locations": [
+          "r110_2",
+          "r109_1"
+        ]
+      },
+      {
+        "id": "c_135_89_137_90",
+        "type": "opening",
+        "bounds": {
+          "type": "rectangle",
+          "coordinates": [
+            {
+              "x": -2066,
+              "z": 164
+            },
+            {
+              "x": -2064,
+              "z": 165
+            }
+          ]
+        },
+        "connected_locations": [
+          "mb_2",
+          "acr_1"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "vg1",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2077,
+              "z": 145
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg2",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2082,
+              "z": 147
+            }
+          ]
+        }
+      },
+      {
+        "id": "vy1",
+        "type": "yellow_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2077,
+              "z": 150
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg3",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2064,
+              "z": 147
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg4",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2062,
+              "z": 148
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg5",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2064,
+              "z": 149
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg6",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2038,
+              "z": 149
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg7",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2025,
+              "z": 147
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg8",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2023,
+              "z": 156
+            }
+          ]
+        }
+      },
+      {
+        "id": "vy2",
+        "type": "yellow_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2030,
+              "z": 161
+            }
+          ]
+        }
+      },
+      {
+        "id": "vy3",
+        "type": "yellow_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2034,
+              "z": 164
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg9",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2029,
+              "z": 164
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg10",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2029,
+              "z": 168
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg11",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2029,
+              "z": 170
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg12",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2030,
+              "z": 176
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg13",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2029,
+              "z": 185
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg14",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2031,
+              "z": 191
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg15",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2049,
+              "z": 190
+            }
+          ]
+        }
+      },
+      {
+        "id": "vy4",
+        "type": "yellow_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2067,
+              "z": 190
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg16",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2075,
+              "z": 190
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg17",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2085,
+              "z": 186
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg18",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2083,
+              "z": 191
+            }
+          ]
+        }
+      },
+      {
+        "id": "vy5",
+        "type": "yellow_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2092,
+              "z": 186
+            }
+          ]
+        }
+      },
+      {
+        "id": "vy6",
+        "type": "yellow_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2093,
+              "z": 190
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg19",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2096,
+              "z": 190
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg20",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2090,
+              "z": 168
+            }
+          ]
+        }
+      },
+      {
+        "id": "vy7",
+        "type": "yellow_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2081,
+              "z": 174
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg21",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2072,
+              "z": 176
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg22",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2072,
+              "z": 163
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg23",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2067,
+              "z": 168
+            }
+          ]
+        }
+      },
+      {
+        "id": "vy8",
+        "type": "yellow_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2064,
+              "z": 166
+            }
+          ]
+        }
+      },
+      {
+        "id": "vg24",
+        "type": "green_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2064,
+              "z": 177
+            }
+          ]
+        }
+      },
+      {
+        "id": "vy9",
+        "type": "yellow_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2045,
+              "z": 161
+            }
+          ]
+        }
+      },
+      {
+        "id": "vy10",
+        "type": "yellow_victim",
+        "bounds": {
+          "type": "block",
+          "coordinates": [
+            {
+              "x": -2047,
+              "z": 173
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "modifications": {
+    "locations": [
+      {
+        "id": "lh_2",
+        "bounds": null,
+        "child_locations": [
+          "lh_2_1",
+          "lh_2_2"
+        ]
+      },
+      {
+        "id": "rh",
+        "bounds": null,
+        "child_locations": [
+          "rh_1",
+          "rh_2"
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "id": "c_158_76_160_77",
+        "connected_locations": [
+          "kco_4",
+          "lh_2_2"
+        ]
+      },
+      {
+        "id": "c_143_76_144_77",
+        "connected_locations": [
+          "es2_2",
+          "lh_2_1"
+        ]
+      },
+      {
+        "id": "c_130_81_131_82",
+        "connected_locations": [
+          "jc_1",
+          "lh_2_1"
+        ]
+      },
+      {
+        "id": "c_126_76_127_77",
+        "connected_locations": [
+          "es1_2",
+          "lh_2_1"
+        ]
+      },
+      {
+        "id": "c_119_76_123_77",
+        "connected_locations": [
+          "br",
+          "lh_2_1"
+        ]
+      },
+      {
+        "id": "c_114_81_115_82",
+        "connected_locations": [
+          "cf_1",
+          "lh_2_1"
+        ]
+      },
+      {
+        "id": "c_114_76_115_77",
+        "connected_locations": [
+          "so",
+          "lh_2_1"
+        ]
+      },
+      {
+        "id": "ce_112_77_112_79",
+        "connected_locations": [
+          "lh_1",
+          "lh_2_1"
+        ]
+      },
+      {
+        "id": "ce_112_79_112_80",
+        "connected_locations": [
+          "lh_3",
+          "lh_2_1"
+        ]
+      },
+      {
+        "id": "ce_112_80_112_81",
+        "connected_locations": [
+          "lh_4",
+          "lh_2_1"
+        ]
+      },
+      {
+        "id": "ce_124_81_128_81",
+        "connected_locations": [
+          "chb",
+          "lh_2_1"
+        ]
+      },
+      {
+        "id": "ce_146_81_150_81",
+        "connected_locations": [
+          "chm",
+          "lh_2_1"
+        ]
+      },
+      {
+        "id": "ce_160_81_164_81",
+        "connected_locations": [
+          "cht",
+          "lh_2_2"
+        ]
+      },
+      {
+        "id": "c_165_108_166_109",
+        "connected_locations": [
+          "r103_1",
+          "rh_2"
+        ]
+      },
+      {
+        "id": "c_165_103_166_104",
+        "connected_locations": [
+          "r102_2",
+          "rh_2"
+        ]
+      },
+      {
+        "id": "c_156_108_157_109",
+        "connected_locations": [
+          "r104_1",
+          "rh_2"
+        ]
+      },
+      {
+        "id": "c_147_108_148_109",
+        "connected_locations": [
+          "r105_1",
+          "rh_2"
+        ]
+      },
+      {
+        "id": "c_138_108_139_109",
+        "connected_locations": [
+          "r106_1",
+          "rh_2"
+        ]
+      },
+      {
+        "id": "c_129_108_130_109",
+        "connected_locations": [
+          "r107_1",
+          "rh_2"
+        ]
+      },
+      {
+        "id": "c_120_108_121_109",
+        "connected_locations": [
+          "r108_1",
+          "rh_1"
+        ]
+      },
+      {
+        "id": "c_114_103_115_104",
+        "connected_locations": [
+          "cf_21",
+          "rh_1"
+        ]
+      },
+      {
+        "id": "c_111_108_112_109",
+        "connected_locations": [
+          "r109_1",
+          "rh_1"
+        ]
+      },
+      {
+        "id": "c_102_108_103_109",
+        "connected_locations": [
+          "r110_1",
+          "rh_1"
+        ]
+      },
+      {
+        "id": "c_93_108_94_109",
+        "connected_locations": [
+          "r111_1",
+          "rh_1"
+        ]
+      },
+      {
+        "id": "ce_124_104_128_104",
+        "connected_locations": [
+          "chb",
+          "rh_2"
+        ]
+      },
+      {
+        "id": "ce_146_104_150_104",
+        "connected_locations": [
+          "chm",
+          "rh_2"
+        ]
+      },
+      {
+        "id": "ce_160_104_164_104",
+        "connected_locations": [
+          "cht",
+          "rh_2"
+        ]
+      }
+    ]
+  }
+}
