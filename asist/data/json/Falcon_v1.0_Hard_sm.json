@@ -1,0 +1,9695 @@
+{
+  "locations": [
+    {
+      "id": "fy",
+      "name": "Front Yard",
+      "type": "yard",
+      "child_locations": [
+        "fy_2",
+        "fy_3",
+        "fy_4",
+        "fy_5",
+        "fy_6",
+        "fy_7"
+      ]
+    },
+    {
+      "id": "ew",
+      "name": "Entrance Walkway",
+      "type": "walkway",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2126,
+            "z": 144
+          },
+          {
+            "x": -2096,
+            "z": 149
+          }
+        ]
+      }
+    },
+    {
+      "id": "fy_2",
+      "name": "Part of Front Yard",
+      "type": "yard_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2126,
+            "z": 149
+          },
+          {
+            "x": -2106,
+            "z": 169
+          }
+        ]
+      }
+    },
+    {
+      "id": "fy_3",
+      "name": "Part of Front Yard",
+      "type": "yard_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2126,
+            "z": 169
+          },
+          {
+            "x": -2107,
+            "z": 171
+          }
+        ]
+      }
+    },
+    {
+      "id": "fy_4",
+      "name": "Part of Front Yard",
+      "type": "yard_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2126,
+            "z": 171
+          },
+          {
+            "x": -2108,
+            "z": 172
+          }
+        ]
+      }
+    },
+    {
+      "id": "fy_5",
+      "name": "Part of Front Yard",
+      "type": "yard_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2126,
+            "z": 172
+          },
+          {
+            "x": -2109,
+            "z": 175
+          }
+        ]
+      }
+    },
+    {
+      "id": "fy_6",
+      "name": "Part of Front Yard",
+      "type": "yard_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2126,
+            "z": 175
+          },
+          {
+            "x": -2110,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "fy_7",
+      "name": "Part of Front Yard",
+      "type": "yard_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2110,
+            "z": 178
+          },
+          {
+            "x": -2109,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "wf",
+      "name": "Water Fountain",
+      "type": "fountain",
+      "child_locations": [
+        "wf_1",
+        "wf_2",
+        "wf_3",
+        "wf_4",
+        "wf_5"
+      ]
+    },
+    {
+      "id": "wf_1",
+      "name": "Part of Water Fountain",
+      "type": "fountain_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2105,
+            "z": 150
+          },
+          {
+            "x": -2097,
+            "z": 177
+          }
+        ]
+      }
+    },
+    {
+      "id": "wf_2",
+      "name": "Part of Water Fountain",
+      "type": "fountain_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2106,
+            "z": 169
+          },
+          {
+            "x": -2105,
+            "z": 177
+          }
+        ]
+      }
+    },
+    {
+      "id": "wf_3",
+      "name": "Part of Water Fountain",
+      "type": "fountain_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2107,
+            "z": 171
+          },
+          {
+            "x": -2106,
+            "z": 178
+          }
+        ]
+      }
+    },
+    {
+      "id": "wf_4",
+      "name": "Part of Water Fountain",
+      "type": "fountain_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2108,
+            "z": 172
+          },
+          {
+            "x": -2107,
+            "z": 178
+          }
+        ]
+      }
+    },
+    {
+      "id": "wf_5",
+      "name": "Part of Water Fountain",
+      "type": "fountain_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2109,
+            "z": 175
+          },
+          {
+            "x": -2108,
+            "z": 178
+          }
+        ]
+      }
+    },
+    {
+      "id": "lh",
+      "name": "Left Hallway",
+      "type": "hallway",
+      "child_locations": [
+        "lh_1",
+        "lh_2",
+        "lh_3",
+        "lh_4"
+      ]
+    },
+    {
+      "id": "lh_1",
+      "name": "Part of Left Hallway",
+      "type": "hallway_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2095,
+            "z": 151
+          },
+          {
+            "x": -2089,
+            "z": 154
+          }
+        ]
+      }
+    },
+    {
+      "id": "lh_2",
+      "name": "Part of Left Hallway",
+      "type": "hallway_part",
+      "child_locations": [
+        "lh_2_1",
+        "lh_2_2"
+      ]
+    },
+    {
+      "id": "lh_3",
+      "name": "Part of Left Hallway",
+      "type": "hallway_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2094,
+            "z": 154
+          },
+          {
+            "x": -2089,
+            "z": 155
+          }
+        ]
+      }
+    },
+    {
+      "id": "lh_4",
+      "name": "Part of Left Hallway",
+      "type": "hallway_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2093,
+            "z": 155
+          },
+          {
+            "x": -2089,
+            "z": 156
+          }
+        ]
+      }
+    },
+    {
+      "id": "chb",
+      "name": "Center Hallway Bottom",
+      "type": "hallway",
+      "child_locations": [
+        "chb_1",
+        "chb_2",
+        "chb_3"
+      ]
+    },
+    {
+      "id": "chm",
+      "name": "Center Hallway Middle",
+      "type": "hallway",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2055,
+            "z": 156
+          },
+          {
+            "x": -2051,
+            "z": 178
+          }
+        ]
+      }
+    },
+    {
+      "id": "cht",
+      "name": "Center Hallway Top",
+      "type": "hallway",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2041,
+            "z": 156
+          },
+          {
+            "x": -2037,
+            "z": 179
+          }
+        ]
+      }
+    },
+    {
+      "id": "rh",
+      "name": "Right Hallway",
+      "type": "hallway",
+      "child_locations": [
+        "rh_1",
+        "rh_2",
+        "rh_3"
+      ]
+    },
+    {
+      "id": "r111",
+      "name": "Room 111",
+      "type": "room",
+      "child_locations": [
+        "r111_1",
+        "r111_2",
+        "r111_3",
+        "r111_4",
+        "r111_5"
+      ]
+    },
+    {
+      "id": "r111_1",
+      "name": "Part of Room 111",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2108,
+            "z": 184
+          },
+          {
+            "x": -2106,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r111_2",
+      "name": "Part of Room 111",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2103,
+            "z": 184
+          },
+          {
+            "x": -2100,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r111_3",
+      "name": "Part of Room 111",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2104,
+            "z": 185
+          },
+          {
+            "x": -2103,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r111_4",
+      "name": "Part of Room 111",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2105,
+            "z": 186
+          },
+          {
+            "x": -2104,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r111_5",
+      "name": "Part of Room 111",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2106,
+            "z": 189
+          },
+          {
+            "x": -2105,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r110",
+      "name": "Room 110",
+      "type": "room",
+      "child_locations": [
+        "r110_1",
+        "r110_2",
+        "r110_3",
+        "r110_4",
+        "r110_5"
+      ]
+    },
+    {
+      "id": "r110_1",
+      "name": "Part of Room 110",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2099,
+            "z": 184
+          },
+          {
+            "x": -2097,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r110_2",
+      "name": "Part of Room 110",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2094,
+            "z": 184
+          },
+          {
+            "x": -2091,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r110_3",
+      "name": "Part of Room 110",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2095,
+            "z": 185
+          },
+          {
+            "x": -2094,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r110_4",
+      "name": "Part of Room 110",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2096,
+            "z": 186
+          },
+          {
+            "x": -2095,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r110_5",
+      "name": "Part of Room 110",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2097,
+            "z": 189
+          },
+          {
+            "x": -2096,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "el",
+      "name": "Entrance Lobby",
+      "type": "room",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2095,
+            "z": 144
+          },
+          {
+            "x": -2089,
+            "z": 150
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf",
+      "name": "Computer Farm",
+      "type": "room",
+      "child_locations": [
+        "cf_1",
+        "cf_2",
+        "cf_3",
+        "cf_4",
+        "cf_5",
+        "cf_6",
+        "cf_7",
+        "cf_8",
+        "cf_9",
+        "cf_10",
+        "cf_11",
+        "cf_12",
+        "cf_13",
+        "cf_14",
+        "cf_15",
+        "cf_16",
+        "cf_17",
+        "cf_18",
+        "cf_19",
+        "cf_20",
+        "cf_21"
+      ]
+    },
+    {
+      "id": "cf_1",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2095,
+            "z": 157
+          },
+          {
+            "x": -2078,
+            "z": 159
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_2",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2095,
+            "z": 159
+          },
+          {
+            "x": -2093,
+            "z": 178
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_3",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2088,
+            "z": 159
+          },
+          {
+            "x": -2085,
+            "z": 160
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_4",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2080,
+            "z": 159
+          },
+          {
+            "x": -2078,
+            "z": 178
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_5",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2093,
+            "z": 160
+          },
+          {
+            "x": -2091,
+            "z": 163
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_6",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2090,
+            "z": 160
+          },
+          {
+            "x": -2083,
+            "z": 163
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_7",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2082,
+            "z": 160
+          },
+          {
+            "x": -2080,
+            "z": 163
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_8",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2088,
+            "z": 163
+          },
+          {
+            "x": -2085,
+            "z": 164
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_9",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2093,
+            "z": 164
+          },
+          {
+            "x": -2091,
+            "z": 167
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_10",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2090,
+            "z": 164
+          },
+          {
+            "x": -2083,
+            "z": 167
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_11",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2082,
+            "z": 164
+          },
+          {
+            "x": -2080,
+            "z": 167
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_12",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2088,
+            "z": 167
+          },
+          {
+            "x": -2085,
+            "z": 168
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_13",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2093,
+            "z": 168
+          },
+          {
+            "x": -2091,
+            "z": 171
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_14",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2090,
+            "z": 168
+          },
+          {
+            "x": -2083,
+            "z": 171
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_15",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2082,
+            "z": 168
+          },
+          {
+            "x": -2080,
+            "z": 171
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_16",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2088,
+            "z": 171
+          },
+          {
+            "x": -2085,
+            "z": 172
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_17",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2093,
+            "z": 172
+          },
+          {
+            "x": -2091,
+            "z": 175
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_18",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2090,
+            "z": 172
+          },
+          {
+            "x": -2083,
+            "z": 175
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_19",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2082,
+            "z": 172
+          },
+          {
+            "x": -2080,
+            "z": 175
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_20",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2088,
+            "z": 175
+          },
+          {
+            "x": -2085,
+            "z": 176
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_21",
+      "name": "Part of Computer Farm",
+      "type": "room_part",
+      "child_locations": [
+        "cf_21_1",
+        "cf_21_2",
+        "cf_21_3"
+      ]
+    },
+    {
+      "id": "r109",
+      "name": "Room 109",
+      "type": "room",
+      "child_locations": [
+        "r109_1",
+        "r109_2",
+        "r109_3",
+        "r109_4",
+        "r109_5"
+      ]
+    },
+    {
+      "id": "r109_1",
+      "name": "Part of Room 109",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2090,
+            "z": 184
+          },
+          {
+            "x": -2088,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r109_2",
+      "name": "Part of Room 109",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2085,
+            "z": 184
+          },
+          {
+            "x": -2082,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r109_3",
+      "name": "Part of Room 109",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2086,
+            "z": 185
+          },
+          {
+            "x": -2085,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r109_4",
+      "name": "Part of Room 109",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2087,
+            "z": 186
+          },
+          {
+            "x": -2086,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r109_5",
+      "name": "Part of Room 109",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2088,
+            "z": 189
+          },
+          {
+            "x": -2087,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "so",
+      "name": "Security Office",
+      "type": "room",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2088,
+            "z": 144
+          },
+          {
+            "x": -2085,
+            "z": 151
+          }
+        ]
+      }
+    },
+    {
+      "id": "br",
+      "name": "Break Room",
+      "type": "room",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2084,
+            "z": 144
+          },
+          {
+            "x": -2076,
+            "z": 151
+          }
+        ]
+      }
+    },
+    {
+      "id": "r108",
+      "name": "Room 108",
+      "type": "room",
+      "child_locations": [
+        "r108_1",
+        "r108_2",
+        "r108_3",
+        "r108_4",
+        "r108_5"
+      ]
+    },
+    {
+      "id": "r108_1",
+      "name": "Part of Room 108",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2081,
+            "z": 184
+          },
+          {
+            "x": -2079,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r108_2",
+      "name": "Part of Room 108",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2076,
+            "z": 184
+          },
+          {
+            "x": -2073,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r108_3",
+      "name": "Part of Room 108",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2077,
+            "z": 185
+          },
+          {
+            "x": -2076,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r108_4",
+      "name": "Part of Room 108",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2078,
+            "z": 186
+          },
+          {
+            "x": -2077,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r108_5",
+      "name": "Part of Room 108",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2079,
+            "z": 189
+          },
+          {
+            "x": -2078,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "es1",
+      "name": "Executive Suite 1",
+      "type": "room",
+      "child_locations": [
+        "es1_1",
+        "es1_2",
+        "es1_3",
+        "es1_4",
+        "es1_5"
+      ]
+    },
+    {
+      "id": "es1_1",
+      "name": "Part of Executive Suite 1",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2075,
+            "z": 144
+          },
+          {
+            "x": -2059,
+            "z": 147
+          }
+        ]
+      }
+    },
+    {
+      "id": "es1_2",
+      "name": "Part of Executive Suite 1",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2075,
+            "z": 147
+          },
+          {
+            "x": -2073,
+            "z": 151
+          }
+        ]
+      }
+    },
+    {
+      "id": "es1_3",
+      "name": "Part of Executive Suite 1",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2072,
+            "z": 147
+          },
+          {
+            "x": -2059,
+            "z": 149
+          }
+        ]
+      }
+    },
+    {
+      "id": "es1_4",
+      "name": "Part of Executive Suite 1",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2071,
+            "z": 149
+          },
+          {
+            "x": -2059,
+            "z": 150
+          }
+        ]
+      }
+    },
+    {
+      "id": "es1_5",
+      "name": "Part of Executive Suite 1",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2070,
+            "z": 150
+          },
+          {
+            "x": -2059,
+            "z": 151
+          }
+        ]
+      }
+    },
+    {
+      "id": "mb",
+      "name": "Men's Room",
+      "type": "bathroom",
+      "child_locations": [
+        "mb_1",
+        "mb_2",
+        "mb_3",
+        "mb_4"
+      ]
+    },
+    {
+      "id": "mb_1",
+      "name": "Part of Men's Room",
+      "type": "bathroom_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2072,
+            "z": 161
+          },
+          {
+            "x": -2066,
+            "z": 162
+          }
+        ]
+      }
+    },
+    {
+      "id": "mb_2",
+      "name": "Part of Men's Room",
+      "type": "bathroom_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2068,
+            "z": 162
+          },
+          {
+            "x": -2066,
+            "z": 169
+          }
+        ]
+      }
+    },
+    {
+      "id": "mb_3",
+      "name": "Part of Men's Room",
+      "type": "bathroom_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2072,
+            "z": 163
+          },
+          {
+            "x": -2069,
+            "z": 165
+          }
+        ]
+      }
+    },
+    {
+      "id": "mb_4",
+      "name": "Part of Men's Room",
+      "type": "bathroom_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2072,
+            "z": 167
+          },
+          {
+            "x": -2069,
+            "z": 169
+          }
+        ]
+      }
+    },
+    {
+      "id": "wb",
+      "name": "Women's Room",
+      "type": "bathroom",
+      "child_locations": [
+        "wb_1",
+        "wb_2",
+        "wb_3",
+        "wb_4"
+      ]
+    },
+    {
+      "id": "wb_1",
+      "name": "Part of Women's Room",
+      "type": "bathroom_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2072,
+            "z": 170
+          },
+          {
+            "x": -2066,
+            "z": 171
+          }
+        ]
+      }
+    },
+    {
+      "id": "wb_2",
+      "name": "Part of Women's Room",
+      "type": "bathroom_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2068,
+            "z": 171
+          },
+          {
+            "x": -2066,
+            "z": 178
+          }
+        ]
+      }
+    },
+    {
+      "id": "wb_3",
+      "name": "Part of Women's Room",
+      "type": "bathroom_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2072,
+            "z": 172
+          },
+          {
+            "x": -2069,
+            "z": 174
+          }
+        ]
+      }
+    },
+    {
+      "id": "wb_4",
+      "name": "Part of Women's Room",
+      "type": "bathroom_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2072,
+            "z": 176
+          },
+          {
+            "x": -2069,
+            "z": 178
+          }
+        ]
+      }
+    },
+    {
+      "id": "r107",
+      "name": "Room 107",
+      "type": "room",
+      "child_locations": [
+        "r107_1",
+        "r107_2",
+        "r107_3",
+        "r107_4",
+        "r107_5"
+      ]
+    },
+    {
+      "id": "r107_1",
+      "name": "Part of Room 107",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2072,
+            "z": 184
+          },
+          {
+            "x": -2070,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r107_2",
+      "name": "Part of Room 107",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 184
+          },
+          {
+            "x": -2064,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r107_3",
+      "name": "Part of Room 107",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2068,
+            "z": 185
+          },
+          {
+            "x": -2067,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r107_4",
+      "name": "Part of Room 107",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2069,
+            "z": 186
+          },
+          {
+            "x": -2068,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r107_5",
+      "name": "Part of Room 107",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2070,
+            "z": 189
+          },
+          {
+            "x": -2069,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "jc",
+      "name": "Janitor's Closet",
+      "type": "room",
+      "child_locations": [
+        "jc_1",
+        "jc_2"
+      ]
+    },
+    {
+      "id": "jc_1",
+      "name": "Part of Janitor's Closet",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2071,
+            "z": 157
+          },
+          {
+            "x": -2066,
+            "z": 159
+          }
+        ]
+      }
+    },
+    {
+      "id": "jc_2",
+      "name": "Part of Janitor's Closet",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2070,
+            "z": 159
+          },
+          {
+            "x": -2066,
+            "z": 160
+          }
+        ]
+      }
+    },
+    {
+      "id": "acr",
+      "name": "Amway Conference Room",
+      "type": "room",
+      "child_locations": [
+        "acr_1",
+        "acr_2",
+        "acr_3"
+      ]
+    },
+    {
+      "id": "acr_1",
+      "name": "Part of Amway Conference Room",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2064,
+            "z": 157
+          },
+          {
+            "x": -2058,
+            "z": 167
+          }
+        ]
+      }
+    },
+    {
+      "id": "acr_2",
+      "name": "Part of Amway Conference Room",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2058,
+            "z": 158
+          },
+          {
+            "x": -2057,
+            "z": 167
+          }
+        ]
+      }
+    },
+    {
+      "id": "acr_3",
+      "name": "Part of Amway Conference Room",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2057,
+            "z": 159
+          },
+          {
+            "x": -2056,
+            "z": 167
+          }
+        ]
+      }
+    },
+    {
+      "id": "mkcr",
+      "name": "Mary Kay Conference Room",
+      "type": "room",
+      "child_locations": [
+        "mkcr_1",
+        "mkcr_2",
+        "mkcr_3"
+      ]
+    },
+    {
+      "id": "mkcr_1",
+      "name": "Part of Mary Kay Conference Room",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2064,
+            "z": 168
+          },
+          {
+            "x": -2056,
+            "z": 176
+          }
+        ]
+      }
+    },
+    {
+      "id": "mkcr_2",
+      "name": "Part of Mary Kay Conference Room",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2064,
+            "z": 176
+          },
+          {
+            "x": -2057,
+            "z": 177
+          }
+        ]
+      }
+    },
+    {
+      "id": "mkcr_3",
+      "name": "Part of Mary Kay Conference Room",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2064,
+            "z": 177
+          },
+          {
+            "x": -2058,
+            "z": 178
+          }
+        ]
+      }
+    },
+    {
+      "id": "r106",
+      "name": "Room 106",
+      "type": "room",
+      "child_locations": [
+        "r106_1",
+        "r106_2",
+        "r106_3",
+        "r106_4",
+        "r106_5"
+      ]
+    },
+    {
+      "id": "r106_1",
+      "name": "Part of Room 106",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2063,
+            "z": 184
+          },
+          {
+            "x": -2061,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r106_2",
+      "name": "Part of Room 106",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2058,
+            "z": 184
+          },
+          {
+            "x": -2055,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r106_3",
+      "name": "Part of Room 106",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2059,
+            "z": 185
+          },
+          {
+            "x": -2058,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r106_4",
+      "name": "Part of Room 106",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2060,
+            "z": 186
+          },
+          {
+            "x": -2059,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r106_5",
+      "name": "Part of Room 106",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2061,
+            "z": 189
+          },
+          {
+            "x": -2060,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "es2",
+      "name": "Executive Suite 2",
+      "type": "room",
+      "child_locations": [
+        "es2_1",
+        "es2_2",
+        "es2_3",
+        "es2_4",
+        "es2_5"
+      ]
+    },
+    {
+      "id": "es2_1",
+      "name": "Part of Executive Suite 2",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2058,
+            "z": 144
+          },
+          {
+            "x": -2044,
+            "z": 147
+          }
+        ]
+      }
+    },
+    {
+      "id": "es2_2",
+      "name": "Part of Executive Suite 2",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2058,
+            "z": 147
+          },
+          {
+            "x": -2056,
+            "z": 151
+          }
+        ]
+      }
+    },
+    {
+      "id": "es2_3",
+      "name": "Part of Executive Suite 2",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2055,
+            "z": 147
+          },
+          {
+            "x": -2044,
+            "z": 149
+          }
+        ]
+      }
+    },
+    {
+      "id": "es2_4",
+      "name": "Part of Executive Suite 2",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2054,
+            "z": 149
+          },
+          {
+            "x": -2044,
+            "z": 150
+          }
+        ]
+      }
+    },
+    {
+      "id": "es2_5",
+      "name": "Part of Executive Suite 2",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2053,
+            "z": 150
+          },
+          {
+            "x": -2044,
+            "z": 151
+          }
+        ]
+      }
+    },
+    {
+      "id": "r105",
+      "name": "Room 105",
+      "type": "room",
+      "child_locations": [
+        "r105_1",
+        "r105_2",
+        "r105_3",
+        "r105_4",
+        "r105_5"
+      ]
+    },
+    {
+      "id": "r105_1",
+      "name": "Part of Room 105",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2054,
+            "z": 184
+          },
+          {
+            "x": -2052,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r105_2",
+      "name": "Part of Room 105",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2049,
+            "z": 184
+          },
+          {
+            "x": -2046,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r105_3",
+      "name": "Part of Room 105",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2050,
+            "z": 185
+          },
+          {
+            "x": -2049,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r105_4",
+      "name": "Part of Room 105",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2051,
+            "z": 186
+          },
+          {
+            "x": -2050,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r105_5",
+      "name": "Part of Room 105",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2052,
+            "z": 189
+          },
+          {
+            "x": -2051,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "hcr",
+      "name": "Herbalife Conference Room",
+      "type": "room",
+      "child_locations": [
+        "hcr_1",
+        "hcr_2",
+        "hcr_3",
+        "hcr_4",
+        "hcr_5"
+      ]
+    },
+    {
+      "id": "hcr_1",
+      "name": "Part of Herbalife Conference Room",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2048,
+            "z": 157
+          },
+          {
+            "x": -2042,
+            "z": 176
+          }
+        ]
+      }
+    },
+    {
+      "id": "hcr_2",
+      "name": "Part of Herbalife Conference Room",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2049,
+            "z": 158
+          },
+          {
+            "x": -2048,
+            "z": 176
+          }
+        ]
+      }
+    },
+    {
+      "id": "hcr_3",
+      "name": "Part of Herbalife Conference Room",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2050,
+            "z": 159
+          },
+          {
+            "x": -2049,
+            "z": 178
+          }
+        ]
+      }
+    },
+    {
+      "id": "hcr_4",
+      "name": "Part of Herbalife Conference Room",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2049,
+            "z": 176
+          },
+          {
+            "x": -2043,
+            "z": 177
+          }
+        ]
+      }
+    },
+    {
+      "id": "hcr_5",
+      "name": "Part of Herbalife Conference Room",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2049,
+            "z": 177
+          },
+          {
+            "x": -2044,
+            "z": 178
+          }
+        ]
+      }
+    },
+    {
+      "id": "r104",
+      "name": "Room 104",
+      "type": "room",
+      "child_locations": [
+        "r104_1",
+        "r104_2",
+        "r104_3",
+        "r104_4",
+        "r104_5"
+      ]
+    },
+    {
+      "id": "r104_1",
+      "name": "Part of Room 104",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2045,
+            "z": 184
+          },
+          {
+            "x": -2043,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r104_2",
+      "name": "Part of Room 104",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2040,
+            "z": 184
+          },
+          {
+            "x": -2037,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r104_3",
+      "name": "Part of Room 104",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2041,
+            "z": 185
+          },
+          {
+            "x": -2040,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r104_4",
+      "name": "Part of Room 104",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2042,
+            "z": 186
+          },
+          {
+            "x": -2041,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r104_5",
+      "name": "Part of Room 104",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2043,
+            "z": 189
+          },
+          {
+            "x": -2042,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "kco",
+      "name": "King Chris's Office",
+      "type": "room",
+      "child_locations": [
+        "kco_1",
+        "kco_2",
+        "kco_3",
+        "kco_4",
+        "kco_5",
+        "kco_6",
+        "kco_7",
+        "kco_8",
+        "kco_9",
+        "kco_10",
+        "kco_11"
+      ]
+    },
+    {
+      "id": "kco_1",
+      "name": "Part of King Chris's Office",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2043,
+            "z": 144
+          },
+          {
+            "x": -2028,
+            "z": 145
+          }
+        ]
+      }
+    },
+    {
+      "id": "kco_2",
+      "name": "Part of King Chris's Office",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2043,
+            "z": 145
+          },
+          {
+            "x": -2032,
+            "z": 147
+          }
+        ]
+      }
+    },
+    {
+      "id": "kco_3",
+      "name": "Part of King Chris's Office",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2031,
+            "z": 145
+          },
+          {
+            "x": -2028,
+            "z": 148
+          }
+        ]
+      }
+    },
+    {
+      "id": "kco_4",
+      "name": "Part of King Chris's Office",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2043,
+            "z": 147
+          },
+          {
+            "x": -2040,
+            "z": 151
+          }
+        ]
+      }
+    },
+    {
+      "id": "kco_5",
+      "name": "Part of King Chris's Office",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2039,
+            "z": 147
+          },
+          {
+            "x": -2032,
+            "z": 149
+          }
+        ]
+      }
+    },
+    {
+      "id": "kco_6",
+      "name": "Part of King Chris's Office",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2029,
+            "z": 148
+          },
+          {
+            "x": -2028,
+            "z": 159
+          }
+        ]
+      }
+    },
+    {
+      "id": "kco_7",
+      "name": "Part of King Chris's Office",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2038,
+            "z": 149
+          },
+          {
+            "x": -2029,
+            "z": 150
+          }
+        ]
+      }
+    },
+    {
+      "id": "kco_8",
+      "name": "Part of King Chris's Office",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2037,
+            "z": 150
+          },
+          {
+            "x": -2029,
+            "z": 151
+          }
+        ]
+      }
+    },
+    {
+      "id": "kco_9",
+      "name": "Part of King Chris's Office",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2036,
+            "z": 151
+          },
+          {
+            "x": -2029,
+            "z": 157
+          }
+        ]
+      }
+    },
+    {
+      "id": "kco_10",
+      "name": "Part of King Chris's Office",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2036,
+            "z": 157
+          },
+          {
+            "x": -2034,
+            "z": 159
+          }
+        ]
+      }
+    },
+    {
+      "id": "kco_11",
+      "name": "Part of King Chris's Office",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2031,
+            "z": 157
+          },
+          {
+            "x": -2029,
+            "z": 159
+          }
+        ]
+      }
+    },
+    {
+      "id": "r101",
+      "name": "Room 101",
+      "type": "room",
+      "child_locations": [
+        "r101_1",
+        "r101_2",
+        "r101_3",
+        "r101_4",
+        "r101_5"
+      ]
+    },
+    {
+      "id": "r101_1",
+      "name": "Part of Room 101",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2036,
+            "z": 161
+          },
+          {
+            "x": -2028,
+            "z": 164
+          }
+        ]
+      }
+    },
+    {
+      "id": "r101_2",
+      "name": "Part of Room 101",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2035,
+            "z": 164
+          },
+          {
+            "x": -2028,
+            "z": 165
+          }
+        ]
+      }
+    },
+    {
+      "id": "r101_3",
+      "name": "Part of Room 101",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2034,
+            "z": 165
+          },
+          {
+            "x": -2028,
+            "z": 166
+          }
+        ]
+      }
+    },
+    {
+      "id": "r101_4",
+      "name": "Part of Room 101",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2031,
+            "z": 166
+          },
+          {
+            "x": -2028,
+            "z": 169
+          }
+        ]
+      }
+    },
+    {
+      "id": "r101_5",
+      "name": "Part of Room 101",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2036,
+            "z": 167
+          },
+          {
+            "x": -2031,
+            "z": 169
+          }
+        ]
+      }
+    },
+    {
+      "id": "r102",
+      "name": "Room 102",
+      "type": "room",
+      "child_locations": [
+        "r102_1",
+        "r102_2",
+        "r102_3",
+        "r102_4",
+        "r102_5"
+      ]
+    },
+    {
+      "id": "r102_1",
+      "name": "Part of Room 102",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2036,
+            "z": 170
+          },
+          {
+            "x": -2028,
+            "z": 173
+          }
+        ]
+      }
+    },
+    {
+      "id": "r102_2",
+      "name": "Part of Room 102",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2036,
+            "z": 173
+          },
+          {
+            "x": -2034,
+            "z": 178
+          }
+        ]
+      }
+    },
+    {
+      "id": "r102_3",
+      "name": "Part of Room 102",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2033,
+            "z": 173
+          },
+          {
+            "x": -2028,
+            "z": 176
+          }
+        ]
+      }
+    },
+    {
+      "id": "r102_4",
+      "name": "Part of Room 102",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2032,
+            "z": 176
+          },
+          {
+            "x": -2028,
+            "z": 177
+          }
+        ]
+      }
+    },
+    {
+      "id": "r102_5",
+      "name": "Part of Room 102",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2031,
+            "z": 177
+          },
+          {
+            "x": -2028,
+            "z": 178
+          }
+        ]
+      }
+    },
+    {
+      "id": "r103",
+      "name": "Room 103",
+      "type": "room",
+      "child_locations": [
+        "r103_1",
+        "r103_2",
+        "r103_3",
+        "r103_4",
+        "r103_5"
+      ]
+    },
+    {
+      "id": "r103_1",
+      "name": "Part of Room 103",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2036,
+            "z": 184
+          },
+          {
+            "x": -2034,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r103_2",
+      "name": "Part of Room 103",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2031,
+            "z": 184
+          },
+          {
+            "x": -2028,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r103_3",
+      "name": "Part of Room 103",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2032,
+            "z": 185
+          },
+          {
+            "x": -2031,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r103_4",
+      "name": "Part of Room 103",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2033,
+            "z": 186
+          },
+          {
+            "x": -2032,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "r103_5",
+      "name": "Part of Room 103",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2034,
+            "z": 189
+          },
+          {
+            "x": -2033,
+            "z": 192
+          }
+        ]
+      }
+    },
+    {
+      "id": "tkt",
+      "name": "The King's Terrace",
+      "type": "room",
+      "child_locations": [
+        "tkt_1",
+        "tkt_2",
+        "tkt_3",
+        "tkt_4",
+        "tkt_5"
+      ]
+    },
+    {
+      "id": "tkt_1",
+      "name": "Part of The King's Terrace",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2027,
+            "z": 144
+          },
+          {
+            "x": -2026,
+            "z": 159
+          }
+        ]
+      }
+    },
+    {
+      "id": "tkt_2",
+      "name": "Part of The King's Terrace",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2026,
+            "z": 145
+          },
+          {
+            "x": -2024,
+            "z": 158
+          }
+        ]
+      }
+    },
+    {
+      "id": "tkt_3",
+      "name": "Part of The King's Terrace",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2024,
+            "z": 146
+          },
+          {
+            "x": -2022,
+            "z": 157
+          }
+        ]
+      }
+    },
+    {
+      "id": "tkt_4",
+      "name": "Part of The King's Terrace",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2022,
+            "z": 148
+          },
+          {
+            "x": -2021,
+            "z": 155
+          }
+        ]
+      }
+    },
+    {
+      "id": "tkt_5",
+      "name": "Part of The King's Terrace",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2021,
+            "z": 150
+          },
+          {
+            "x": -2020,
+            "z": 153
+          }
+        ]
+      }
+    },
+    {
+      "id": "lh_2_1",
+      "name": "Part of lh_2",
+      "type": "hallway_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2089,
+            "z": 152
+          },
+          {
+            "x": -2048,
+            "z": 156
+          }
+        ]
+      }
+    },
+    {
+      "id": "lh_2_2",
+      "name": "Part of lh_2",
+      "type": "hallway_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2047,
+            "z": 152
+          },
+          {
+            "x": -2037,
+            "z": 156
+          }
+        ]
+      }
+    },
+    {
+      "id": "rh_1",
+      "name": "Part of rh",
+      "type": "hallway",
+      "child_locations": [
+        "rh_1_1",
+        "rh_1_2"
+      ]
+    },
+    {
+      "id": "rh_2",
+      "name": "Part of rh",
+      "type": "hallway",
+      "child_locations": [
+        "rh_2_1",
+        "rh_2_2",
+        "rh_2_3"
+      ]
+    },
+    {
+      "id": "rh_3",
+      "name": "Part of rh",
+      "type": "hallway",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2037,
+            "z": 180
+          },
+          {
+            "x": -2036,
+            "z": 183
+          }
+        ]
+      }
+    },
+    {
+      "id": "rh_2_1",
+      "name": "Part of rh_2",
+      "type": "hallway",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2036,
+            "z": 179
+          },
+          {
+            "x": -2028,
+            "z": 180
+          }
+        ]
+      }
+    },
+    {
+      "id": "rh_2_2",
+      "name": "Part of rh_2",
+      "type": "hallway",
+      "child_locations": [
+        "rh_2_2_1",
+        "rh_2_2_2",
+        "rh_2_2_3"
+      ]
+    },
+    {
+      "id": "rh_2_3",
+      "name": "Part of rh_2",
+      "type": "hallway",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2036,
+            "z": 181
+          },
+          {
+            "x": -2035,
+            "z": 182
+          }
+        ]
+      }
+    },
+    {
+      "id": "rh_2_2_1",
+      "name": "Part of rh_2_2",
+      "type": "hallway",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2035,
+            "z": 180
+          },
+          {
+            "x": -2028,
+            "z": 181
+          }
+        ]
+      }
+    },
+    {
+      "id": "rh_2_2_2",
+      "name": "Part of rh_2_2",
+      "type": "hallway",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2034,
+            "z": 181
+          },
+          {
+            "x": -2028,
+            "z": 183
+          }
+        ]
+      }
+    },
+    {
+      "id": "rh_2_2_3",
+      "name": "Part of rh_2_2",
+      "type": "hallway",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2035,
+            "z": 182
+          },
+          {
+            "x": -2034,
+            "z": 183
+          }
+        ]
+      }
+    },
+    {
+      "id": "rh_1_1",
+      "name": "Part of rh_1",
+      "type": "hallway",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2108,
+            "z": 179
+          },
+          {
+            "x": -2068,
+            "z": 183
+          }
+        ]
+      }
+    },
+    {
+      "id": "rh_1_2",
+      "name": "Part of rh_1",
+      "type": "hallway",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 179
+          },
+          {
+            "x": -2037,
+            "z": 183
+          }
+        ]
+      }
+    },
+    {
+      "id": "chb_1",
+      "name": "Part of chb",
+      "type": "hallway",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2077,
+            "z": 156
+          },
+          {
+            "x": -2073,
+            "z": 169
+          }
+        ]
+      }
+    },
+    {
+      "id": "chb_2",
+      "name": "Part of chb",
+      "type": "hallway",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2077,
+            "z": 169
+          },
+          {
+            "x": -2074,
+            "z": 179
+          }
+        ]
+      }
+    },
+    {
+      "id": "chb_3",
+      "name": "Part of chb",
+      "type": "hallway",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2074,
+            "z": 173
+          },
+          {
+            "x": -2073,
+            "z": 179
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_21_1",
+      "name": "Part of cf_21",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2093,
+            "z": 176
+          },
+          {
+            "x": -2080,
+            "z": 177
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_21_2",
+      "name": "Part of cf_21",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2093,
+            "z": 177
+          },
+          {
+            "x": -2088,
+            "z": 178
+          }
+        ]
+      }
+    },
+    {
+      "id": "cf_21_3",
+      "name": "Part of cf_21",
+      "type": "room_part",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2084,
+            "z": 177
+          },
+          {
+            "x": -2080,
+            "z": 178
+          }
+        ]
+      }
+    }
+  ],
+  "connections": [
+    {
+      "id": "c_173_76_174_77",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2028,
+            "z": 151
+          },
+          {
+            "x": -2027,
+            "z": 152
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_6",
+        "tkt_1"
+      ],
+      "facing": "east",
+      "passable": false
+    },
+    {
+      "id": "c_165_103_166_104",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2036,
+            "z": 178
+          },
+          {
+            "x": -2035,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "r102_2",
+        "rh_2_1"
+      ],
+      "facing": "north",
+      "passable": false
+    },
+    {
+      "id": "c_164_93_165_94",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2037,
+            "z": 168
+          },
+          {
+            "x": -2036,
+            "z": 169
+          }
+        ]
+      },
+      "connected_locations": [
+        "cht",
+        "r101_5"
+      ],
+      "facing": "east",
+      "passable": false
+    },
+    {
+      "id": "c_159_83_160_85",
+      "type": "double_door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2042,
+            "z": 158
+          },
+          {
+            "x": -2041,
+            "z": 160
+          }
+        ]
+      },
+      "connected_locations": [
+        "cht",
+        "hcr_1"
+      ],
+      "facing": "west",
+      "passable": false
+    },
+    {
+      "id": "c_156_108_157_109",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2045,
+            "z": 183
+          },
+          {
+            "x": -2044,
+            "z": 184
+          }
+        ]
+      },
+      "connected_locations": [
+        "r104_1",
+        "rh_1_2"
+      ],
+      "facing": "south",
+      "passable": false
+    },
+    {
+      "id": "c_158_76_160_77",
+      "type": "double_door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2043,
+            "z": 151
+          },
+          {
+            "x": -2041,
+            "z": 152
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_4",
+        "lh_2_2"
+      ],
+      "facing": "north",
+      "passable": false
+    },
+    {
+      "id": "c_147_108_148_109",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2054,
+            "z": 183
+          },
+          {
+            "x": -2053,
+            "z": 184
+          }
+        ]
+      },
+      "connected_locations": [
+        "r105_1",
+        "rh_1_2"
+      ],
+      "facing": "south",
+      "passable": false
+    },
+    {
+      "id": "c_145_93_146_95",
+      "type": "double_door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2056,
+            "z": 168
+          },
+          {
+            "x": -2055,
+            "z": 170
+          }
+        ]
+      },
+      "connected_locations": [
+        "chm",
+        "mkcr_1"
+      ],
+      "facing": "west",
+      "passable": false
+    },
+    {
+      "id": "c_145_90_146_92",
+      "type": "double_door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2056,
+            "z": 165
+          },
+          {
+            "x": -2055,
+            "z": 167
+          }
+        ]
+      },
+      "connected_locations": [
+        "chm",
+        "acr_3"
+      ],
+      "facing": "west",
+      "passable": false
+    },
+    {
+      "id": "c_143_76_144_77",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2058,
+            "z": 151
+          },
+          {
+            "x": -2057,
+            "z": 152
+          }
+        ]
+      },
+      "connected_locations": [
+        "es2_2",
+        "lh_2_1"
+      ],
+      "facing": "north",
+      "passable": false
+    },
+    {
+      "id": "c_138_108_139_109",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2063,
+            "z": 183
+          },
+          {
+            "x": -2062,
+            "z": 184
+          }
+        ]
+      },
+      "connected_locations": [
+        "r106_1",
+        "rh_1_2"
+      ],
+      "facing": "south",
+      "passable": false
+    },
+    {
+      "id": "c_130_81_131_82",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2071,
+            "z": 156
+          },
+          {
+            "x": -2070,
+            "z": 157
+          }
+        ]
+      },
+      "connected_locations": [
+        "jc_1",
+        "lh_2_1"
+      ],
+      "facing": "south",
+      "passable": false
+    },
+    {
+      "id": "c_129_108_130_109",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2072,
+            "z": 183
+          },
+          {
+            "x": -2071,
+            "z": 184
+          }
+        ]
+      },
+      "connected_locations": [
+        "r107_1",
+        "rh_1_1"
+      ],
+      "facing": "south",
+      "passable": false
+    },
+    {
+      "id": "c_128_86_129_87",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2073,
+            "z": 161
+          },
+          {
+            "x": -2072,
+            "z": 162
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_1",
+        "chb_1"
+      ],
+      "facing": "east",
+      "passable": false
+    },
+    {
+      "id": "c_126_76_127_77",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2075,
+            "z": 151
+          },
+          {
+            "x": -2074,
+            "z": 152
+          }
+        ]
+      },
+      "connected_locations": [
+        "es1_2",
+        "lh_2_1"
+      ],
+      "facing": "north",
+      "passable": false
+    },
+    {
+      "id": "c_119_76_123_77",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2082,
+            "z": 151
+          },
+          {
+            "x": -2078,
+            "z": 152
+          }
+        ]
+      },
+      "connected_locations": [
+        "br",
+        "lh_2_1"
+      ]
+    },
+    {
+      "id": "c_120_108_121_109",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2081,
+            "z": 183
+          },
+          {
+            "x": -2080,
+            "z": 184
+          }
+        ]
+      },
+      "connected_locations": [
+        "r108_1",
+        "rh_1_1"
+      ],
+      "facing": "south",
+      "passable": false
+    },
+    {
+      "id": "c_114_81_115_82",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2087,
+            "z": 156
+          },
+          {
+            "x": -2086,
+            "z": 157
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_1",
+        "lh_2_1"
+      ],
+      "facing": "south",
+      "passable": false
+    },
+    {
+      "id": "c_114_76_115_77",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2087,
+            "z": 151
+          },
+          {
+            "x": -2086,
+            "z": 152
+          }
+        ]
+      },
+      "connected_locations": [
+        "so",
+        "lh_2_1"
+      ],
+      "facing": "north",
+      "passable": false
+    },
+    {
+      "id": "c_111_108_112_109",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2090,
+            "z": 183
+          },
+          {
+            "x": -2089,
+            "z": 184
+          }
+        ]
+      },
+      "connected_locations": [
+        "r109_1",
+        "rh_1_1"
+      ],
+      "facing": "south",
+      "passable": false
+    },
+    {
+      "id": "c_102_108_103_109",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2099,
+            "z": 183
+          },
+          {
+            "x": -2098,
+            "z": 184
+          }
+        ]
+      },
+      "connected_locations": [
+        "r110_1",
+        "rh_1_1"
+      ],
+      "facing": "south",
+      "passable": false
+    },
+    {
+      "id": "c_93_108_94_109",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2108,
+            "z": 183
+          },
+          {
+            "x": -2107,
+            "z": 184
+          }
+        ]
+      },
+      "connected_locations": [
+        "r111_1",
+        "rh_1_1"
+      ],
+      "facing": "south",
+      "passable": false
+    },
+    {
+      "id": "c_105_69_106_71",
+      "type": "double_door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2096,
+            "z": 144
+          },
+          {
+            "x": -2095,
+            "z": 146
+          }
+        ]
+      },
+      "connected_locations": [
+        "ew",
+        "el"
+      ],
+      "facing": "east",
+      "passable": false
+    },
+    {
+      "id": "c_105_72_106_74",
+      "type": "double_door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2096,
+            "z": 147
+          },
+          {
+            "x": -2095,
+            "z": 149
+          }
+        ]
+      },
+      "connected_locations": [
+        "ew",
+        "el"
+      ],
+      "facing": "east",
+      "passable": false
+    },
+    {
+      "id": "c_150_100_151_102",
+      "type": "double_door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2051,
+            "z": 175
+          },
+          {
+            "x": -2050,
+            "z": 177
+          }
+        ]
+      },
+      "connected_locations": [
+        "chm",
+        "hcr_3"
+      ],
+      "facing": "east",
+      "passable": false
+    },
+    {
+      "id": "c_132_101_133_102",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2069,
+            "z": 176
+          },
+          {
+            "x": -2068,
+            "z": 177
+          }
+        ]
+      },
+      "connected_locations": [
+        "wb_2",
+        "wb_4"
+      ],
+      "facing": "west",
+      "passable": false
+    },
+    {
+      "id": "c_132_97_133_98",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2069,
+            "z": 172
+          },
+          {
+            "x": -2068,
+            "z": 173
+          }
+        ]
+      },
+      "connected_locations": [
+        "wb_2",
+        "wb_3"
+      ],
+      "facing": "west",
+      "passable": false
+    },
+    {
+      "id": "c_132_92_133_93",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2069,
+            "z": 167
+          },
+          {
+            "x": -2068,
+            "z": 168
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_2",
+        "mb_4"
+      ],
+      "facing": "west",
+      "passable": false
+    },
+    {
+      "id": "c_132_88_133_89",
+      "type": "door",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2069,
+            "z": 163
+          },
+          {
+            "x": -2068,
+            "z": 164
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_2",
+        "mb_3"
+      ],
+      "facing": "west",
+      "passable": false
+    },
+    {
+      "id": "c_107_75_108_76",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2094,
+            "z": 150
+          },
+          {
+            "x": -2093,
+            "z": 151
+          }
+        ]
+      },
+      "connected_locations": [
+        "lh_1",
+        "el"
+      ]
+    },
+    {
+      "id": "c_109_75_110_76",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2092,
+            "z": 150
+          },
+          {
+            "x": -2091,
+            "z": 151
+          }
+        ]
+      },
+      "connected_locations": [
+        "lh_1",
+        "el"
+      ]
+    },
+    {
+      "id": "c_111_75_112_76",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2090,
+            "z": 150
+          },
+          {
+            "x": -2089,
+            "z": 151
+          }
+        ]
+      },
+      "connected_locations": [
+        "lh_1",
+        "el"
+      ]
+    },
+    {
+      "id": "ce_75_74_95_74",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2126,
+            "z": 149
+          },
+          {
+            "x": -2106,
+            "z": 149
+          }
+        ]
+      },
+      "connected_locations": [
+        "ew",
+        "fy_2"
+      ]
+    },
+    {
+      "id": "ce_75_94_94_94",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2126,
+            "z": 169
+          },
+          {
+            "x": -2107,
+            "z": 169
+          }
+        ]
+      },
+      "connected_locations": [
+        "fy_2",
+        "fy_3"
+      ]
+    },
+    {
+      "id": "ce_75_96_93_96",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2126,
+            "z": 171
+          },
+          {
+            "x": -2108,
+            "z": 171
+          }
+        ]
+      },
+      "connected_locations": [
+        "fy_3",
+        "fy_4"
+      ]
+    },
+    {
+      "id": "ce_75_97_92_97",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2126,
+            "z": 172
+          },
+          {
+            "x": -2109,
+            "z": 172
+          }
+        ]
+      },
+      "connected_locations": [
+        "fy_4",
+        "fy_5"
+      ]
+    },
+    {
+      "id": "ce_75_100_91_100",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2126,
+            "z": 175
+          },
+          {
+            "x": -2110,
+            "z": 175
+          }
+        ]
+      },
+      "connected_locations": [
+        "fy_5",
+        "fy_6"
+      ]
+    },
+    {
+      "id": "ce_91_103_91_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2110,
+            "z": 178
+          },
+          {
+            "x": -2110,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "fy_6",
+        "fy_7"
+      ]
+    },
+    {
+      "id": "ce_96_94_96_102",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2105,
+            "z": 169
+          },
+          {
+            "x": -2105,
+            "z": 177
+          }
+        ]
+      },
+      "connected_locations": [
+        "wf_1",
+        "wf_2"
+      ]
+    },
+    {
+      "id": "ce_95_96_95_102",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2106,
+            "z": 171
+          },
+          {
+            "x": -2106,
+            "z": 177
+          }
+        ]
+      },
+      "connected_locations": [
+        "wf_2",
+        "wf_3"
+      ]
+    },
+    {
+      "id": "ce_94_97_94_103",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2107,
+            "z": 172
+          },
+          {
+            "x": -2107,
+            "z": 178
+          }
+        ]
+      },
+      "connected_locations": [
+        "wf_3",
+        "wf_4"
+      ]
+    },
+    {
+      "id": "ce_93_100_93_103",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2108,
+            "z": 175
+          },
+          {
+            "x": -2108,
+            "z": 178
+          }
+        ]
+      },
+      "connected_locations": [
+        "wf_4",
+        "wf_5"
+      ]
+    },
+    {
+      "id": "ce_112_77_112_79",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2089,
+            "z": 152
+          },
+          {
+            "x": -2089,
+            "z": 154
+          }
+        ]
+      },
+      "connected_locations": [
+        "lh_1",
+        "lh_2_1"
+      ]
+    },
+    {
+      "id": "ce_107_79_112_79",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2094,
+            "z": 154
+          },
+          {
+            "x": -2089,
+            "z": 154
+          }
+        ]
+      },
+      "connected_locations": [
+        "lh_1",
+        "lh_3"
+      ]
+    },
+    {
+      "id": "ce_112_79_112_80",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2089,
+            "z": 154
+          },
+          {
+            "x": -2089,
+            "z": 155
+          }
+        ]
+      },
+      "connected_locations": [
+        "lh_3",
+        "lh_2_1"
+      ]
+    },
+    {
+      "id": "ce_112_80_112_81",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2089,
+            "z": 155
+          },
+          {
+            "x": -2089,
+            "z": 156
+          }
+        ]
+      },
+      "connected_locations": [
+        "lh_4",
+        "lh_2_1"
+      ]
+    },
+    {
+      "id": "ce_124_81_128_81",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2077,
+            "z": 156
+          },
+          {
+            "x": -2073,
+            "z": 156
+          }
+        ]
+      },
+      "connected_locations": [
+        "lh_2_1",
+        "chb_1"
+      ]
+    },
+    {
+      "id": "ce_146_81_150_81",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2055,
+            "z": 156
+          },
+          {
+            "x": -2051,
+            "z": 156
+          }
+        ]
+      },
+      "connected_locations": [
+        "chm",
+        "lh_2_1"
+      ]
+    },
+    {
+      "id": "ce_160_81_164_81",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2041,
+            "z": 156
+          },
+          {
+            "x": -2037,
+            "z": 156
+          }
+        ]
+      },
+      "connected_locations": [
+        "cht",
+        "lh_2_2"
+      ]
+    },
+    {
+      "id": "ce_108_80_112_80",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2093,
+            "z": 155
+          },
+          {
+            "x": -2089,
+            "z": 155
+          }
+        ]
+      },
+      "connected_locations": [
+        "lh_3",
+        "lh_4"
+      ]
+    },
+    {
+      "id": "ce_124_104_128_104",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2077,
+            "z": 179
+          },
+          {
+            "x": -2073,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "rh_1_1",
+        "chb_2",
+        "chb_3"
+      ]
+    },
+    {
+      "id": "ce_160_104_164_104",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2041,
+            "z": 179
+          },
+          {
+            "x": -2037,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "cht",
+        "rh_1_2"
+      ]
+    },
+    {
+      "id": "ce_95_114_95_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2106,
+            "z": 189
+          },
+          {
+            "x": -2106,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r111_1",
+        "r111_5"
+      ]
+    },
+    {
+      "id": "ce_98_110_98_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2103,
+            "z": 185
+          },
+          {
+            "x": -2103,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r111_2",
+        "r111_3"
+      ]
+    },
+    {
+      "id": "ce_97_111_97_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2104,
+            "z": 186
+          },
+          {
+            "x": -2104,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r111_3",
+        "r111_4"
+      ]
+    },
+    {
+      "id": "ce_96_114_96_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2105,
+            "z": 189
+          },
+          {
+            "x": -2105,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r111_4",
+        "r111_5"
+      ]
+    },
+    {
+      "id": "ce_104_114_104_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2097,
+            "z": 189
+          },
+          {
+            "x": -2097,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r110_1",
+        "r110_5"
+      ]
+    },
+    {
+      "id": "ce_107_110_107_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2094,
+            "z": 185
+          },
+          {
+            "x": -2094,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r110_2",
+        "r110_3"
+      ]
+    },
+    {
+      "id": "ce_106_111_106_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2095,
+            "z": 186
+          },
+          {
+            "x": -2095,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r110_3",
+        "r110_4"
+      ]
+    },
+    {
+      "id": "ce_105_114_105_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2096,
+            "z": 189
+          },
+          {
+            "x": -2096,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r110_4",
+        "r110_5"
+      ]
+    },
+    {
+      "id": "ce_106_84_108_84",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2095,
+            "z": 159
+          },
+          {
+            "x": -2093,
+            "z": 159
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_1",
+        "cf_2"
+      ]
+    },
+    {
+      "id": "ce_113_84_116_84",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2088,
+            "z": 159
+          },
+          {
+            "x": -2085,
+            "z": 159
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_1",
+        "cf_3"
+      ]
+    },
+    {
+      "id": "ce_121_84_123_84",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2080,
+            "z": 159
+          },
+          {
+            "x": -2078,
+            "z": 159
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_1",
+        "cf_4"
+      ]
+    },
+    {
+      "id": "ce_108_85_108_88",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2093,
+            "z": 160
+          },
+          {
+            "x": -2093,
+            "z": 163
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_2",
+        "cf_5"
+      ]
+    },
+    {
+      "id": "ce_108_89_108_92",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2093,
+            "z": 164
+          },
+          {
+            "x": -2093,
+            "z": 167
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_2",
+        "cf_9"
+      ]
+    },
+    {
+      "id": "ce_108_93_108_96",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2093,
+            "z": 168
+          },
+          {
+            "x": -2093,
+            "z": 171
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_2",
+        "cf_13"
+      ]
+    },
+    {
+      "id": "ce_108_97_108_100",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2093,
+            "z": 172
+          },
+          {
+            "x": -2093,
+            "z": 175
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_2",
+        "cf_17"
+      ]
+    },
+    {
+      "id": "ce_108_101_108_103",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2093,
+            "z": 176
+          },
+          {
+            "x": -2093,
+            "z": 178
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_2",
+        "cf_21_1",
+        "cf_21_2"
+      ]
+    },
+    {
+      "id": "ce_113_85_116_85",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2088,
+            "z": 160
+          },
+          {
+            "x": -2085,
+            "z": 160
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_3",
+        "cf_6"
+      ]
+    },
+    {
+      "id": "ce_121_85_121_88",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2080,
+            "z": 160
+          },
+          {
+            "x": -2080,
+            "z": 163
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_4",
+        "cf_7"
+      ]
+    },
+    {
+      "id": "ce_121_89_121_92",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2080,
+            "z": 164
+          },
+          {
+            "x": -2080,
+            "z": 167
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_4",
+        "cf_11"
+      ]
+    },
+    {
+      "id": "ce_121_93_121_96",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2080,
+            "z": 168
+          },
+          {
+            "x": -2080,
+            "z": 171
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_4",
+        "cf_15"
+      ]
+    },
+    {
+      "id": "ce_121_97_121_100",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2080,
+            "z": 172
+          },
+          {
+            "x": -2080,
+            "z": 175
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_4",
+        "cf_19"
+      ]
+    },
+    {
+      "id": "ce_121_101_121_103",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2080,
+            "z": 176
+          },
+          {
+            "x": -2080,
+            "z": 178
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_4",
+        "cf_21_1",
+        "cf_21_3"
+      ]
+    },
+    {
+      "id": "ce_113_88_116_88",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2088,
+            "z": 163
+          },
+          {
+            "x": -2085,
+            "z": 163
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_6",
+        "cf_8"
+      ]
+    },
+    {
+      "id": "ce_113_89_116_89",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2088,
+            "z": 164
+          },
+          {
+            "x": -2085,
+            "z": 164
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_8",
+        "cf_10"
+      ]
+    },
+    {
+      "id": "ce_113_92_116_92",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2088,
+            "z": 167
+          },
+          {
+            "x": -2085,
+            "z": 167
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_10",
+        "cf_12"
+      ]
+    },
+    {
+      "id": "ce_113_93_116_93",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2088,
+            "z": 168
+          },
+          {
+            "x": -2085,
+            "z": 168
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_12",
+        "cf_14"
+      ]
+    },
+    {
+      "id": "ce_113_96_116_96",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2088,
+            "z": 171
+          },
+          {
+            "x": -2085,
+            "z": 171
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_14",
+        "cf_16"
+      ]
+    },
+    {
+      "id": "ce_113_97_116_97",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2088,
+            "z": 172
+          },
+          {
+            "x": -2085,
+            "z": 172
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_16",
+        "cf_18"
+      ]
+    },
+    {
+      "id": "ce_113_100_116_100",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2088,
+            "z": 175
+          },
+          {
+            "x": -2085,
+            "z": 175
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_18",
+        "cf_20"
+      ]
+    },
+    {
+      "id": "ce_113_101_116_101",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2088,
+            "z": 176
+          },
+          {
+            "x": -2085,
+            "z": 176
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_20",
+        "cf_21_1"
+      ]
+    },
+    {
+      "id": "ce_113_114_113_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2088,
+            "z": 189
+          },
+          {
+            "x": -2088,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r109_1",
+        "r109_5"
+      ]
+    },
+    {
+      "id": "ce_116_110_116_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2085,
+            "z": 185
+          },
+          {
+            "x": -2085,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r109_2",
+        "r109_3"
+      ]
+    },
+    {
+      "id": "ce_115_111_115_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2086,
+            "z": 186
+          },
+          {
+            "x": -2086,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r109_3",
+        "r109_4"
+      ]
+    },
+    {
+      "id": "ce_114_114_114_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2087,
+            "z": 189
+          },
+          {
+            "x": -2087,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r109_4",
+        "r109_5"
+      ]
+    },
+    {
+      "id": "ce_122_114_122_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2079,
+            "z": 189
+          },
+          {
+            "x": -2079,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r108_1",
+        "r108_5"
+      ]
+    },
+    {
+      "id": "ce_125_110_125_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2076,
+            "z": 185
+          },
+          {
+            "x": -2076,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r108_2",
+        "r108_3"
+      ]
+    },
+    {
+      "id": "ce_124_111_124_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2077,
+            "z": 186
+          },
+          {
+            "x": -2077,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r108_3",
+        "r108_4"
+      ]
+    },
+    {
+      "id": "ce_123_114_123_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2078,
+            "z": 189
+          },
+          {
+            "x": -2078,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r108_4",
+        "r108_5"
+      ]
+    },
+    {
+      "id": "ce_126_72_128_72",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2075,
+            "z": 147
+          },
+          {
+            "x": -2073,
+            "z": 147
+          }
+        ]
+      },
+      "connected_locations": [
+        "es1_1",
+        "es1_2"
+      ]
+    },
+    {
+      "id": "ce_129_72_142_72",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2072,
+            "z": 147
+          },
+          {
+            "x": -2059,
+            "z": 147
+          }
+        ]
+      },
+      "connected_locations": [
+        "es1_1",
+        "es1_3"
+      ]
+    },
+    {
+      "id": "ce_130_74_142_74",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2071,
+            "z": 149
+          },
+          {
+            "x": -2059,
+            "z": 149
+          }
+        ]
+      },
+      "connected_locations": [
+        "es1_3",
+        "es1_4"
+      ]
+    },
+    {
+      "id": "ce_131_75_142_75",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2070,
+            "z": 150
+          },
+          {
+            "x": -2059,
+            "z": 150
+          }
+        ]
+      },
+      "connected_locations": [
+        "es1_4",
+        "es1_5"
+      ]
+    },
+    {
+      "id": "ce_133_87_135_87",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2068,
+            "z": 162
+          },
+          {
+            "x": -2066,
+            "z": 162
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_1",
+        "mb_2"
+      ]
+    },
+    {
+      "id": "ce_133_96_135_96",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2068,
+            "z": 171
+          },
+          {
+            "x": -2066,
+            "z": 171
+          }
+        ]
+      },
+      "connected_locations": [
+        "wb_1",
+        "wb_2"
+      ]
+    },
+    {
+      "id": "ce_131_114_131_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2070,
+            "z": 189
+          },
+          {
+            "x": -2070,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r107_1",
+        "r107_5"
+      ]
+    },
+    {
+      "id": "ce_134_110_134_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 185
+          },
+          {
+            "x": -2067,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r107_2",
+        "r107_3"
+      ]
+    },
+    {
+      "id": "ce_133_111_133_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2068,
+            "z": 186
+          },
+          {
+            "x": -2068,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r107_3",
+        "r107_4"
+      ]
+    },
+    {
+      "id": "ce_132_114_132_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2069,
+            "z": 189
+          },
+          {
+            "x": -2069,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r107_4",
+        "r107_5"
+      ]
+    },
+    {
+      "id": "ce_131_84_135_84",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2070,
+            "z": 159
+          },
+          {
+            "x": -2066,
+            "z": 159
+          }
+        ]
+      },
+      "connected_locations": [
+        "jc_1",
+        "jc_2"
+      ]
+    },
+    {
+      "id": "ce_143_83_143_92",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2058,
+            "z": 158
+          },
+          {
+            "x": -2058,
+            "z": 167
+          }
+        ]
+      },
+      "connected_locations": [
+        "acr_1",
+        "acr_2"
+      ]
+    },
+    {
+      "id": "ce_144_84_144_92",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2057,
+            "z": 159
+          },
+          {
+            "x": -2057,
+            "z": 167
+          }
+        ]
+      },
+      "connected_locations": [
+        "acr_2",
+        "acr_3"
+      ]
+    },
+    {
+      "id": "ce_137_101_144_101",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2064,
+            "z": 176
+          },
+          {
+            "x": -2057,
+            "z": 176
+          }
+        ]
+      },
+      "connected_locations": [
+        "mkcr_1",
+        "mkcr_2"
+      ]
+    },
+    {
+      "id": "ce_137_102_143_102",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2064,
+            "z": 177
+          },
+          {
+            "x": -2058,
+            "z": 177
+          }
+        ]
+      },
+      "connected_locations": [
+        "mkcr_2",
+        "mkcr_3"
+      ]
+    },
+    {
+      "id": "ce_140_114_140_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2061,
+            "z": 189
+          },
+          {
+            "x": -2061,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r106_1",
+        "r106_5"
+      ]
+    },
+    {
+      "id": "ce_143_110_143_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2058,
+            "z": 185
+          },
+          {
+            "x": -2058,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r106_2",
+        "r106_3"
+      ]
+    },
+    {
+      "id": "ce_142_111_142_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2059,
+            "z": 186
+          },
+          {
+            "x": -2059,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r106_3",
+        "r106_4"
+      ]
+    },
+    {
+      "id": "ce_141_114_141_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2060,
+            "z": 189
+          },
+          {
+            "x": -2060,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r106_4",
+        "r106_5"
+      ]
+    },
+    {
+      "id": "ce_143_72_145_72",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2058,
+            "z": 147
+          },
+          {
+            "x": -2056,
+            "z": 147
+          }
+        ]
+      },
+      "connected_locations": [
+        "es2_1",
+        "es2_2"
+      ]
+    },
+    {
+      "id": "ce_146_72_157_72",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2055,
+            "z": 147
+          },
+          {
+            "x": -2044,
+            "z": 147
+          }
+        ]
+      },
+      "connected_locations": [
+        "es2_1",
+        "es2_3"
+      ]
+    },
+    {
+      "id": "ce_147_74_157_74",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2054,
+            "z": 149
+          },
+          {
+            "x": -2044,
+            "z": 149
+          }
+        ]
+      },
+      "connected_locations": [
+        "es2_3",
+        "es2_4"
+      ]
+    },
+    {
+      "id": "ce_148_75_157_75",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2053,
+            "z": 150
+          },
+          {
+            "x": -2044,
+            "z": 150
+          }
+        ]
+      },
+      "connected_locations": [
+        "es2_4",
+        "es2_5"
+      ]
+    },
+    {
+      "id": "ce_149_114_149_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2052,
+            "z": 189
+          },
+          {
+            "x": -2052,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r105_1",
+        "r105_5"
+      ]
+    },
+    {
+      "id": "ce_152_110_152_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2049,
+            "z": 185
+          },
+          {
+            "x": -2049,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r105_2",
+        "r105_3"
+      ]
+    },
+    {
+      "id": "ce_151_111_151_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2050,
+            "z": 186
+          },
+          {
+            "x": -2050,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r105_3",
+        "r105_4"
+      ]
+    },
+    {
+      "id": "ce_150_114_150_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2051,
+            "z": 189
+          },
+          {
+            "x": -2051,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r105_4",
+        "r105_5"
+      ]
+    },
+    {
+      "id": "ce_153_83_153_101",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2048,
+            "z": 158
+          },
+          {
+            "x": -2048,
+            "z": 176
+          }
+        ]
+      },
+      "connected_locations": [
+        "hcr_1",
+        "hcr_2"
+      ]
+    },
+    {
+      "id": "ce_153_101_158_101",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2048,
+            "z": 176
+          },
+          {
+            "x": -2043,
+            "z": 176
+          }
+        ]
+      },
+      "connected_locations": [
+        "hcr_1",
+        "hcr_4"
+      ]
+    },
+    {
+      "id": "ce_152_84_152_101",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2049,
+            "z": 159
+          },
+          {
+            "x": -2049,
+            "z": 176
+          }
+        ]
+      },
+      "connected_locations": [
+        "hcr_2",
+        "hcr_3"
+      ]
+    },
+    {
+      "id": "ce_152_101_153_101",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2049,
+            "z": 176
+          },
+          {
+            "x": -2048,
+            "z": 176
+          }
+        ]
+      },
+      "connected_locations": [
+        "hcr_2",
+        "hcr_4"
+      ]
+    },
+    {
+      "id": "ce_152_101_152_102",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2049,
+            "z": 176
+          },
+          {
+            "x": -2049,
+            "z": 177
+          }
+        ]
+      },
+      "connected_locations": [
+        "hcr_3",
+        "hcr_4"
+      ]
+    },
+    {
+      "id": "ce_152_102_152_103",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2049,
+            "z": 177
+          },
+          {
+            "x": -2049,
+            "z": 178
+          }
+        ]
+      },
+      "connected_locations": [
+        "hcr_3",
+        "hcr_5"
+      ]
+    },
+    {
+      "id": "ce_152_102_157_102",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2049,
+            "z": 177
+          },
+          {
+            "x": -2044,
+            "z": 177
+          }
+        ]
+      },
+      "connected_locations": [
+        "hcr_4",
+        "hcr_5"
+      ]
+    },
+    {
+      "id": "ce_158_114_158_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2043,
+            "z": 189
+          },
+          {
+            "x": -2043,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r104_1",
+        "r104_5"
+      ]
+    },
+    {
+      "id": "ce_161_110_161_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2040,
+            "z": 185
+          },
+          {
+            "x": -2040,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r104_2",
+        "r104_3"
+      ]
+    },
+    {
+      "id": "ce_160_111_160_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2041,
+            "z": 186
+          },
+          {
+            "x": -2041,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r104_3",
+        "r104_4"
+      ]
+    },
+    {
+      "id": "ce_159_114_159_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2042,
+            "z": 189
+          },
+          {
+            "x": -2042,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r104_4",
+        "r104_5"
+      ]
+    },
+    {
+      "id": "ce_158_70_169_70",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2043,
+            "z": 145
+          },
+          {
+            "x": -2032,
+            "z": 145
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_1",
+        "kco_2"
+      ]
+    },
+    {
+      "id": "ce_170_70_173_70",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2031,
+            "z": 145
+          },
+          {
+            "x": -2028,
+            "z": 145
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_1",
+        "kco_3"
+      ]
+    },
+    {
+      "id": "ce_158_72_161_72",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2043,
+            "z": 147
+          },
+          {
+            "x": -2040,
+            "z": 147
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_2",
+        "kco_4"
+      ]
+    },
+    {
+      "id": "ce_162_72_169_72",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2039,
+            "z": 147
+          },
+          {
+            "x": -2032,
+            "z": 147
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_2",
+        "kco_5"
+      ]
+    },
+    {
+      "id": "ce_172_73_173_73",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2029,
+            "z": 148
+          },
+          {
+            "x": -2028,
+            "z": 148
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_3",
+        "kco_6"
+      ]
+    },
+    {
+      "id": "ce_163_74_169_74",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2038,
+            "z": 149
+          },
+          {
+            "x": -2032,
+            "z": 149
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_5",
+        "kco_7"
+      ]
+    },
+    {
+      "id": "ce_172_74_172_75",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2029,
+            "z": 149
+          },
+          {
+            "x": -2029,
+            "z": 150
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_6",
+        "kco_7"
+      ]
+    },
+    {
+      "id": "ce_172_75_172_76",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2029,
+            "z": 150
+          },
+          {
+            "x": -2029,
+            "z": 151
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_6",
+        "kco_8"
+      ]
+    },
+    {
+      "id": "ce_172_76_172_82",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2029,
+            "z": 151
+          },
+          {
+            "x": -2029,
+            "z": 157
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_6",
+        "kco_9"
+      ]
+    },
+    {
+      "id": "ce_172_82_172_84",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2029,
+            "z": 157
+          },
+          {
+            "x": -2029,
+            "z": 159
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_6",
+        "kco_11"
+      ]
+    },
+    {
+      "id": "ce_164_75_172_75",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2037,
+            "z": 150
+          },
+          {
+            "x": -2029,
+            "z": 150
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_7",
+        "kco_8"
+      ]
+    },
+    {
+      "id": "ce_165_76_172_76",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2036,
+            "z": 151
+          },
+          {
+            "x": -2029,
+            "z": 151
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_8",
+        "kco_9"
+      ]
+    },
+    {
+      "id": "ce_165_82_167_82",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2036,
+            "z": 157
+          },
+          {
+            "x": -2034,
+            "z": 157
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_9",
+        "kco_10"
+      ]
+    },
+    {
+      "id": "ce_170_82_172_82",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2031,
+            "z": 157
+          },
+          {
+            "x": -2029,
+            "z": 157
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_9",
+        "kco_11"
+      ]
+    },
+    {
+      "id": "ce_166_89_173_89",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2035,
+            "z": 164
+          },
+          {
+            "x": -2028,
+            "z": 164
+          }
+        ]
+      },
+      "connected_locations": [
+        "r101_1",
+        "r101_2"
+      ]
+    },
+    {
+      "id": "ce_167_90_173_90",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2034,
+            "z": 165
+          },
+          {
+            "x": -2028,
+            "z": 165
+          }
+        ]
+      },
+      "connected_locations": [
+        "r101_2",
+        "r101_3"
+      ]
+    },
+    {
+      "id": "ce_170_91_173_91",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2031,
+            "z": 166
+          },
+          {
+            "x": -2028,
+            "z": 166
+          }
+        ]
+      },
+      "connected_locations": [
+        "r101_3",
+        "r101_4"
+      ]
+    },
+    {
+      "id": "ce_170_92_170_94",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2031,
+            "z": 167
+          },
+          {
+            "x": -2031,
+            "z": 169
+          }
+        ]
+      },
+      "connected_locations": [
+        "r101_4",
+        "r101_5"
+      ]
+    },
+    {
+      "id": "ce_165_98_167_98",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2036,
+            "z": 173
+          },
+          {
+            "x": -2034,
+            "z": 173
+          }
+        ]
+      },
+      "connected_locations": [
+        "r102_1",
+        "r102_2"
+      ]
+    },
+    {
+      "id": "ce_168_98_173_98",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2033,
+            "z": 173
+          },
+          {
+            "x": -2028,
+            "z": 173
+          }
+        ]
+      },
+      "connected_locations": [
+        "r102_1",
+        "r102_3"
+      ]
+    },
+    {
+      "id": "ce_169_101_173_101",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2032,
+            "z": 176
+          },
+          {
+            "x": -2028,
+            "z": 176
+          }
+        ]
+      },
+      "connected_locations": [
+        "r102_3",
+        "r102_4"
+      ]
+    },
+    {
+      "id": "ce_170_102_173_102",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2031,
+            "z": 177
+          },
+          {
+            "x": -2028,
+            "z": 177
+          }
+        ]
+      },
+      "connected_locations": [
+        "r102_4",
+        "r102_5"
+      ]
+    },
+    {
+      "id": "ce_167_114_167_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2034,
+            "z": 189
+          },
+          {
+            "x": -2034,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r103_1",
+        "r103_5"
+      ]
+    },
+    {
+      "id": "ce_170_110_170_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2031,
+            "z": 185
+          },
+          {
+            "x": -2031,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r103_2",
+        "r103_3"
+      ]
+    },
+    {
+      "id": "ce_169_111_169_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2032,
+            "z": 186
+          },
+          {
+            "x": -2032,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r103_3",
+        "r103_4"
+      ]
+    },
+    {
+      "id": "ce_168_114_168_117",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2033,
+            "z": 189
+          },
+          {
+            "x": -2033,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r103_4",
+        "r103_5"
+      ]
+    },
+    {
+      "id": "ce_175_70_175_83",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2026,
+            "z": 145
+          },
+          {
+            "x": -2026,
+            "z": 158
+          }
+        ]
+      },
+      "connected_locations": [
+        "tkt_1",
+        "tkt_2"
+      ]
+    },
+    {
+      "id": "ce_177_71_177_82",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2024,
+            "z": 146
+          },
+          {
+            "x": -2024,
+            "z": 157
+          }
+        ]
+      },
+      "connected_locations": [
+        "tkt_2",
+        "tkt_3"
+      ]
+    },
+    {
+      "id": "ce_179_73_179_80",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2022,
+            "z": 148
+          },
+          {
+            "x": -2022,
+            "z": 155
+          }
+        ]
+      },
+      "connected_locations": [
+        "tkt_3",
+        "tkt_4"
+      ]
+    },
+    {
+      "id": "ce_180_75_180_78",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2021,
+            "z": 150
+          },
+          {
+            "x": -2021,
+            "z": 153
+          }
+        ]
+      },
+      "connected_locations": [
+        "tkt_4",
+        "tkt_5"
+      ]
+    },
+    {
+      "id": "c_142_73_143_74",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2059,
+            "z": 148
+          },
+          {
+            "x": -2058,
+            "z": 149
+          }
+        ]
+      },
+      "connected_locations": [
+        "es1_3",
+        "es2_2"
+      ]
+    },
+    {
+      "id": "c_157_70_158_71",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2044,
+            "z": 145
+          },
+          {
+            "x": -2043,
+            "z": 146
+          }
+        ]
+      },
+      "connected_locations": [
+        "es2_1",
+        "kco_2"
+      ]
+    },
+    {
+      "id": "c_171_84_173_86",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2030,
+            "z": 159
+          },
+          {
+            "x": -2028,
+            "z": 161
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_6",
+        "kco_11",
+        "r101_1"
+      ]
+    },
+    {
+      "id": "c_170_102_171_104",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2031,
+            "z": 177
+          },
+          {
+            "x": -2030,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "r102_4",
+        "r102_5",
+        "rh_2_1"
+      ]
+    },
+    {
+      "id": "c_172_108_173_110",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2029,
+            "z": 183
+          },
+          {
+            "x": -2028,
+            "z": 185
+          }
+        ]
+      },
+      "connected_locations": [
+        "r103_2",
+        "rh_2_2_2"
+      ]
+    },
+    {
+      "id": "c_164_115_165_116",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2037,
+            "z": 190
+          },
+          {
+            "x": -2036,
+            "z": 191
+          }
+        ]
+      },
+      "connected_locations": [
+        "r104_2",
+        "r103_1"
+      ]
+    },
+    {
+      "id": "c_137_116_138_117",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2064,
+            "z": 191
+          },
+          {
+            "x": -2063,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r107_2",
+        "r106_1"
+      ]
+    },
+    {
+      "id": "c_110_115_111_116",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2091,
+            "z": 190
+          },
+          {
+            "x": -2090,
+            "z": 191
+          }
+        ]
+      },
+      "connected_locations": [
+        "r110_2",
+        "r109_1"
+      ]
+    },
+    {
+      "id": "c_135_89_137_91",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2066,
+            "z": 164
+          },
+          {
+            "x": -2064,
+            "z": 166
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_2",
+        "acr_1"
+      ]
+    },
+    {
+      "id": "c_134_94_135_95",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 169
+          },
+          {
+            "x": -2066,
+            "z": 170
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_2",
+        "wb_1"
+      ]
+    },
+    {
+      "id": "c_134_103_135_104",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 178
+          },
+          {
+            "x": -2066,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "wb_2",
+        "rh_1_2"
+      ]
+    },
+    {
+      "id": "c_164_105_164_108",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2037,
+            "z": 180
+          },
+          {
+            "x": -2037,
+            "z": 183
+          }
+        ]
+      },
+      "connected_locations": [
+        "rh_3",
+        "rh_1_2"
+      ]
+    },
+    {
+      "id": "c_165_105_165_108",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2036,
+            "z": 180
+          },
+          {
+            "x": -2036,
+            "z": 183
+          }
+        ]
+      },
+      "connected_locations": [
+        "rh_3",
+        "rh_2_3"
+      ]
+    },
+    {
+      "id": "c_142_73_143_74",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2059,
+            "z": 148
+          },
+          {
+            "x": -2058,
+            "z": 149
+          }
+        ]
+      },
+      "connected_locations": [
+        "es1_3",
+        "es2_2"
+      ]
+    },
+    {
+      "id": "c_157_70_158_71",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2044,
+            "z": 145
+          },
+          {
+            "x": -2043,
+            "z": 146
+          }
+        ]
+      },
+      "connected_locations": [
+        "es2_1",
+        "kco_2"
+      ]
+    },
+    {
+      "id": "c_171_84_173_86",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2030,
+            "z": 159
+          },
+          {
+            "x": -2028,
+            "z": 161
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_6",
+        "kco_11",
+        "r101_1"
+      ]
+    },
+    {
+      "id": "c_170_102_171_104",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2031,
+            "z": 177
+          },
+          {
+            "x": -2030,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "r102_4",
+        "r102_5",
+        "rh_2_1"
+      ]
+    },
+    {
+      "id": "c_172_108_173_110",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2029,
+            "z": 183
+          },
+          {
+            "x": -2028,
+            "z": 185
+          }
+        ]
+      },
+      "connected_locations": [
+        "r103_2",
+        "rh_2_2_2"
+      ]
+    },
+    {
+      "id": "c_164_115_165_116",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2037,
+            "z": 190
+          },
+          {
+            "x": -2036,
+            "z": 191
+          }
+        ]
+      },
+      "connected_locations": [
+        "r104_2",
+        "r103_1"
+      ]
+    },
+    {
+      "id": "c_137_116_138_117",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2064,
+            "z": 191
+          },
+          {
+            "x": -2063,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r107_2",
+        "r106_1"
+      ]
+    },
+    {
+      "id": "c_110_115_111_116",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2091,
+            "z": 190
+          },
+          {
+            "x": -2090,
+            "z": 191
+          }
+        ]
+      },
+      "connected_locations": [
+        "r110_2",
+        "r109_1"
+      ]
+    },
+    {
+      "id": "c_135_89_137_91",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2066,
+            "z": 164
+          },
+          {
+            "x": -2064,
+            "z": 166
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_2",
+        "acr_1"
+      ]
+    },
+    {
+      "id": "c_134_94_135_95",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 169
+          },
+          {
+            "x": -2066,
+            "z": 170
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_2",
+        "wb_1"
+      ]
+    },
+    {
+      "id": "c_134_103_135_104",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 178
+          },
+          {
+            "x": -2066,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "wb_2",
+        "rh_1_2"
+      ]
+    },
+    {
+      "id": "c_166_105_173_105",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2035,
+            "z": 180
+          },
+          {
+            "x": -2028,
+            "z": 180
+          }
+        ]
+      },
+      "connected_locations": [
+        "rh_2_1",
+        "rh_2_2_1"
+      ]
+    },
+    {
+      "id": "c_166_106_166_108",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2035,
+            "z": 181
+          },
+          {
+            "x": -2035,
+            "z": 183
+          }
+        ]
+      },
+      "connected_locations": [
+        "rh_2_3",
+        "rh_2_2_3"
+      ]
+    },
+    {
+      "id": "c_142_73_143_74",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2059,
+            "z": 148
+          },
+          {
+            "x": -2058,
+            "z": 149
+          }
+        ]
+      },
+      "connected_locations": [
+        "es1_3",
+        "es2_2"
+      ]
+    },
+    {
+      "id": "c_157_70_158_71",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2044,
+            "z": 145
+          },
+          {
+            "x": -2043,
+            "z": 146
+          }
+        ]
+      },
+      "connected_locations": [
+        "es2_1",
+        "kco_2"
+      ]
+    },
+    {
+      "id": "c_171_84_173_86",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2030,
+            "z": 159
+          },
+          {
+            "x": -2028,
+            "z": 161
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_6",
+        "kco_11",
+        "r101_1"
+      ]
+    },
+    {
+      "id": "c_170_102_171_104",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2031,
+            "z": 177
+          },
+          {
+            "x": -2030,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "r102_4",
+        "r102_5",
+        "rh_2_1"
+      ]
+    },
+    {
+      "id": "c_172_108_173_110",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2029,
+            "z": 183
+          },
+          {
+            "x": -2028,
+            "z": 185
+          }
+        ]
+      },
+      "connected_locations": [
+        "r103_2",
+        "rh_2_2_2"
+      ]
+    },
+    {
+      "id": "c_164_115_165_116",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2037,
+            "z": 190
+          },
+          {
+            "x": -2036,
+            "z": 191
+          }
+        ]
+      },
+      "connected_locations": [
+        "r104_2",
+        "r103_1"
+      ]
+    },
+    {
+      "id": "c_137_116_138_117",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2064,
+            "z": 191
+          },
+          {
+            "x": -2063,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r107_2",
+        "r106_1"
+      ]
+    },
+    {
+      "id": "c_110_115_111_116",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2091,
+            "z": 190
+          },
+          {
+            "x": -2090,
+            "z": 191
+          }
+        ]
+      },
+      "connected_locations": [
+        "r110_2",
+        "r109_1"
+      ]
+    },
+    {
+      "id": "c_135_89_137_91",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2066,
+            "z": 164
+          },
+          {
+            "x": -2064,
+            "z": 166
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_2",
+        "acr_1"
+      ]
+    },
+    {
+      "id": "c_134_94_135_95",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 169
+          },
+          {
+            "x": -2066,
+            "z": 170
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_2",
+        "wb_1"
+      ]
+    },
+    {
+      "id": "c_134_103_135_104",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 178
+          },
+          {
+            "x": -2066,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "wb_2",
+        "rh_1_2"
+      ]
+    },
+    {
+      "id": "c_167_106_173_106",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2034,
+            "z": 181
+          },
+          {
+            "x": -2028,
+            "z": 181
+          }
+        ]
+      },
+      "connected_locations": [
+        "rh_2_2_1",
+        "rh_2_2_2"
+      ]
+    },
+    {
+      "id": "c_167_107_167_108",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2034,
+            "z": 182
+          },
+          {
+            "x": -2034,
+            "z": 183
+          }
+        ]
+      },
+      "connected_locations": [
+        "rh_2_2_2",
+        "rh_2_2_3"
+      ]
+    },
+    {
+      "id": "c_142_73_143_74",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2059,
+            "z": 148
+          },
+          {
+            "x": -2058,
+            "z": 149
+          }
+        ]
+      },
+      "connected_locations": [
+        "es1_3",
+        "es2_2"
+      ]
+    },
+    {
+      "id": "c_157_70_158_71",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2044,
+            "z": 145
+          },
+          {
+            "x": -2043,
+            "z": 146
+          }
+        ]
+      },
+      "connected_locations": [
+        "es2_1",
+        "kco_2"
+      ]
+    },
+    {
+      "id": "c_171_84_173_86",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2030,
+            "z": 159
+          },
+          {
+            "x": -2028,
+            "z": 161
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_6",
+        "kco_11",
+        "r101_1"
+      ]
+    },
+    {
+      "id": "c_170_102_171_104",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2031,
+            "z": 177
+          },
+          {
+            "x": -2030,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "r102_4",
+        "r102_5",
+        "rh_2_1"
+      ]
+    },
+    {
+      "id": "c_172_108_173_110",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2029,
+            "z": 183
+          },
+          {
+            "x": -2028,
+            "z": 185
+          }
+        ]
+      },
+      "connected_locations": [
+        "r103_2",
+        "rh_2_2_2"
+      ]
+    },
+    {
+      "id": "c_164_115_165_116",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2037,
+            "z": 190
+          },
+          {
+            "x": -2036,
+            "z": 191
+          }
+        ]
+      },
+      "connected_locations": [
+        "r104_2",
+        "r103_1"
+      ]
+    },
+    {
+      "id": "c_137_116_138_117",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2064,
+            "z": 191
+          },
+          {
+            "x": -2063,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r107_2",
+        "r106_1"
+      ]
+    },
+    {
+      "id": "c_110_115_111_116",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2091,
+            "z": 190
+          },
+          {
+            "x": -2090,
+            "z": 191
+          }
+        ]
+      },
+      "connected_locations": [
+        "r110_2",
+        "r109_1"
+      ]
+    },
+    {
+      "id": "c_135_89_137_91",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2066,
+            "z": 164
+          },
+          {
+            "x": -2064,
+            "z": 166
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_2",
+        "acr_1"
+      ]
+    },
+    {
+      "id": "c_134_94_135_95",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 169
+          },
+          {
+            "x": -2066,
+            "z": 170
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_2",
+        "wb_1"
+      ]
+    },
+    {
+      "id": "c_134_103_135_104",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 178
+          },
+          {
+            "x": -2066,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "wb_2",
+        "rh_1_2"
+      ]
+    },
+    {
+      "id": "c_142_73_143_74",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2059,
+            "z": 148
+          },
+          {
+            "x": -2058,
+            "z": 149
+          }
+        ]
+      },
+      "connected_locations": [
+        "es1_3",
+        "es2_2"
+      ]
+    },
+    {
+      "id": "c_157_70_158_71",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2044,
+            "z": 145
+          },
+          {
+            "x": -2043,
+            "z": 146
+          }
+        ]
+      },
+      "connected_locations": [
+        "es2_1",
+        "kco_2"
+      ]
+    },
+    {
+      "id": "c_171_84_173_86",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2030,
+            "z": 159
+          },
+          {
+            "x": -2028,
+            "z": 161
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_6",
+        "kco_11",
+        "r101_1"
+      ]
+    },
+    {
+      "id": "c_170_102_171_104",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2031,
+            "z": 177
+          },
+          {
+            "x": -2030,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "r102_4",
+        "r102_5",
+        "rh_2_1"
+      ]
+    },
+    {
+      "id": "c_172_108_173_110",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2029,
+            "z": 183
+          },
+          {
+            "x": -2028,
+            "z": 185
+          }
+        ]
+      },
+      "connected_locations": [
+        "r103_2",
+        "rh_2_2_2"
+      ]
+    },
+    {
+      "id": "c_164_115_165_116",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2037,
+            "z": 190
+          },
+          {
+            "x": -2036,
+            "z": 191
+          }
+        ]
+      },
+      "connected_locations": [
+        "r104_2",
+        "r103_1"
+      ]
+    },
+    {
+      "id": "c_137_116_138_117",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2064,
+            "z": 191
+          },
+          {
+            "x": -2063,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r107_2",
+        "r106_1"
+      ]
+    },
+    {
+      "id": "c_110_115_111_116",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2091,
+            "z": 190
+          },
+          {
+            "x": -2090,
+            "z": 191
+          }
+        ]
+      },
+      "connected_locations": [
+        "r110_2",
+        "r109_1"
+      ]
+    },
+    {
+      "id": "c_135_89_137_91",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2066,
+            "z": 164
+          },
+          {
+            "x": -2064,
+            "z": 166
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_2",
+        "acr_1"
+      ]
+    },
+    {
+      "id": "c_134_94_135_95",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 169
+          },
+          {
+            "x": -2066,
+            "z": 170
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_2",
+        "wb_1"
+      ]
+    },
+    {
+      "id": "c_134_103_135_104",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 178
+          },
+          {
+            "x": -2066,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "wb_2",
+        "rh_1_2"
+      ]
+    },
+    {
+      "id": "c_142_73_143_74",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2059,
+            "z": 148
+          },
+          {
+            "x": -2058,
+            "z": 149
+          }
+        ]
+      },
+      "connected_locations": [
+        "es1_3",
+        "es2_2"
+      ]
+    },
+    {
+      "id": "c_157_70_158_71",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2044,
+            "z": 145
+          },
+          {
+            "x": -2043,
+            "z": 146
+          }
+        ]
+      },
+      "connected_locations": [
+        "es2_1",
+        "kco_2"
+      ]
+    },
+    {
+      "id": "c_171_84_173_86",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2030,
+            "z": 159
+          },
+          {
+            "x": -2028,
+            "z": 161
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_6",
+        "kco_11",
+        "r101_1"
+      ]
+    },
+    {
+      "id": "c_170_102_171_104",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2031,
+            "z": 177
+          },
+          {
+            "x": -2030,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "r102_4",
+        "r102_5",
+        "rh_2_1"
+      ]
+    },
+    {
+      "id": "c_172_108_173_110",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2029,
+            "z": 183
+          },
+          {
+            "x": -2028,
+            "z": 185
+          }
+        ]
+      },
+      "connected_locations": [
+        "r103_2",
+        "rh_2_2_2"
+      ]
+    },
+    {
+      "id": "c_164_115_165_116",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2037,
+            "z": 190
+          },
+          {
+            "x": -2036,
+            "z": 191
+          }
+        ]
+      },
+      "connected_locations": [
+        "r104_2",
+        "r103_1"
+      ]
+    },
+    {
+      "id": "c_137_116_138_117",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2064,
+            "z": 191
+          },
+          {
+            "x": -2063,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r107_2",
+        "r106_1"
+      ]
+    },
+    {
+      "id": "c_110_115_111_116",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2091,
+            "z": 190
+          },
+          {
+            "x": -2090,
+            "z": 191
+          }
+        ]
+      },
+      "connected_locations": [
+        "r110_2",
+        "r109_1"
+      ]
+    },
+    {
+      "id": "c_135_89_137_91",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2066,
+            "z": 164
+          },
+          {
+            "x": -2064,
+            "z": 166
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_2",
+        "acr_1"
+      ]
+    },
+    {
+      "id": "c_134_94_135_95",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 169
+          },
+          {
+            "x": -2066,
+            "z": 170
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_2",
+        "wb_1"
+      ]
+    },
+    {
+      "id": "c_134_103_135_104",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 178
+          },
+          {
+            "x": -2066,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "wb_2",
+        "rh_1_2"
+      ]
+    },
+    {
+      "id": "c_142_73_143_74",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2059,
+            "z": 148
+          },
+          {
+            "x": -2058,
+            "z": 149
+          }
+        ]
+      },
+      "connected_locations": [
+        "es1_3",
+        "es2_2"
+      ]
+    },
+    {
+      "id": "c_157_70_158_71",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2044,
+            "z": 145
+          },
+          {
+            "x": -2043,
+            "z": 146
+          }
+        ]
+      },
+      "connected_locations": [
+        "es2_1",
+        "kco_2"
+      ]
+    },
+    {
+      "id": "c_171_84_173_86",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2030,
+            "z": 159
+          },
+          {
+            "x": -2028,
+            "z": 161
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_6",
+        "kco_11",
+        "r101_1"
+      ]
+    },
+    {
+      "id": "c_170_102_171_104",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2031,
+            "z": 177
+          },
+          {
+            "x": -2030,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "r102_4",
+        "r102_5",
+        "rh_2_1"
+      ]
+    },
+    {
+      "id": "c_172_108_173_110",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2029,
+            "z": 183
+          },
+          {
+            "x": -2028,
+            "z": 185
+          }
+        ]
+      },
+      "connected_locations": [
+        "r103_2",
+        "rh_2_2_2"
+      ]
+    },
+    {
+      "id": "c_164_115_165_116",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2037,
+            "z": 190
+          },
+          {
+            "x": -2036,
+            "z": 191
+          }
+        ]
+      },
+      "connected_locations": [
+        "r104_2",
+        "r103_1"
+      ]
+    },
+    {
+      "id": "c_137_116_138_117",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2064,
+            "z": 191
+          },
+          {
+            "x": -2063,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r107_2",
+        "r106_1"
+      ]
+    },
+    {
+      "id": "c_110_115_111_116",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2091,
+            "z": 190
+          },
+          {
+            "x": -2090,
+            "z": 191
+          }
+        ]
+      },
+      "connected_locations": [
+        "r110_2",
+        "r109_1"
+      ]
+    },
+    {
+      "id": "c_135_89_137_91",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2066,
+            "z": 164
+          },
+          {
+            "x": -2064,
+            "z": 166
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_2",
+        "acr_1"
+      ]
+    },
+    {
+      "id": "c_134_94_135_95",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 169
+          },
+          {
+            "x": -2066,
+            "z": 170
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_2",
+        "wb_1"
+      ]
+    },
+    {
+      "id": "c_134_103_135_104",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 178
+          },
+          {
+            "x": -2066,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "wb_2",
+        "rh_1_2"
+      ]
+    },
+    {
+      "id": "c_124_94_127_94",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2077,
+            "z": 169
+          },
+          {
+            "x": -2074,
+            "z": 169
+          }
+        ]
+      },
+      "connected_locations": [
+        "chb_1",
+        "chb_2"
+      ]
+    },
+    {
+      "id": "c_127_98_127_104",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2074,
+            "z": 173
+          },
+          {
+            "x": -2074,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "chb_2",
+        "chb_3"
+      ]
+    },
+    {
+      "id": "c_142_73_143_74",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2059,
+            "z": 148
+          },
+          {
+            "x": -2058,
+            "z": 149
+          }
+        ]
+      },
+      "connected_locations": [
+        "es1_3",
+        "es2_2"
+      ]
+    },
+    {
+      "id": "c_157_70_158_71",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2044,
+            "z": 145
+          },
+          {
+            "x": -2043,
+            "z": 146
+          }
+        ]
+      },
+      "connected_locations": [
+        "es2_1",
+        "kco_2"
+      ]
+    },
+    {
+      "id": "c_171_84_173_86",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2030,
+            "z": 159
+          },
+          {
+            "x": -2028,
+            "z": 161
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_6",
+        "kco_11",
+        "r101_1"
+      ]
+    },
+    {
+      "id": "c_170_102_171_104",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2031,
+            "z": 177
+          },
+          {
+            "x": -2030,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "r102_4",
+        "r102_5",
+        "rh_2_1"
+      ]
+    },
+    {
+      "id": "c_172_108_173_110",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2029,
+            "z": 183
+          },
+          {
+            "x": -2028,
+            "z": 185
+          }
+        ]
+      },
+      "connected_locations": [
+        "r103_2",
+        "rh_2_2_2"
+      ]
+    },
+    {
+      "id": "c_164_115_165_116",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2037,
+            "z": 190
+          },
+          {
+            "x": -2036,
+            "z": 191
+          }
+        ]
+      },
+      "connected_locations": [
+        "r104_2",
+        "r103_1"
+      ]
+    },
+    {
+      "id": "c_137_116_138_117",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2064,
+            "z": 191
+          },
+          {
+            "x": -2063,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r107_2",
+        "r106_1"
+      ]
+    },
+    {
+      "id": "c_110_115_111_116",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2091,
+            "z": 190
+          },
+          {
+            "x": -2090,
+            "z": 191
+          }
+        ]
+      },
+      "connected_locations": [
+        "r110_2",
+        "r109_1"
+      ]
+    },
+    {
+      "id": "c_135_89_137_91",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2066,
+            "z": 164
+          },
+          {
+            "x": -2064,
+            "z": 166
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_2",
+        "acr_1"
+      ]
+    },
+    {
+      "id": "c_134_94_135_95",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 169
+          },
+          {
+            "x": -2066,
+            "z": 170
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_2",
+        "wb_1"
+      ]
+    },
+    {
+      "id": "c_134_103_135_104",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 178
+          },
+          {
+            "x": -2066,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "wb_2",
+        "rh_1_2"
+      ]
+    },
+    {
+      "id": "c_108_102_113_102",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2093,
+            "z": 177
+          },
+          {
+            "x": -2088,
+            "z": 177
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_21_1",
+        "cf_21_2"
+      ]
+    },
+    {
+      "id": "c_117_102_121_102",
+      "type": "extension",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2084,
+            "z": 177
+          },
+          {
+            "x": -2080,
+            "z": 177
+          }
+        ]
+      },
+      "connected_locations": [
+        "cf_21_1",
+        "cf_21_3"
+      ]
+    },
+    {
+      "id": "c_142_73_143_74",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2059,
+            "z": 148
+          },
+          {
+            "x": -2058,
+            "z": 149
+          }
+        ]
+      },
+      "connected_locations": [
+        "es1_3",
+        "es2_2"
+      ]
+    },
+    {
+      "id": "c_157_70_158_71",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2044,
+            "z": 145
+          },
+          {
+            "x": -2043,
+            "z": 146
+          }
+        ]
+      },
+      "connected_locations": [
+        "es2_1",
+        "kco_2"
+      ]
+    },
+    {
+      "id": "c_171_84_173_86",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2030,
+            "z": 159
+          },
+          {
+            "x": -2028,
+            "z": 161
+          }
+        ]
+      },
+      "connected_locations": [
+        "kco_6",
+        "kco_11",
+        "r101_1"
+      ]
+    },
+    {
+      "id": "c_170_102_171_104",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2031,
+            "z": 177
+          },
+          {
+            "x": -2030,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "r102_4",
+        "r102_5",
+        "rh_2_1"
+      ]
+    },
+    {
+      "id": "c_172_108_173_110",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2029,
+            "z": 183
+          },
+          {
+            "x": -2028,
+            "z": 185
+          }
+        ]
+      },
+      "connected_locations": [
+        "r103_2",
+        "rh_2_2_2"
+      ]
+    },
+    {
+      "id": "c_164_115_165_116",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2037,
+            "z": 190
+          },
+          {
+            "x": -2036,
+            "z": 191
+          }
+        ]
+      },
+      "connected_locations": [
+        "r104_2",
+        "r103_1"
+      ]
+    },
+    {
+      "id": "c_137_116_138_117",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2064,
+            "z": 191
+          },
+          {
+            "x": -2063,
+            "z": 192
+          }
+        ]
+      },
+      "connected_locations": [
+        "r107_2",
+        "r106_1"
+      ]
+    },
+    {
+      "id": "c_110_115_111_116",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2091,
+            "z": 190
+          },
+          {
+            "x": -2090,
+            "z": 191
+          }
+        ]
+      },
+      "connected_locations": [
+        "r110_2",
+        "r109_1"
+      ]
+    },
+    {
+      "id": "c_135_89_137_91",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2066,
+            "z": 164
+          },
+          {
+            "x": -2064,
+            "z": 166
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_2",
+        "acr_1"
+      ]
+    },
+    {
+      "id": "c_134_94_135_95",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 169
+          },
+          {
+            "x": -2066,
+            "z": 170
+          }
+        ]
+      },
+      "connected_locations": [
+        "mb_2",
+        "wb_1"
+      ]
+    },
+    {
+      "id": "c_134_103_135_104",
+      "type": "opening",
+      "bounds": {
+        "type": "rectangle",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 178
+          },
+          {
+            "x": -2066,
+            "z": 179
+          }
+        ]
+      },
+      "connected_locations": [
+        "wb_2",
+        "rh_1_2"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "id": "ls_1",
+      "type": "light_switch",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2035,
+            "z": 184
+          }
+        ]
+      },
+      "facing": "west"
+    },
+    {
+      "id": "ls_2",
+      "type": "light_switch",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2035,
+            "z": 177
+          }
+        ]
+      },
+      "facing": "west"
+    },
+    {
+      "id": "ls_3",
+      "type": "light_switch",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2036,
+            "z": 167
+          }
+        ]
+      },
+      "facing": "south"
+    },
+    {
+      "id": "ls_4",
+      "type": "light_switch",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2041,
+            "z": 150
+          }
+        ]
+      },
+      "facing": "west"
+    },
+    {
+      "id": "ls_5",
+      "type": "light_switch",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2044,
+            "z": 184
+          }
+        ]
+      },
+      "facing": "west"
+    },
+    {
+      "id": "ls_6",
+      "type": "light_switch",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2044,
+            "z": 176
+          }
+        ]
+      },
+      "facing": "west"
+    },
+    {
+      "id": "ls_7",
+      "type": "light_switch",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2049,
+            "z": 158
+          }
+        ]
+      },
+      "facing": "east"
+    },
+    {
+      "id": "ls_8",
+      "type": "light_switch",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2053,
+            "z": 184
+          }
+        ]
+      },
+      "facing": "west"
+    },
+    {
+      "id": "ls_9",
+      "type": "light_switch",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2057,
+            "z": 150
+          }
+        ]
+      },
+      "facing": "west"
+    },
+    {
+      "id": "ls_10",
+      "type": "light_switch",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2058,
+            "z": 176
+          }
+        ]
+      },
+      "facing": "north"
+    },
+    {
+      "id": "ls_11",
+      "type": "light_switch",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2058,
+            "z": 158
+          }
+        ]
+      },
+      "facing": "south"
+    },
+    {
+      "id": "ls_12",
+      "type": "light_switch",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2062,
+            "z": 184
+          }
+        ]
+      },
+      "facing": "west"
+    },
+    {
+      "id": "ls_13",
+      "type": "light_switch",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2071,
+            "z": 184
+          }
+        ]
+      },
+      "facing": "west"
+    },
+    {
+      "id": "ls_14",
+      "type": "light_switch",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2071,
+            "z": 158
+          }
+        ]
+      },
+      "facing": "north"
+    },
+    {
+      "id": "ls_15",
+      "type": "button",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2072,
+            "z": 177
+          }
+        ]
+      },
+      "facing": "east"
+    },
+    {
+      "id": "ls_16",
+      "type": "button",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2072,
+            "z": 173
+          }
+        ]
+      },
+      "facing": "east"
+    },
+    {
+      "id": "ls_17",
+      "type": "button",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2072,
+            "z": 168
+          }
+        ]
+      },
+      "facing": "east"
+    },
+    {
+      "id": "ls_18",
+      "type": "button",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2072,
+            "z": 164
+          }
+        ]
+      },
+      "facing": "east"
+    },
+    {
+      "id": "ls_19",
+      "type": "light_switch",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2074,
+            "z": 150
+          }
+        ]
+      },
+      "facing": "west"
+    },
+    {
+      "id": "ls_20",
+      "type": "light_switch",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2080,
+            "z": 184
+          }
+        ]
+      },
+      "facing": "west"
+    },
+    {
+      "id": "ls_21",
+      "type": "light_switch",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2089,
+            "z": 184
+          }
+        ]
+      },
+      "facing": "west"
+    },
+    {
+      "id": "ls_22",
+      "type": "light_switch",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2094,
+            "z": 154
+          }
+        ]
+      },
+      "facing": "north"
+    },
+    {
+      "id": "ls_23",
+      "type": "light_switch",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2098,
+            "z": 184
+          }
+        ]
+      },
+      "facing": "west"
+    },
+    {
+      "id": "ls_24",
+      "type": "light_switch",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2107,
+            "z": 184
+          }
+        ]
+      },
+      "facing": "west"
+    },
+    {
+      "id": "vg1",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2084,
+            "z": 145
+          }
+        ]
+      }
+    },
+    {
+      "id": "vy1",
+      "type": "yellow_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2063,
+            "z": 145
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg2",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2053,
+            "z": 147
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg3",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2047,
+            "z": 149
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg4",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2025,
+            "z": 147
+          }
+        ]
+      }
+    },
+    {
+      "id": "vy2",
+      "type": "yellow_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2027,
+            "z": 158
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg5",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2034,
+            "z": 164
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg6",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2029,
+            "z": 170
+          }
+        ]
+      }
+    },
+    {
+      "id": "vy3",
+      "type": "yellow_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2029,
+            "z": 176
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg7",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2032,
+            "z": 176
+          }
+        ]
+      }
+    },
+    {
+      "id": "vy4",
+      "type": "yellow_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2029,
+            "z": 185
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg8",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2030,
+            "z": 190
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg9",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2039,
+            "z": 190
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg10",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2056,
+            "z": 185
+          }
+        ]
+      }
+    },
+    {
+      "id": "vy5",
+      "type": "yellow_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 186
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg11",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2065,
+            "z": 190
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg12",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 190
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg13",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2083,
+            "z": 185
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg14",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2085,
+            "z": 191
+          }
+        ]
+      }
+    },
+    {
+      "id": "vy6",
+      "type": "yellow_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2092,
+            "z": 191
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg15",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2093,
+            "z": 191
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg16",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2096,
+            "z": 187
+          }
+        ]
+      }
+    },
+    {
+      "id": "vy7",
+      "type": "yellow_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2084,
+            "z": 174
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg17",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2093,
+            "z": 164
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg18",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2072,
+            "z": 163
+          }
+        ]
+      }
+    },
+    {
+      "id": "vy8",
+      "type": "yellow_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 165
+          }
+        ]
+      }
+    },
+    {
+      "id": "vy9",
+      "type": "yellow_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2067,
+            "z": 174
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg19",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2058,
+            "z": 160
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg20",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2063,
+            "z": 160
+          }
+        ]
+      }
+    },
+    {
+      "id": "vy10",
+      "type": "yellow_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2064,
+            "z": 166
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg21",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2060,
+            "z": 176
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg22",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2050,
+            "z": 177
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg23",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2045,
+            "z": 175
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg24",
+      "type": "green_victim",
+      "bounds": {
+        "type": "block",
+        "coordinates": [
+          {
+            "x": -2049,
+            "z": 158
+          }
+        ]
+      }
+    }
+  ]
+}
