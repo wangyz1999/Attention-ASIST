@@ -85,7 +85,7 @@ def distance_matrix_to_coordinate(D):
 if __name__ == '__main__':
 
 
-    with open('data\\json\\Saturn_1.0_sm_with_victimsB.json') as f:
+    with open('data\\json\\Saturn_1.0_sm_with_victimsA.json') as f:
         data = json.load(f)
 
     graph = MapParser.parse_saturn_map(data)
@@ -94,7 +94,7 @@ if __name__ == '__main__':
     prize_list = []
     for v in victim_list_copy:
         if v.victim_type == VictimType.Yellow:
-            prize_list.append(0.3)
+            prize_list.append(0.5)
         elif v.victim_type == VictimType.Green:
             prize_list.append(0.1)
 
@@ -104,7 +104,7 @@ if __name__ == '__main__':
     higher = distance_matrix_to_coordinate(D)
     lower = np.array(jl_transform(higher, 2))
 
-    max_length = 3.6 # set this value the same as that for trained model
+    max_length = 5.5 # set this value the same as that for trained model
 
     loc = lower.copy()
     loc_all = lower.copy()
@@ -124,19 +124,19 @@ if __name__ == '__main__':
     # cord2D_obj = [(depot, loc, prize, max_length/span)]
     cord2D_obj = [(depot, loc, prize_list, max_length)]
 
-    with open('saturn_B.pkl', 'wb') as f:
-        pickle.dump(cord2D_obj, f)
+    # with open('saturn_B.pkl', 'wb') as f:
+    #     pickle.dump(cord2D_obj, f)
 
-    # path_idx = [0, 21, 35, 52, 11, 22, 24, 4, 19, 13, 5, 20, 14, 23, 3, 51, 6, 18, 1, 12, 10, 15, 9, 8, 7, 2, 50, 47, 42, 43, 45, 41, 37, 36, 25, 55, 49, 46, 28, 26, 16, 17, 29, 30, 32, 27, 53, 39, 38, 48, 34, 40, 54, 31, 44, 33]
-    # # path_idx.reverse()
-    # full_path = []
-    # for i in range(len(path_idx)-1):
-    #     # print(node_list[path_idx[i]], node_list[path_idx[i+1]])
-    #     # print(list(map(lambda x:x.id, nx.dijkstra_path(graph, node_list[path_idx[i]], node_list[path_idx[i+1]]))))
-    #     full_path += list(map(lambda x:x.id, nx.dijkstra_path(graph, node_list[path_idx[i]], node_list[path_idx[i+1]])))[1:-1] + ["@"+node_list[path_idx[i+1]].id]
-    # full_path = ['ew_1'] + full_path
-    # # print(full_path)
-    #
-    # animate_frame = visualizer.simulate_run(graph, full_path[1:])
-    #
-    # visualizer.animate_MIP_graph(animate_frame, data, with_save="saturn_A")
+    path_idx = [0, 35, 33, 46, 50, 7, 2, 3, 23, 24, 21, 52, 11, 19, 14, 20, 22, 4, 5, 13, 51, 6, 18, 12, 10, 1, 8, 9, 15, 27, 16, 17, 30, 32, 53, 26, 29, 28, 25, 36, 37, 55, 39, 38, 31, 48, 54, 34, 40, 44, 49, 41, 45, 43, 42, 47]
+    # path_idx.reverse()
+    full_path = []
+    for i in range(len(path_idx)-1):
+        # print(node_list[path_idx[i]], node_list[path_idx[i+1]])
+        # print(list(map(lambda x:x.id, nx.dijkstra_path(graph, node_list[path_idx[i]], node_list[path_idx[i+1]]))))
+        full_path += list(map(lambda x:x.id, nx.dijkstra_path(graph, node_list[path_idx[i]], node_list[path_idx[i+1]])))[1:-1] + ["@"+node_list[path_idx[i+1]].id]
+    full_path = ['ew_1'] + full_path
+    # print(full_path)
+
+    animate_frame = visualizer.simulate_run(graph, full_path[1:])
+
+    visualizer.animate_MIP_graph(animate_frame, data, with_save="saturn_A_OP")
