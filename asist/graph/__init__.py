@@ -125,8 +125,8 @@ class Graph(nx.Graph):
 
         node_id = id if id is not None else "P" + str(len(self.portal_list))
 
-        node_id_1 = node_id + "-" + connected_room_ids[0]
-        node_id_2 = node_id + "-" + connected_room_ids[1]
+        node_id_1 = node_id + "|" + connected_room_ids[0]
+        node_id_2 = node_id + "|" + connected_room_ids[1]
 
         node_1 = PortalNode(node_id_1, name, location, is_open)
         node_2 = PortalNode(node_id_2, name, location, is_open)

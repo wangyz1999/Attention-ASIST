@@ -12,24 +12,40 @@ import graph
 
 # pos = nx.spring_layout(graph, k=0.9, iterations=3, pos=pos, fixed=fix, weight=3)
 
-def plot_graph(graph, save=None, pop_out=False):
+def plot_graph(graph, save=None, pop_out=False, hide_portal_label=False):
     if pop_out:
         matplotlib.use("TkAgg")
     # Get position
     pos, fix = graph.better_layout(expand_iteration=3)
     pos = graph.flip_z(pos)
     pos = graph.clockwise90(pos)
+    pos = graph.clockwise90(pos)
     weight_labels = nx.get_edge_attributes(graph,'weight')
-    plt.figure(figsize=(18,27))
+    # plt.figure(figsize=(18,27))
+    plt.figure(figsize=(16,10), dpi=282)
+    plt.axis("off")
+    plt.tight_layout()
     color_map = graph.better_color()
 
-    nx.draw_networkx(graph, pos, with_labels=True, node_color=color_map)
+    if hide_portal_label:
+        label_dict = {}
+        for nodes in graph.nodes():
+            if nodes.id[:2] == 'c_':
+                label_dict[nodes] = ""
+            else:
+                label_dict[nodes] = nodes
+
+        nx.draw_networkx(graph, pos, labels=label_dict, with_labels=True, node_color=color_map, node_size=40,
+                         font_size=4, width=0.5)
+    else:
+        nx.draw_networkx(graph, pos, with_labels=True, node_color=color_map, node_size=40,
+                        font_size=4, width=0.5)
     # nx.draw_networkx_edge_labels(graph, pos, edge_labels=weight_labels)
 
     if save is None:
         plt.show()
     else:
-        plt.savefig(save + ".png")
+        plt.savefig(save + ".png", bbox_inches='tight', pad_inches=0)
 
 def plot_random_graph():
     plt.figure(figsize=(8,8))
@@ -157,6 +173,7 @@ def animate_MIP_graph(animation_sequence, json_data, with_save=None):
     pos, fix = graph.better_layout()
     pos = graph.flip_z(pos)
     pos = graph.clockwise90(pos)
+    pos = graph.clockwise90(pos)
     # weight_labels = nx.get_edge_attributes(graph,'weight')
     # Animation update function
     def update(animation_frame):
@@ -191,7 +208,7 @@ def animate_MIP_graph(animation_sequence, json_data, with_save=None):
 def simulate_run(g, path):
     points = [0]
     times = [0]
-    prev = 'ew'
+    prev = 'ew_1'
     # agent_speed = 4.3 # full walk
     # agent_speed = 5.0 # walk + sprint
     # agent_speed = 5.6  # full sprint
@@ -211,26 +228,27 @@ def simulate_run(g, path):
                 point += 10
                 time += 7
         points.append(point)
+        print(prev, curr)
         time += g.get_edge_cost(g[prev], g[curr]) / agent_speed
         times.append(time)
         prev = curr
         assert isinstance(time, float)
-    return list(zip(['ew']+path, times, points))
+    return list(zip(['ew_1']+path, times, points))
 
 
 if __name__ == '__main__':
     # =================================
     # Data Load Start
     # =================================
-    data_folder = Path("data")
-
-    portals_csv = data_folder / "sparky_portals.csv"
-    rooms_csv = data_folder / "sparky_rooms.csv"
-    victims_csv = data_folder / "sparky_victims.csv"
-
-    portal_data = pd.read_csv(portals_csv)
-    room_data = pd.read_csv(rooms_csv)
-    victim_data = pd.read_csv(victims_csv)
+    # data_folder = Path("data")
+    #
+    # portals_csv = data_folder / "sparky_portals.csv"
+    # rooms_csv = data_folder / "sparky_rooms.csv"
+    # victims_csv = data_folder / "sparky_victims.csv"
+    #
+    # portal_data = pd.read_csv(portals_csv)
+    # room_data = pd.read_csv(rooms_csv)
+    # victim_data = pd.read_csv(victims_csv)
     # =================================
     # Data Load End
     # =================================
@@ -242,12 +260,12 @@ if __name__ == '__main__':
     # with open('data/json/Falcon_v1.0_Easy_sm_clean.json') as f:
     #     data = json.load(f)
 
-    with open('data\\json\\Falcon_v1.0_Easy_sm_clean.json') as f:
+    with open('data/json/Saturn_1.0_sm_with_victimsA.json') as f:
         data = json.load(f)
 
     # env = AsistEnvGym(portal_data, room_data, victim_data, "as", random_victim=False)
 
-    graph = MapParser.parse_json_map_data_new_format(data)
+    graph = MapParser.parse_saturn_map(data)
 
     max_count = -1
     for n in graph.nodes_list:
@@ -258,7 +276,7 @@ if __name__ == '__main__':
         max_count = max(max_count, count)
     print(len(graph.nodes_list))
 
-    # plot_graph(graph)
+    plot_graph(graph, save="Saturn_1.0_A_hide_portal", hide_portal_label=True)
     # animate_graph()
 
     # plot_random_graph()

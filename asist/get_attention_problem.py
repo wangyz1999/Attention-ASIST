@@ -85,10 +85,10 @@ def distance_matrix_to_coordinate(D):
 if __name__ == '__main__':
 
 
-    with open('data\\json\\Falcon_v1.0_Hard_sm_clean.json') as f:
+    with open('data\\json\\Saturn_1.0_sm_with_victimsB.json') as f:
         data = json.load(f)
 
-    graph = MapParser.parse_json_map_data_new_format(data)
+    graph = MapParser.parse_saturn_map(data)
     victim_list_copy = graph.victim_list.copy()
 
     prize_list = []
@@ -98,7 +98,7 @@ if __name__ == '__main__':
         elif v.victim_type == VictimType.Green:
             prize_list.append(0.1)
 
-    node_list = [graph['ew']] + victim_list_copy
+    node_list = [graph['ew_1']] + victim_list_copy
     D = get_distance_matrix_original(graph, node_list)
 
     higher = distance_matrix_to_coordinate(D)
@@ -119,24 +119,24 @@ if __name__ == '__main__':
         l[0] = (l[0] - lx) / span
         l[1] = (l[1] - lz) / span
 
-    print(loc)
+
     depot, loc = loc[0].tolist(), loc[1:].tolist()
+    # cord2D_obj = [(depot, loc, prize, max_length/span)]
+    cord2D_obj = [(depot, loc, prize_list, max_length)]
 
+    with open('saturn_B.pkl', 'wb') as f:
+        pickle.dump(cord2D_obj, f)
 
-    # some_obj = [(depot, loc, prize, max_length/span)]
-    some_obj = [(depot, loc, prize_list, max_length)]
-
-    # with open('falcon_hard_new.pkl', 'wb') as f:
-    #     pickle.dump(some_obj, f)
-
-    # path_idx = [2, 5, 6, 1, 25, 30, 29, 26, 27, 14, 13, 11, 12, 8, 10, 9, 16, 17, 15, 20, 21, 19, 18, 34, 28, 32, 31, 33, 7, 3, 4, 0]
-    # path_idx.reverse()
+    # path_idx = [0, 21, 35, 52, 11, 22, 24, 4, 19, 13, 5, 20, 14, 23, 3, 51, 6, 18, 1, 12, 10, 15, 9, 8, 7, 2, 50, 47, 42, 43, 45, 41, 37, 36, 25, 55, 49, 46, 28, 26, 16, 17, 29, 30, 32, 27, 53, 39, 38, 48, 34, 40, 54, 31, 44, 33]
+    # # path_idx.reverse()
     # full_path = []
     # for i in range(len(path_idx)-1):
+    #     # print(node_list[path_idx[i]], node_list[path_idx[i+1]])
+    #     # print(list(map(lambda x:x.id, nx.dijkstra_path(graph, node_list[path_idx[i]], node_list[path_idx[i+1]]))))
     #     full_path += list(map(lambda x:x.id, nx.dijkstra_path(graph, node_list[path_idx[i]], node_list[path_idx[i+1]])))[1:-1] + ["@"+node_list[path_idx[i+1]].id]
-    # full_path = ['ew'] + full_path
-    # print(full_path)
+    # full_path = ['ew_1'] + full_path
+    # # print(full_path)
     #
     # animate_frame = visualizer.simulate_run(graph, full_path[1:])
     #
-    # visualizer.animate_MIP_graph(animate_frame, data)
+    # visualizer.animate_MIP_graph(animate_frame, data, with_save="saturn_A")

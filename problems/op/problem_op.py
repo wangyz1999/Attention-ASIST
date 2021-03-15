@@ -139,6 +139,7 @@ def generate_instance(size, prize_type):
         100: 4.,
         # 34: 39.
         34: 3.8,
+        55: 5.5,
     }
 
 
@@ -157,6 +158,11 @@ def generate_instance(size, prize_type):
         prize = torch.bernoulli(t)
         prize[prize==0] = 0.1
         prize[prize==1] = 0.3
+    elif prize_type == 'saturn':
+        t = torch.ones(size) * 1/11
+        prize = torch.bernoulli(t)
+        prize[prize==0] = 0.1
+        prize[prize==1] = 0.5
     else:  # Based on distance to depot
         assert prize_type == 'dist'
         prize_ = (depot[None, :] - loc).norm(p=2, dim=-1)
