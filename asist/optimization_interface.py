@@ -20,12 +20,12 @@ def proc_map(input_type, fname, modfile):
     model.eval()  # Put in evaluation mode to not track gradients
     
     if input_type == 'json':
-        optgraph, tour, xy = get_graph_coords_json(fname, model)
+        _, optgraph, tour, xy = get_graph_coords_json(fname, model)
     else:
         tour, xy = get_coords_pkl(fname, model)        
 
     ##################### show optimized graph
-    
+
     fig, ax = plt.subplots(figsize=(10, 10))
     plot_tsp(xy, tour, ax)
     plt.show()
@@ -33,6 +33,7 @@ def proc_map(input_type, fname, modfile):
     ##################### write to new semantic map json file
     if input_type == 'json':
         write_optimal_json(tour, optgraph, outfile)
+
 
 if __name__ == "__main__":
 

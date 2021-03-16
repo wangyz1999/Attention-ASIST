@@ -47,7 +47,7 @@ class MapParser:
         return g
 
     @classmethod
-    def parse_json_map_data(cls, data):
+    def parse_json_map_data(cls, data, excludes=[]):
         """ Given Json Map Data, construct a Graph
         :param json_data: The json that contains information about the map
         :return: the graph
@@ -63,16 +63,18 @@ class MapParser:
         yellow_victim_list = []
 
         for i in data["objects"]:
-            if i["type"] == "green_victim":
-                loc = i["bounds"]["coordinates"][0]
-                x = loc["x"]
-                z = loc["z"]
-                green_victim_list.append((i["id"], (x, z), "green"))
-            if i["type"] == "yellow_victim":
-                loc = i["bounds"]["coordinates"][0]
-                x = loc["x"]
-                z = loc["z"]
-                green_victim_list.append((i["id"], (x, z), "yellow"))
+       # for i in data["path"]:
+            if i["id"] not in excludes:
+                if i["type"] == "green_victim":
+                    loc = i["bounds"]["coordinates"][0]
+                    x = loc["x"]
+                    z = loc["z"]
+                    green_victim_list.append((i["id"], (x, z), "green"))
+                if i["type"] == "yellow_victim":
+                    loc = i["bounds"]["coordinates"][0]
+                    x = loc["x"]
+                    z = loc["z"]
+                    green_victim_list.append((i["id"], (x, z), "yellow"))
 
         room_data = []
         for j in data["locations"]:
