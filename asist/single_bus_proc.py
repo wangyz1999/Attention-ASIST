@@ -3,13 +3,14 @@
 # check messages from bus, when triage found generate message indicating next victim that should be rescued
 
 import os
-from optimization_interface import *
 import numpy as np
 import torch
 import graph
 import sys
 import csv
 import json
+from utils import load_model
+from interface_utils import *
 
 # process triage from message bus
 modfile = '../outputs/tsp_55/tsp55_20210312T130700/epoch-12.pt'
