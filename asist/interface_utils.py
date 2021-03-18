@@ -152,7 +152,7 @@ def get_graph_coords_json(jfile, model, start_node='ew', max_victims=34, exclude
     ###### format coordinate array (from jupytr)
     xy = [some_obj[0][0]] + some_obj[0][1]
     xy = np.array(some_obj[0][1])
-    print(xy)
+    #print(xy)
 
     oracle = make_oracle(model, xy)
     sample = False
@@ -173,10 +173,11 @@ def get_graph_coords_json(jfile, model, start_node='ew', max_victims=34, exclude
     
     # print(tour)
     # rearrange the tour such that depot is at the beginning
+    #  maybe don't need depot if mid game?
     zero = tour.index(0)
     tour = tour[zero:] + tour[:zero]
     tour_p = tour_p[zero:] + tour_p[:zero]
-    print(tour)
+    #print(tour)
     return orig_graph, victim_graph, tour, xy
 
 def get_coords_pkl(pklfile, model):
