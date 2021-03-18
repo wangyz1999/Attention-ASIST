@@ -64,13 +64,14 @@ def load_rooms():
                 rooms.append(rm)
     rfile.close()
 
-# load model & set defaults
-# will need to load model at top of wrapper
-model, _ = load_model(modfile)
-model.eval()
+
 
 # ends with removal so can be called over and over in agnet loop? excludes will need to be stored in wrapper
-def get_next_victim(vx=0, vz=0, excludes=[]):
+def get_next_victim_load(vx=0, vz=0, excludes=[]):
+    load_rooms()
+    model, _ = load_model(modfile)
+    model.eval()
+
     nvictims = 55
     triage_room = ''
     vid = ''
@@ -109,10 +110,8 @@ def get_next_victim(vx=0, vz=0, excludes=[]):
             break
     return next_room, vx, vz, excludes
 
-
 # test
 if __name__ == '__main__':
-    load_rooms()
-    rm, x, z, excl = get_next_victim(-2222, -6)
+    rm, x, z, excl = get_next_victim_load(-2136, -1) 
     print("next victim is at "+str(x)+","+str(z)+" in room "+str(rm))
     print("excludes: "+str(excl))
