@@ -45,7 +45,7 @@ I will continue update this code base. Please let me know if anywhere in the ins
     * I will have to later update the program such that it automatically gives a path consistes of node ids. For now, please copy the list of indeces back to the end of `asist/get_attention_problem.py` and get the path with node ids.
     * The path can be visulized with the visulizer
 
-### Visulizer
+### Visualizer
 1. The generated path is a list of node ids. An @ symbol is added directly before the id of victims being triaged. This is because sometimes agent may pass by a victim but not intend to save it. 
 2. `visualizer.simulate_run` generate frame information for location, score, and time
 3. `visualizer.animate_MIP_graph` creates the actual animaiton. You can save it as mp4.
@@ -66,4 +66,4 @@ I will continue update this code base. Please let me know if anywhere in the ins
 1. See `asist/MixedIntegerDisocuntedCluster.py`
 2. Open json map data file
 3. use `find_path` function to get path consists of list of node ids. Specify initial location and victims you want to ignore (Already saved or died).
-4. Path can be visulized using the visulizer
+4. Path can be visualized using the visualizer
