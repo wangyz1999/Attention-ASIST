@@ -140,6 +140,7 @@ def train_batch(
     bl_val = move_to(bl_val, opts.device) if bl_val is not None else None
 
     # Evaluate model, get costs and log probabilities
+    # print(x)
     cost, log_likelihood = model(x)
 
     # Evaluate baseline, get baseline loss if any (only for critic)
