@@ -37,6 +37,7 @@ def run(opts):
 
     # Set the device
     opts.device = torch.device("cuda:0" if opts.use_cuda else "cpu")
+    # opts.device = torch.device("cpu")
 
     # Figure out what's the problem
     problem = load_problem(opts.problem)
