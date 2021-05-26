@@ -81,7 +81,7 @@ class AttentionModel(nn.Module):
             # Embedding of last node + remaining_capacity / remaining length / remaining prize to collect
             step_context_dim = embedding_dim + 1
 
-            if self.is_pctsp:
+            if self.is_pctsp or self.is_pcvrp:
                 node_dim = 4  # x, y, expected_prize, penalty
             else:
                 node_dim = 3  # x, y, demand / prize
@@ -207,7 +207,7 @@ class AttentionModel(nn.Module):
             if self.is_vrp:
                 features = ('demand', )
             elif self.is_pcvrp:
-                features = ('demand', "prize", )
+                features = ('demand', 'prize', )
             elif self.is_orienteering:
                 features = ('prize', )
             else:
@@ -382,7 +382,7 @@ class AttentionModel(nn.Module):
         current_node = state.get_current_node()
         batch_size, num_steps = current_node.size()
 
-        if self.is_vrp:
+        if self.is_vrp or self.is_pcvrp:
             # Embedding of previous node + remaining capacity
             if from_depot:
                 # 1st dimension is node idx, but we do not squeeze it since we want to insert step dimension
