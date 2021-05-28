@@ -71,6 +71,10 @@ def get_options(args=None):
     parser.add_argument('--no_tensorboard', action='store_true', help='Disable logging TensorBoard files')
     parser.add_argument('--no_progress_bar', action='store_true', help='Disable progress bar')
 
+    # Some custom parameters
+    parser.add_argument('--high_value', type=float, default=0.5, help='price of triaging high value victims')
+    parser.add_argument('--cuda', type=int, default=0, help='GPU index')
+
     opts = parser.parse_args(args)
 
     opts.use_cuda = torch.cuda.is_available() and not opts.no_cuda
