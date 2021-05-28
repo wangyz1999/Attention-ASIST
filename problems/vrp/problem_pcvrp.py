@@ -114,7 +114,7 @@ def make_instance(args):
 
 class PCVRPDataset(Dataset):
     
-    def __init__(self, filename=None, size=50, num_samples=1000000, offset=0, distribution=None):
+    def __init__(self, filename=None, size=50, num_samples=1000000, offset=0, distribution=None, high_value=0.5):
         super(PCVRPDataset, self).__init__()
 
         self.data_set = []
@@ -135,10 +135,11 @@ class PCVRPDataset(Dataset):
                 100: 50.
             }
 
-            t = torch.ones(size) * 5/55
-            prize = torch.bernoulli(t)
+            # t = torch.ones(size) * 5/55
+            prob = torch.ones(size) * 4 / 20
+            prize = torch.bernoulli(prob)
             prize[prize==0] = 0.1
-            prize[prize==1] = 0.5
+            prize[prize==1] = high_value
 
             self.data = [
                 {
