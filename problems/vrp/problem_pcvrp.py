@@ -3,7 +3,7 @@ import torch
 import os
 import pickle
 
-from problems.vrp.state_cvrp import StateCVRP
+from problems.vrp.state_pcvrp import StatePCVRP
 from problems.vrp.state_sdvrp import StateSDVRP
 from utils.beam_search import beam_search
 
@@ -78,7 +78,7 @@ class PCVRP(object):
 
     @staticmethod
     def make_state(*args, **kwargs):
-        return StateCVRP.initialize(*args, **kwargs)
+        return StatePCVRP.initialize(*args, **kwargs)
 
     @staticmethod
     def beam_search(input, beam_size, expand_size=None,
@@ -145,7 +145,8 @@ class PCVRPDataset(Dataset):
                 {
                     'loc': torch.FloatTensor(size, 2).uniform_(0, 1),
                     # Uniform 1 - 9, scaled by capacities
-                    'demand': (torch.FloatTensor(size).uniform_(0, 9).int() + 1).float() / CAPACITIES[size],
+                    # 'demand': (torch.FloatTensor(size).uniform_(0, 9).int() + 1).float() / CAPACITIES[size],
+                    'demand': torch.ones(size) / size,
                     'depot': torch.FloatTensor(2).uniform_(0, 1),
                     'prize': prize
                 }
