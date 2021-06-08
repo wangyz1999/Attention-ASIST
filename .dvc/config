@@ -1,4 +1,7 @@
 [core]
     remote = storage
 ['remote "storage"']
-    url = gdrive://1G1cTTqXs9puja_PugPSozJXHp70lpWwR
+    url = s3://asist-data
+    access_key_id = AKIAY3NCQJSNEQO3L5HA
+    secret_access_key = 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
+    use_ssl = false
