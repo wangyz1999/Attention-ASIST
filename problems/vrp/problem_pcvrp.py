@@ -12,7 +12,7 @@ class PCVRP(object):
 
     NAME = 'pcvrp'  # Capacitated Vehicle Routing Problem
 
-    VEHICLE_CAPACITY = 1.0  # (w.l.o.g. vehicle capacity is 1, demands should be scaled)
+    VEHICLE_CAPACITY = 1  # (w.l.o.g. vehicle capacity is 1, demands should be scaled)
 
     @staticmethod
     def get_costs(dataset, pi):
@@ -146,7 +146,7 @@ class PCVRPDataset(Dataset):
                     'loc': torch.FloatTensor(size, 2).uniform_(0, 1),
                     # Uniform 1 - 9, scaled by capacities
                     # 'demand': (torch.FloatTensor(size).uniform_(0, 9).int() + 1).float() / CAPACITIES[size],
-                    'demand': torch.ones(size) / size,
+                    'demand': torch.ones(size) / 15,
                     'depot': torch.FloatTensor(2).uniform_(0, 1),
                     'prize': prize
                 }
