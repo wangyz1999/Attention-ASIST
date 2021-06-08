@@ -1,8 +1,8 @@
-__pycache__
-nets/__pycache__
-problems/__pycache__
-problems/op/__pycache__
-problems/pctsp/__pycache__
-problems/tsp/__pycache__
-problems/vrp/__pycache__
-utils/__pycache__
+__pycache__/
+nets/__pycache__/
+problems/__pycache__/
+problems/op/__pycache__/
+problems/pctsp/__pycache__/
+problems/tsp/__pycache__/
+problems/vrp/__pycache__/
+utils/__pycache__/
