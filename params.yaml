@@ -1,6 +1,6 @@
 # Parameters for DVC pipeline
 train:
-        problem: 'tsp'
+        problem: 'pcvrp'
         graph_size: 20
         batch_size: 512
         epoch_size: 1280000
