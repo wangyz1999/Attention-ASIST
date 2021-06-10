@@ -1,0 +1,14 @@
+stages:
+  train:
+    cmd: python run.py --arg_yaml_file params.yaml
+    params:
+    - train.baseline
+    - train.cuda
+    - train.data_distribution
+    - train.graph_size
+    - train.high_value
+    - train.problem
+    - train.run_name
+    outs:
+    - logs
+    - outputs
