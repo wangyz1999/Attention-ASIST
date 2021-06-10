@@ -1,14 +1,13 @@
 stages:
   train:
     cmd: python run.py --arg_yaml_file params.yaml
+    deps:
+    - run.py
     params:
-    - train.baseline
-    - train.cuda
-    - train.data_distribution
+    - train.problem
     - train.graph_size
     - train.high_value
-    - train.problem
-    - train.run_name
+    - train.n_epochs
     outs:
     - logs
     - outputs

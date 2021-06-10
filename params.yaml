@@ -16,18 +16,18 @@ train:
         lr_critic: 1.0e-4
         lr_decay: 1.0
         eval_only: false
-        n_epochs: 100
+        n_epochs: 1
         seed: 1234
         max_grad_norm: 1.0
         no_cuda: false
         exp_beta: 0.8
-        baseline: null
+        baseline: 'rollout'
         bl_alpha: 0.05
         bl_warmup_epochs: null
         eval_batch_size: 1024
         checkpoint_encoder: false
         shrink_size: null
-        data_distribution: null
+        data_distribution: 'saturn'
         log_step: 50
         run_name: 'run'
         epoch_start: 0
