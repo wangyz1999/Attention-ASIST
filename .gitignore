@@ -3,3 +3,5 @@ logs/
 .idea/
 .ipynb_checkpoints/
 outputs/
+/outputs
+/logs
