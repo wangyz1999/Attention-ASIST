@@ -85,7 +85,7 @@ def distance_matrix_to_coordinate(D):
 if __name__ == '__main__':
 
 
-    with open('data\\json\\Saturn_1.0_sm_with_victimsA.json') as f:
+    with open('data/json/Saturn/Saturn_1.0_sm_with_victimsA.json') as f:
         data = json.load(f)
 
     graph = MapParser.parse_saturn_map(data)
