@@ -4,10 +4,11 @@ stages:
     deps:
     - run.py
     params:
-    - train.problem
-    - train.graph_size
-    - train.high_value
-    - train.n_epochs
+    - problem
+    - problem.problem_params
+    - graph_size
+    - high_value
+    - n_epochs
     outs:
     - logs
     - outputs

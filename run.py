@@ -40,7 +40,7 @@ def run(opts):
     # opts.device = torch.device("cpu")
 
     # Figure out what's the problem
-    problem = load_problem(opts.problem)
+    problem = load_problem(opts.problem, **opts.problem_params)
 
     # Load data from load_path
     load_data = {}
