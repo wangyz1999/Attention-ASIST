@@ -34,7 +34,7 @@ class PCVRP(object):
             ),
             1
         )
-        print(prize_with_depot)
+        # print(prize_with_depot)
         p = prize_with_depot.gather(1, pi)
         # Visiting depot resets capacity so we add demand = -capacity (we make sure it does not become negative)
         demand_with_depot = torch.cat(
