@@ -1,12 +1,10 @@
-from environment import MapParser
+from mapparser import MapParser
 import matplotlib.pyplot as plt
 import matplotlib.animation
 import pandas as pd
-from pathlib import Path
 import networkx as nx
 from graph import RandomGraphGenerator
 from graph.Nodes import NodeType
-from environment import AsistEnvGym
 import json
 import graph
 
@@ -260,7 +258,7 @@ if __name__ == '__main__':
     # with open('data/json/Falcon_v1.0_Easy_sm_clean.json') as f:
     #     data = json.load(f)
 
-    with open('data/json/Saturn_1.0_sm_with_victimsA.json') as f:
+    with open('data/json/Saturn/Saturn_1.5_3D_sm_with_victimsA.json') as f:
         data = json.load(f)
 
     # env = AsistEnvGym(portal_data, room_data, victim_data, "as", random_victim=False)
@@ -276,7 +274,7 @@ if __name__ == '__main__':
         max_count = max(max_count, count)
     print(len(graph.nodes_list))
 
-    plot_graph(graph, save="Saturn_1.0_A_hide_portal", hide_portal_label=True)
+    plot_graph(graph, save="Semantic_Graph/Saturn_1.5_A", hide_portal_label=True)
     # animate_graph()
 
     # plot_random_graph()
