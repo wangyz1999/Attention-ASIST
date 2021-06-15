@@ -398,6 +398,7 @@ class MapParser:
         g.make_ordered_node_list()
 
         return g
+from mapparser import MapParser
 
 class AsistEnvRandGen:
     def __init__(self):
