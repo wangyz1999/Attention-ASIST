@@ -1,4 +1,6 @@
 [core]
-    remote = s3-personal
+    remote = s3-ict
 ['remote "s3-personal"']
     url = s3://ict-assist-dvc
+['remote "s3-ict"']
+    url = s3://ict-assist-dvc-2
