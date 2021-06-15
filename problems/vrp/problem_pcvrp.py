@@ -14,6 +14,8 @@ class PCVRP(object):
 
     VEHICLE_CAPACITY = 1  # (w.l.o.g. vehicle capacity is 1, demands should be scaled)
 
+    PRICE_MODE = 0
+
     @staticmethod
     def get_costs(dataset, pi):
         batch_size, graph_size = dataset['demand'].size()
@@ -35,7 +37,12 @@ class PCVRP(object):
             1
         )
         # print(prize_with_depot)
+
         p = prize_with_depot.gather(1, pi)
+
+        # print(prize_with_depot)
+        # print(pi)
+        # print(p)
         # Visiting depot resets capacity so we add demand = -capacity (we make sure it does not become negative)
         demand_with_depot = torch.cat(
             (
@@ -72,7 +79,42 @@ class PCVRP(object):
 
         # minimize the sum of total length and negative prize
         # print(p.sum(-1))
-        return p.sum(-1), None
+
+        if PCVRP.PRICE_MODE == 1:
+            discount_factor = 0.99
+            discount_factor_list = [1]
+            for dfl in range(p.size()[1] - 1):
+                discount_factor_list.append(discount_factor_list[-1] * discount_factor)
+            p_discount_matrix = torch.Tensor(discount_factor_list)
+            p_discount_matrix = p_discount_matrix.to(device=p.device)
+            p_discount = p_discount_matrix[None, :] * p
+
+        if PCVRP.PRICE_MODE == 2:
+            stepwise_discount_factor = 0.95
+            stepwise_discount_factors = []
+            for run in pi:
+                curr_factor = 1
+                stepwise_discount_factor_list = []
+                for pi_step in run:
+                    if pi_step == 0:
+                        curr_factor *= stepwise_discount_factor
+                        stepwise_discount_factor_list.append(curr_factor)
+                    else:
+                        stepwise_discount_factor_list.append(curr_factor)
+                stepwise_discount_factors.append(stepwise_discount_factor_list)
+            stepwise_discount_factors = torch.Tensor(stepwise_discount_factors)
+            stepwise_discount_factors = stepwise_discount_factors.to(device=p.device)
+            p_stepwise_discount = stepwise_discount_factors * p
+
+
+        if PCVRP.PRICE_MODE == 0:
+            return -p.sum(-1), None
+        elif PCVRP.PRICE_MODE == 1:
+            return length - p_discount.sum(-1), None
+        elif PCVRP.PRICE_MODE == 2:
+            return length - p_stepwise_discount.sum(-1), None
+
+        # return length - p.sum(-1), None
 
     @staticmethod
     def make_dataset(*args, **kwargs):
@@ -137,23 +179,25 @@ class PCVRPDataset(Dataset):
                 100: 50.
             }
 
-            # t = torch.ones(size) * 5/55
-            prob = torch.ones(size) * 4 / 20
-            prize = torch.bernoulli(prob)
-            prize[prize==0] = 0.1
-            prize[prize==1] = high_value
 
-            self.data = [
-                {
+
+            self.data = []
+
+            for i in range(num_samples):
+                # t = torch.ones(size) * 5/55
+                prob = torch.ones(size) * 4 / 20
+                prize = torch.bernoulli(prob)
+                prize[prize == 0] = 0.1
+                prize[prize == 1] = high_value
+
+                self.data.append({
                     'loc': torch.FloatTensor(size, 2).uniform_(0, 1),
                     # Uniform 1 - 9, scaled by capacities
                     # 'demand': (torch.FloatTensor(size).uniform_(0, 9).int() + 1).float() / CAPACITIES[size],
                     'demand': torch.ones(size) / 15,
                     'depot': torch.FloatTensor(2).uniform_(0, 1),
                     'prize': prize
-                }
-                for i in range(num_samples)
-            ]
+                })
 
         self.size = len(self.data)
 
