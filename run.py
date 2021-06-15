@@ -36,7 +36,8 @@ def run(opts):
         json.dump(vars(opts), f, indent=True)
 
     # Set the device
-    opts.device = torch.device("cuda:0" if opts.use_cuda else "cpu")
+    opts.device = torch.device(f"cuda:{opts.cuda}" if opts.use_cuda else "cpu")
+    # opts.device = torch.device("cpu")
 
     # Figure out what's the problem
     problem = load_problem(opts.problem)
@@ -137,7 +138,8 @@ def run(opts):
 
     # Start the actual training loop
     val_dataset = problem.make_dataset(
-        size=opts.graph_size, num_samples=opts.val_size, filename=opts.val_dataset, distribution=opts.data_distribution)
+        size=opts.graph_size, num_samples=opts.val_size, filename=opts.val_dataset, distribution=opts.data_distribution,
+        high_value=opts.high_value)
 
     if opts.resume:
         epoch_resume = int(os.path.splitext(os.path.split(opts.resume)[-1])[0].split("-")[1])

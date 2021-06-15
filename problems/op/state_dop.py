@@ -4,13 +4,14 @@ from utils.boolmask import mask_long2bool, mask_long_scatter
 import torch.nn.functional as F
 
 
-class StateOP(NamedTuple):
+class StateDOP(NamedTuple):
     # Fixed input
     coords: torch.Tensor  # Depot + loc
     prize: torch.Tensor
     # Max length is not a single value, but one for each node indicating max length tour should have when arriving
     # at this node, so this is max_length - d(depot, node)
     max_length: torch.Tensor
+    threshold_length: torch.Tensor
 
     # If this state contains multiple copies (i.e. beam search) for the same instance, then for memory efficiency
     # the coords and prizes tensors are not kept multiple times, so we need to use the ids to index the correct rows.
@@ -56,15 +57,17 @@ class StateOP(NamedTuple):
         loc = input['loc']
         prize = input['prize']
         max_length = input['max_length']
+        threshold_length = input['threshold_length']
 
         batch_size, n_loc, _ = loc.size()
         coords = torch.cat((depot[:, None, :], loc), -2)
-        return StateOP(
+        return StateDOP(
             coords=coords,
             prize=F.pad(prize, (1, 0), mode='constant', value=0),  # add 0 for depot
             # max_length is max length allowed when arriving at node, so subtract distance to return to depot
             # Additionally, substract epsilon margin for numeric stability
             max_length=max_length[:, None] - (depot[:, None, :] - coords).norm(p=2, dim=-1) - 1e-6,
+            threshold_length=threshold_length[:, None] - (depot[:, None, :] - coords).norm(p=2, dim=-1) - 1e-6,
             ids=torch.arange(batch_size, dtype=torch.int64, device=loc.device)[:, None],  # Add steps dimension
             prev_a=torch.zeros(batch_size, 1, dtype=torch.long, device=loc.device),
             visited_=(  # Visited as mask is easier to understand, as long more memory efficient
@@ -141,21 +144,33 @@ class StateOP(NamedTuple):
         :return:
         """
 
-        # check if the distance from any coord to the current coord is larger than (max_length - curr_length)
         exceeds_length = (
             self.lengths[:, :, None] + (self.coords[self.ids, :, :] - self.cur_coord[:, :, None, :]).norm(p=2, dim=-1)
             > self.max_length[self.ids, :]
+        )
+
+        exceeds_threshold_length = (
+                self.lengths[:, :, None] + (self.coords[self.ids, :, :] - self.cur_coord[:, :, None, :]).norm(p=2, dim=-1)
+                > self.threshold_length[self.ids, :]
         )
 
         # Note: this always allows going to the depot, but that should always be suboptimal so be ok
         # Cannot visit if already visited or if length that would be upon arrival is too large to return to depot
         # If the depot has already been visited then we cannot visit anymore
         visited_ = self.visited.to(exceeds_length.dtype)
-        mask = visited_ | visited_[:, :, 0:1] | exceeds_length
+        already_visited_mask = visited_ | visited_[:, :, 0:1] | exceeds_length
+
+        are_high_value = self.prize == 0.5
+        exceeds_threshold_mask = are_high_value[:, None, :] & exceeds_threshold_length
+
+        mask = already_visited_mask | exceeds_threshold_length
+
 
         # Depot can always be visited
         # (so we do not hardcode knowledge that this is strictly suboptimal if other options are available)
         mask[:, :, 0] = 0
+
+        # print(mask)
         return mask
 
     def construct_solutions(self, actions):

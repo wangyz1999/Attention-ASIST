@@ -1,0 +1,4 @@
+outs:
+- md5: c446f5de40adf16afe338877dee7617a
+  size: 179
+  path: test_data.txt
