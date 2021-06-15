@@ -139,8 +139,8 @@ def plot_vehicle_routes(data, route, ax1, markersize=5, visualize_demands=False,
 # In[11]:
 
 high_value = 0.1
-model, _ = load_model(f'outputs/pcvrp_20/pcvrp_test_{high_value}/')
-torch.manual_seed(1117)
+model, _ = load_model(f'../outputs/pcvrp_20/pcvrp_test_2_high_val_{high_value}/')
+torch.manual_seed(1000)
 dataset = PCVRP.make_dataset(size=20, num_samples=1, high_value=high_value)
 
 
@@ -177,7 +177,7 @@ for i, (data, tour) in enumerate(zip(dataset, tours)):
     fig, ax = plt.subplots(figsize=(10, 10))
     plot_vehicle_routes(data, tour, ax, visualize_demands=False, demand_scale=50, round_demand=True)
     # fig.savefig(os.path.join('images', 'cvrp_{}.png'.format(i)))
-    fig.savefig(os.path.join('images', f'pcvrp_{high_value}.png'))
+    fig.savefig(os.path.join('../images', f'pcvrp_{high_value}.png'))
 
 
 
