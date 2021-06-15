@@ -1,0 +1,22 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python run.py --arg_yaml_file params.yaml
+    params:
+      params.yaml:
+        train.baseline:
+        train.cuda: 0
+        train.data_distribution:
+        train.graph_size: 20
+        train.high_value: 0.5
+        train.problem: pcvrp
+        train.run_name: run
+    outs:
+    - path: logs
+      md5: e3c354d6d064596b1d8c01e8673f880d.dir
+      size: 12217
+      nfiles: 1
+    - path: outputs
+      md5: 33299dcc1f6133d07d88dff4474a2b58.dir
+      size: 8385496
+      nfiles: 2
