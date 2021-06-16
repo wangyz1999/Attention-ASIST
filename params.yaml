@@ -12,7 +12,7 @@ metric_file: 'scores/scores.json'
 seed: 1234
 eval_only: false
 no_cuda: false
-cuda: 0
+cuda: [0, 1, 2]         # Specify a list of int if want model be distributed across gpus, or a single int if not
 run_name: 'run'
 graph_size: 20
 batch_size: 512
@@ -30,7 +30,7 @@ load_path: null
 resume: null
 no_tensorboard: false
 no_progress_bar: false
-no_wandb: false
+no_wandb: true
 high_value: 0.5
 
 # Model parameters

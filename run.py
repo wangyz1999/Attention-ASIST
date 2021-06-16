@@ -43,13 +43,13 @@ def run(opts):
     with open(os.path.join(opts.save_dir, "args.json"), 'w') as f:
         json.dump(vars(opts), f, indent=True)
 
+    # Set the (output) device. The output device should be the first cuda device specified
+    opts.device = torch.device(f"cuda:{opts.cuda[0] if isinstance(opts.cuda, list) else opts.cuda}"
+                               if opts.use_cuda else "cpu")
+
     # Create the metric file directory if not exists
     if not os.path.isdir(os.path.dirname(opts.metric_file)):
         os.mkdir(os.path.dirname(opts.metric_file))
-
-    # Set the device
-    opts.device = torch.device(f"cuda:{opts.cuda}" if opts.use_cuda else "cpu")
-    # opts.device = torch.device("cpu")
 
     # Figure out what's the problem
     problem = load_problem(opts.problem, **opts.problem_params)
@@ -81,8 +81,9 @@ def run(opts):
         shrink_size=opts.shrink_size
     ).to(opts.device)
 
+    # Train model on GPU, use DataParallel to distribute model to specified GPUs
     if opts.use_cuda and torch.cuda.device_count() > 1:
-        model = torch.nn.DataParallel(model)
+        model = torch.nn.DataParallel(model, device_ids=opts.cuda if isinstance(opts.cuda, list) else [opts.cuda])
 
     # Overwrite model parameters by parameters to load
     model_ = get_inner_model(model)
