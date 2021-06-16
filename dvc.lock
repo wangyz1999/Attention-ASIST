@@ -2,21 +2,33 @@ schema: '2.0'
 stages:
   train:
     cmd: python run.py --arg_yaml_file params.yaml
+    deps:
+    - path: reinforce_baselines.py
+      md5: 78e4604e89bbbaa7a83151b2068ca05b
+      size: 8484
+    - path: run.py
+      md5: 3fec5a63149e396770b1163ca67d18c0
+      size: 6872
+    - path: train.py
+      md5: d4a9c75e190dc4162754b815895efa2d
+      size: 5308
     params:
       params.yaml:
-        train.baseline:
-        train.cuda: 0
-        train.data_distribution:
-        train.graph_size: 20
-        train.high_value: 0.5
-        train.problem: pcvrp
-        train.run_name: run
+        graph_size: 20
+        high_value: 0.5
+        n_epochs: 1
+        problem: pcvrp
+        problem_params:
+          PRICE_MODE: 0
     outs:
     - path: logs
-      md5: e3c354d6d064596b1d8c01e8673f880d.dir
-      size: 12217
+      md5: 6f7a6714a4ff56392e6c3ab5d7fbc324.dir
+      size: 368
       nfiles: 1
     - path: outputs
-      md5: 33299dcc1f6133d07d88dff4474a2b58.dir
-      size: 8385496
+      md5: 2eab231c945a7509e22c06253b498e00.dir
+      size: 25465592
       nfiles: 2
+    - path: scores/scores.json
+      md5: 204895043439b5ac15f9655bc17d6fe0
+      size: 131
