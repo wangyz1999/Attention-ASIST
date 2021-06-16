@@ -16,19 +16,21 @@ cuda: 0
 run_name: 'run'
 graph_size: 20
 batch_size: 512
-epoch_size: 512     # 1280000
+n_epochs: 30
+epoch_size: 1280000
 val_size: 10000
 val_dataset: null
 eval_batch_size: 1024
 checkpoint_encoder: false
 data_distribution: 'saturn'
-log_step: 50
 epoch_start: 0
 checkpoint_epochs: 1
+log_step: 50
 load_path: null
 resume: null
 no_tensorboard: false
 no_progress_bar: false
+no_wandb: false
 high_value: 0.5
 
 # Model parameters
@@ -41,7 +43,6 @@ normalization: 'batch'
 lr_model: 1.0e-4
 lr_critic: 1.0e-4
 lr_decay: 1.0
-n_epochs: 1
 max_grad_norm: 1.0
 exp_beta: 0.8
 baseline: 'rollout'

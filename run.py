@@ -24,10 +24,11 @@ def run(opts):
     pp.pprint(vars(opts))
 
     # Setup a W&B run
-    wandb.init(project='attention-assist')
-    # Report run config and set the run name
-    wandb.config.update(opts)
-    wandb.run.name = opts.run_name
+    if not opts.no_wandb:
+        wandb.init(project='attention-assist')
+        # Report run config and set the run name
+        wandb.config.update(opts)
+        wandb.run.name = opts.run_name
 
     # Set the random seed
     torch.manual_seed(opts.seed)
@@ -179,8 +180,6 @@ def run(opts):
                         tb_logger,
                         opts
                      )
-            # Log metrics to wandb
-            wandb.log(metrics)
             # Convert every value into str in case the values are not JSON serializable
             metrics_str = {key: str(val) for key, val in metrics.items()}
             # Write the metrics to file and print
