@@ -6,3 +6,4 @@ outputs/
 /outputs
 /logs
 .pyc
+/wandb
