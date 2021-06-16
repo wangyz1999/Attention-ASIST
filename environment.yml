@@ -11,5 +11,6 @@ dependencies:
 - yaml
 - cuda91
 - pip
+- wandb
 - pip:
   - tensorboard_logger
