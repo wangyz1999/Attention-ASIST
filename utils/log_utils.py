@@ -1,3 +1,5 @@
+import wandb
+
 def log_values(cost, grad_norms, epoch, batch_id, step,
                log_likelihood, reinforce_loss, bl_loss, tb_logger, opts):
     avg_cost = cost.mean().item()
@@ -22,3 +24,25 @@ def log_values(cost, grad_norms, epoch, batch_id, step,
             tb_logger.log_value('critic_loss', bl_loss.item(), step)
             tb_logger.log_value('critic_grad_norm', grad_norms[1], step)
             tb_logger.log_value('critic_grad_norm_clipped', grad_norms_clipped[1], step)
+
+    # Log values to WandB
+    if not opts.no_wandb:
+        wandb.log(
+            {
+                'avg_cost': avg_cost,
+                'actor_loss': reinforce_loss.item(),
+                'nll': -log_likelihood.mean().item(),
+                'grad_norm': grad_norms[0],
+                'grad_norm_clipped': grad_norms_clipped[0],
+            },
+            step=step
+        )
+        if opts.baseline == 'critic':
+            wandb.log(
+                {
+                    'critic_loss': bl_loss.item(),
+                    'critic_grad_norm': grad_norms[1],
+                    'critic_grad_norm_clipped': grad_norms_clipped[1]
+                },
+                step=step
+            )
