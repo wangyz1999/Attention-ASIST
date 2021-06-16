@@ -30,7 +30,7 @@ load_path: null
 resume: null
 no_tensorboard: false
 no_progress_bar: false
-no_wandb: true    # false
+no_wandb: false
 high_value: 0.5
 
 # Model parameters
