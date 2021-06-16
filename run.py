@@ -7,6 +7,7 @@ import pprint as pp
 import torch
 import torch.optim as optim
 from tensorboard_logger import Logger as TbLogger
+import wandb
 
 from nets.critic_network import CriticNetwork
 from options import get_options
@@ -22,6 +23,12 @@ def run(opts):
     # Pretty print the run args
     pp.pprint(vars(opts))
 
+    # Setup a W&B run
+    wandb.init(project='attention-assist')
+    # Report run config and set the run name
+    wandb.config.update(opts)
+    wandb.run.name = opts.run_name
+
     # Set the random seed
     torch.manual_seed(opts.seed)
 
@@ -35,12 +42,16 @@ def run(opts):
     with open(os.path.join(opts.save_dir, "args.json"), 'w') as f:
         json.dump(vars(opts), f, indent=True)
 
+    # Create the metric file directory if not exists
+    if not os.path.isdir(os.path.dirname(opts.metric_file)):
+        os.mkdir(os.path.dirname(opts.metric_file))
+
     # Set the device
     opts.device = torch.device(f"cuda:{opts.cuda}" if opts.use_cuda else "cpu")
     # opts.device = torch.device("cpu")
 
     # Figure out what's the problem
-    problem = load_problem(opts.problem)
+    problem = load_problem(opts.problem, **opts.problem_params)
 
     # Load data from load_path
     load_data = {}
@@ -157,17 +168,26 @@ def run(opts):
         validate(model, val_dataset, opts)
     else:
         for epoch in range(opts.epoch_start, opts.epoch_start + opts.n_epochs):
-            train_epoch(
-                model,
-                optimizer,
-                baseline,
-                lr_scheduler,
-                epoch,
-                val_dataset,
-                problem,
-                tb_logger,
-                opts
-            )
+            metrics = train_epoch(
+                        model,
+                        optimizer,
+                        baseline,
+                        lr_scheduler,
+                        epoch,
+                        val_dataset,
+                        problem,
+                        tb_logger,
+                        opts
+                     )
+            # Log metrics to wandb
+            wandb.log(metrics)
+            # Convert every value into str in case the values are not JSON serializable
+            metrics_str = {key: str(val) for key, val in metrics.items()}
+            # Write the metrics to file and print
+            with open(opts.metric_file, 'w') as mf:
+                json.dump(metrics_str, mf)
+            # Print the json string of the metrics dict because this way it is prettier
+            print("Metric values for epoch {}: \n\t{}".format(epoch, json.dumps(metrics_str, indent=4)))
 
 
 if __name__ == "__main__":

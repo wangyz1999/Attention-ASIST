@@ -86,10 +86,8 @@ def get_options(args=None):
     if opts.arg_yaml_file is not None:
         with open(opts.arg_yaml_file, 'r') as arg_file:
             yaml_args = yaml.safe_load(arg_file)
-            # Read the train section of the arguments
-            train_args = yaml_args['train']
             # Set attributes to the Namespace instance returned by the parser
-            for key, val in train_args.items():
+            for key, val in yaml_args.items():
                 setattr(opts, key, val)
 
     opts.use_cuda = torch.cuda.is_available() and not opts.no_cuda

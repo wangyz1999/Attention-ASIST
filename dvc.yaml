@@ -2,12 +2,18 @@ stages:
   train:
     cmd: python run.py --arg_yaml_file params.yaml
     deps:
-    - run.py
+      - run.py
+      - train.py
+      - reinforce_baselines.py
     params:
-    - train.problem
-    - train.graph_size
-    - train.high_value
-    - train.n_epochs
+      - problem
+      - problem_params
+      - graph_size
+      - high_value
+      - n_epochs
     outs:
-    - logs
-    - outputs
+      - logs
+      - outputs
+    metrics:
+      - scores/scores.json:
+          cache: false
