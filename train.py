@@ -118,10 +118,16 @@ def train_epoch(model, optimizer, baseline, lr_scheduler, epoch, val_dataset, pr
     if not opts.no_tensorboard:
         tb_logger.log_value('val_avg_reward', avg_reward, step)
 
-    baseline.epoch_callback(model, epoch)
+    baseline_metrics = baseline.epoch_callback(model, epoch)
+
+    metrics = {'val_avg_reward': avg_reward.item()}
+    if baseline_metrics is not None:
+        metrics['baseline'] = baseline_metrics
 
     # lr_scheduler should be called at end of epoch
     lr_scheduler.step()
+
+    return metrics
 
 
 def train_batch(
