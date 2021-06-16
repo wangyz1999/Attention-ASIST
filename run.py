@@ -25,7 +25,7 @@ def run(opts):
 
     # Setup a W&B run
     if not opts.no_wandb:
-        wandb.init(project='attention-assist')
+        wandb.init(project='attention-asist', entity='ict-assist')
         # Report run config and set the run name
         wandb.config.update(opts)
         wandb.run.name = opts.run_name
