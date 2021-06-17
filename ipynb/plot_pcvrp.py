@@ -1,25 +1,14 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 import os
 import numpy as np
 import torch
-
-
-# In[3]:
-
 
 from torch.utils.data import DataLoader
 from generate_data import generate_vrp_data
 from utils import load_model
 from problems import PCVRP
-
-
-# In[4]:
-
 
 # get_ipython().run_line_magic('matplotlib', 'inline')
 from matplotlib import pyplot as plt
@@ -136,25 +125,12 @@ def plot_vehicle_routes(data, route, ax1, markersize=5, visualize_demands=False,
         ax1.add_collection(pc_dem)
 
 
-# In[11]:
-
 high_value = 0.7
 PRICE_MODE = 1
 # model, _ = load_model(f'../outputs/pcvrp_20/pcvrp_test_2_high_val_{high_value}/')
 model, _ = load_model(f'../outputs/2021-6-17/PRICE_MODE={PRICE_MODE},high_value={high_value}')
 torch.manual_seed(1000)
 dataset = PCVRP.make_dataset(size=20, num_samples=1, high_value=high_value)
-
-
-# In[12]:
-
-
-# print(dir(dataset))
-# print(type(dataset.data[0]))
-# print(dataset.data[0])
-
-
-# In[16]:
 
 
 # Need a dataloader to batch instances
@@ -180,11 +156,6 @@ for i, (data, tour) in enumerate(zip(dataset, tours)):
     plot_vehicle_routes(data, tour, ax, visualize_demands=False, demand_scale=50, round_demand=True)
     # fig.savefig(os.path.join('images', 'cvrp_{}.png'.format(i)))
     fig.savefig(os.path.join('../images', f'pcvrp_{high_value}_PRICE_MODE_{PRICE_MODE}.png'))
-
-
-
-# In[ ]:
-
 
 
 
