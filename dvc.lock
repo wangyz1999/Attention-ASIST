@@ -7,28 +7,28 @@ stages:
       md5: 78e4604e89bbbaa7a83151b2068ca05b
       size: 8484
     - path: run.py
-      md5: b2ccad35d1fb180abf71fe282e207f18
-      size: 7127
+      md5: dfc927f78fd3d5fd006169a313ea8176
+      size: 7384
     - path: train.py
-      md5: d4a9c75e190dc4162754b815895efa2d
-      size: 5308
+      md5: 84b5cac39f685a79b5d544878969589d
+      size: 5562
     params:
       params.yaml:
         graph_size: 20
-        high_value: 0.5
-        n_epochs: 1
+        high_value: 0.7
+        n_epochs: 50
         problem: pcvrp
         problem_params:
-          PRICE_MODE: 0
+          PRICE_MODE: 1
     outs:
     - path: logs
-      md5: 98b0c7913235253757e43d92a8720189.dir
-      size: 368
+      md5: c7ecbf2511dd7dcd4b5309fa8b14fdb0.dir
+      size: 11302
       nfiles: 1
     - path: outputs
-      md5: 16b303dd8408df0d346d446c84d21b4d.dir
-      size: 25465592
-      nfiles: 2
+      md5: 1bde5035b63883f63f92e6d72d1eefb3.dir
+      size: 1277638279
+      nfiles: 51
     - path: scores/scores.json
-      md5: 204895043439b5ac15f9655bc17d6fe0
-      size: 131
+      md5: af4e10d2ca0739cd287c87e7410c639d
+      size: 143
