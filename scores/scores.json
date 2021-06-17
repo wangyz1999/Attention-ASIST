@@ -1,1 +1,1 @@
-{"val_avg_reward": "-3.5990800857543945", "baseline": "{'candidate_mean': -3.59436, 'baseline_mean': -3.59436, 'difference': 0.0}"}
+{"val_avg_reward": "4.670246124267578", "baseline": "{'candidate_mean': 4.661726, 'baseline_mean': 4.482159, 'difference': 0.17956686}"}
