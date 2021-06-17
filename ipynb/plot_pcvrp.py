@@ -139,8 +139,9 @@ def plot_vehicle_routes(data, route, ax1, markersize=5, visualize_demands=False,
 # In[11]:
 
 high_value = 0.7
+PRICE_MODE = 1
 # model, _ = load_model(f'../outputs/pcvrp_20/pcvrp_test_2_high_val_{high_value}/')
-model, _ = load_model(f'../outputs/2021-6-17/PRICE_MODE=0,high_value=0.7')
+model, _ = load_model(f'../outputs/2021-6-17/PRICE_MODE={PRICE_MODE},high_value={high_value}')
 torch.manual_seed(1000)
 dataset = PCVRP.make_dataset(size=20, num_samples=1, high_value=high_value)
 
@@ -169,16 +170,16 @@ with torch.no_grad():
     length, log_p, pi = model(batch, return_pi=True)
 tours = pi
 
-print(tours.shape)
-print(tours[0])
+# print(tours.shape)
+# print(tours[0])
 
 # Plot the results
 for i, (data, tour) in enumerate(zip(dataset, tours)):
-    print(data)
+    # print(data)
     fig, ax = plt.subplots(figsize=(10, 10))
     plot_vehicle_routes(data, tour, ax, visualize_demands=False, demand_scale=50, round_demand=True)
     # fig.savefig(os.path.join('images', 'cvrp_{}.png'.format(i)))
-    fig.savefig(os.path.join('../images', f'pcvrp_{high_value}_PRICE_MODE_0.png'))
+    fig.savefig(os.path.join('../images', f'pcvrp_{high_value}_PRICE_MODE_{PRICE_MODE}.png'))
 
 
 
