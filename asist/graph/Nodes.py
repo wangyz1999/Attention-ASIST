@@ -64,6 +64,7 @@ class VictimNode(Node):
         self.victim_type = victim_type
         self.victim_type_original = victim_type
         self.loc = location
+        self.blocking_rubbles = []
 
     def yellow_death(self):
         # Simulate the death of yellow victims, turns them to red
@@ -102,6 +103,7 @@ class RoomNode(Node):
         self.loc = location
         self.victim_list = victims if victims is not None else []
         self.light_on = False
+        self.block_rubbles = []
 
     def add_victim(self, victim_id):
         assert isinstance(victim_id, str) or isinstance(victim_id, list) and \

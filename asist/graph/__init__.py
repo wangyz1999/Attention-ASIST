@@ -347,6 +347,16 @@ class Graph(nx.Graph):
         assert isinstance(room, RoomNode)
         return any(self.id2node[n].victim_type == VictimType.Green for n in room.victim_list)
 
+    def add_victim_blocking_rubble(self, victim_id, rubbles):
+        for rubble in rubbles:
+            assert isinstance(rubble, tuple)
+            self[victim_id].blocking_rubbles.append(rubble)
+
+    def add_room_blocking_rubble(self, room_id, rubbles):
+        for rubble in rubbles:
+            assert isinstance(rubble, tuple)
+            self[room_id].blocking_rubbles.append(rubble)
+
     def better_layout(self, with_spring=False, portal_sep=1.5, fix_portal=True, expand_iteration=20, expand_radius=2.5, shift_dist=0.1):
         """ Make the map layout adhere to the original coordinate layout
         :param with_spring: Experimental, whether to use the networkx spring layout

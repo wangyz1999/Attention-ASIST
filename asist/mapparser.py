@@ -3,6 +3,24 @@ import asist.graph as graph
 import pandas as pd
 import numpy as np
 
+
+def add_blocking_rubble_to_graph(g, victim_data, room_data):
+    for vd in victim_data:
+        vd_l = vd.split("\t")
+        v_id = vd_l[0]
+        v_rb = eval(vd_l[2])
+        if len(v_rb) > 0:
+            g.add_victim_blocking_rubble(v_id, v_rb)
+
+    # for rd in room_data:
+    #     rd_l = rd.split("\t")
+    #     r_id = rd_l[0]
+    #     r_rb = eval(rd_l[2])
+    #     if len(r_rb) > 0:
+    #         g.add_room_blocking_rubble(r_id, r_rb)
+    return g
+
+
 class MapParser:
     @classmethod
     def victim_type_str_to_type(cls, type_str):

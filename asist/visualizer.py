@@ -1,4 +1,5 @@
 from mapparser import MapParser
+from mapparser import add_blocking_rubble_to_graph
 import matplotlib.pyplot as plt
 import matplotlib.animation
 import pandas as pd
@@ -10,7 +11,7 @@ import graph
 
 # pos = nx.spring_layout(graph, k=0.9, iterations=3, pos=pos, fixed=fix, weight=3)
 
-def plot_graph(graph, save=None, pop_out=False, hide_portal_label=False):
+def plot_graph(graph, save=None, pop_out=False, hide_portal_label=False, with_rubble_info=False):
     if pop_out:
         matplotlib.use("TkAgg")
     # Get position
@@ -32,6 +33,10 @@ def plot_graph(graph, save=None, pop_out=False, hide_portal_label=False):
                 label_dict[nodes] = ""
             else:
                 label_dict[nodes] = nodes
+            try:
+                label_dict[nodes] += ":" + str(len(nodes.blocking_rubbles))
+            except:
+                pass
 
         nx.draw_networkx(graph, pos, labels=label_dict, with_labels=True, node_color=color_map, node_size=40,
                          font_size=4, width=0.5)
@@ -265,6 +270,11 @@ if __name__ == '__main__':
 
     graph = MapParser.parse_saturn_map(data)
 
+    victim_rubble_file = open('data/json/Saturn/SaturnA_victim_rubble.txt').read().split("\n")
+    room_rubble_file = open('data/json/Saturn/SaturnA_room_rubble.txt').read().split("\n")
+
+    graph = add_blocking_rubble_to_graph(graph, victim_rubble_file, room_rubble_file)
+
     max_count = -1
     for n in graph.nodes_list:
         count = 0
@@ -274,7 +284,7 @@ if __name__ == '__main__':
         max_count = max(max_count, count)
     print(len(graph.nodes_list))
 
-    plot_graph(graph, save="Semantic_Graph/Saturn_1.5_A", hide_portal_label=True)
+    plot_graph(graph, save="Semantic_Graph/Saturn_1.5_A_rubble", hide_portal_label=True)
     # animate_graph()
 
     # plot_random_graph()
