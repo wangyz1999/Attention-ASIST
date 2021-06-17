@@ -1,7 +1,6 @@
 [core]
-    remote = storage
-['remote "storage"']
-    url = s3://asist-data
-    access_key_id = AKIAY3NCQJSNEQO3L5HA
-    secret_access_key = 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
-    use_ssl = false
+    remote = s3-ict
+['remote "s3-personal"']
+    url = s3://ict-assist-dvc
+['remote "s3-ict"']
+    url = s3://ict-assist-dvc-2

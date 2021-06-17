@@ -3,3 +3,8 @@ logs/
 .idea/
 .ipynb_checkpoints/
 /outputs
+outputs/
+/outputs
+/logs
+.pyc
+/wandb

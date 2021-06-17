@@ -63,10 +63,13 @@ class WarmupBaseline(Baseline):
 
     def epoch_callback(self, model, epoch):
         # Need to call epoch callback of inner model (also after first epoch if we have not used it)
-        self.baseline.epoch_callback(model, epoch)
+        metrics = self.baseline.epoch_callback(model, epoch)
         self.alpha = (epoch + 1) / float(self.n_epochs)
         if epoch < self.n_epochs:
             print("Set warmup alpha = {}".format(self.alpha))
+
+        # Return metrics, if any
+        return metrics
 
     def state_dict(self):
         # Checkpointing within warmup stage makes no sense, only save inner baseline
@@ -212,6 +215,15 @@ class RolloutBaseline(Baseline):
             if p_val < self.opts.bl_alpha:
                 print('Update baseline')
                 self._update_model(model, epoch)
+
+        # Returns a baseline metric
+        metrics = {
+            'candidate_mean': candidate_mean,
+            'baseline_mean': self.mean,
+            'difference': candidate_mean - self.mean
+        }
+
+        return metrics
 
     def state_dict(self):
         return {

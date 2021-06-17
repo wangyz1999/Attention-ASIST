@@ -15,6 +15,9 @@ from utils import load_model
 import visualizer
 import graph
 
+from matplotlib import pyplot as plt
+import matplotlib.colors as colors
+
 def plot_tsp(xy, tour, ax1):
 
     """
@@ -44,6 +47,20 @@ def plot_tsp(xy, tour, ax1):
     )
     print('OPTIMAL PATH: {} nodes, total length {:.2f}'.format(len(tour), lengths[-1]))
     ax1.set_title('{} nodes, total length {:.2f}'.format(len(tour), lengths[-1]))
+
+def get_length(xy, tour):
+
+    """
+    get tsp tour length without doing plot
+    """
+    xs, ys = xy[tour].transpose()
+    xs, ys = xy[tour].transpose()
+    dx = np.roll(xs, -1) - xs
+    dy = np.roll(ys, -1) - ys
+    d = np.sqrt(dx * dx + dy * dy)
+    lengths = d.cumsum()
+
+    return lengths[-1]
 
 def make_oracle(model, xy, temperature=1.0):
     num_nodes = len(xy)
@@ -81,19 +98,25 @@ def make_oracle(model, xy, temperature=1.0):
     
     return oracle
 
-def get_graph_coords_json(jfile, model):
+# set max victims in case you want to use a model with fewer nodes than your map
+# excludes allows to recreate new graph after victims have been rescued
+def get_graph_coords_json(jfile, model, start_node='ew', max_victims=34, excludes=[]):
     with open(jfile) as f:
         data = json.load(f)
 
-    orig_graph = MapParser.parse_json_map_data(data)
+    orig_graph = MapParser.parse_json_map_data(data, excludes)
     victim_list_copy = orig_graph.victim_list.copy()
     prize_list = []
-    for v in victim_list_copy:
+    nexcludes = len(excludes)
+    #for v in victim_list_copy:
+    for i in range(0,max_victims-nexcludes):
+        v = victim_list_copy[i]
         if v.victim_type == VictimType.Yellow:
             prize_list.append(0.3)
         elif v.victim_type == VictimType.Green:
             prize_list.append(0.1)
-    node_list = [orig_graph['ew']] + victim_list_copy
+
+    node_list = [orig_graph[start_node]] + victim_list_copy
     D = get_distance_matrix_original(orig_graph, node_list)
     
     ##### graph original set of victims to use for indexing
@@ -129,7 +152,7 @@ def get_graph_coords_json(jfile, model):
     ###### format coordinate array (from jupytr)
     xy = [some_obj[0][0]] + some_obj[0][1]
     xy = np.array(some_obj[0][1])
-    print(xy)
+    #print(xy)
 
     oracle = make_oracle(model, xy)
     sample = False
@@ -148,13 +171,14 @@ def get_graph_coords_json(jfile, model):
         tour.append(i)
         tour_p.append(p)
     
-    print(tour)
+    # print(tour)
     # rearrange the tour such that depot is at the beginning
+    #  maybe don't need depot if mid game?
     zero = tour.index(0)
     tour = tour[zero:] + tour[:zero]
     tour_p = tour_p[zero:] + tour_p[:zero]
-    print(tour)
-    return victim_graph, tour, xy
+    #print(tour)
+    return orig_graph, victim_graph, tour, xy
 
 def get_coords_pkl(pklfile, model):
     with open(pklfile, 'rb') as f:
@@ -191,34 +215,39 @@ def get_coords_pkl(pklfile, model):
 
 # plot optimized graph with normalized values to see if new json file looks like plot_tsp
 # TODO: get nvals & nxvals & span from graph
-def plot_graph_norm(optgraph,tour):
-
+def plot_graph_norm(optgraph, tour):
     nxvals = 71
     nzvals = 46
-    newxy = []
+    normxy = []
+    regxy = []
+    xvals = []
+    zvals = []
     minx = optgraph.nodes_list[0].loc[0]
     maxx = optgraph.nodes_list[0].loc[0]
     minz = optgraph.nodes_list[0].loc[1]
     maxz = optgraph.nodes_list[0].loc[1]
-    for i in range(0,len(tour)-1):
-        idx1 = tour[i]
-        n1 = optgraph.nodes_list[idx1]
-        if n1.loc[0] < minx:
-            minx = n1.loc[0]
-        if n1.loc[0] > maxx:
-            maxx = n1.loc[0]
-        if n1.loc[1] < minz:
-            minz = n1.loc[1]
-        if n1.loc[1] > maxz:
-            maxz = n1.loc[1]
-        loc1 = (n1.loc[0]+2096)/nxvals
-        loc2 = (n1.loc[1]-145)/nzvals
-        newxy.append((loc1,loc2))
-        print("orig x = "+str(n1.loc[0])+" orig z = "+str(n1.loc[1]))
+    for n in optgraph.nodes_list:
+        xvals.append(n.loc[0])
+        zvals.append(n.loc[1])
+        regxy.append((n.loc[0], n.loc[1]))
+        if n.loc[0] < minx:
+            minx = n.loc[0]
+        if n.loc[0] > maxx:
+            maxx = n.loc[0]
+        if n.loc[1] < minz:
+            minz = n.loc[1]
+        if n.loc[1] > maxz:
+            maxz = n.loc[1]
+        loc1 = (n.loc[0]+2096)/nxvals
+        loc2 = (n.loc[1]-145)/nzvals
+        normxy.append((loc1,loc2))
+        print("orig x = "+str(n.loc[0])+" orig z = "+str(n.loc[1]))
         print("new x  = "+str(loc1)+" new z  = "+str(loc2))
-    print(" min x = "+str(minx)+" maxx = "+str(maxx)+" minz = "+str(minz)+" maxz "+str(maxz))
-    #visualizer.plot_graph(optgraph)
-    return np.array(newxy)
+    print(" min x = "+str(minx)+" maxx = "+str(maxx)+" minz = "+str(minz)+" maxz "+str(maxz)+" lenxy = "+str(len(normxy)))    
+
+    fig, ax = plt.subplots(figsize=(10, 10))
+    plot_tsp(np.array(normxy), tour, ax)
+    plt.show()
 
 ##### writing new path to map file -- currently can only run when you have full semantic map
 ## TODO: update to run with just tour & xy
@@ -260,3 +289,40 @@ def write_optimal_json(tour, optgraph, fname):
     json.dump(data,jout,indent=True)
     jout.close()         
 
+def write_optimal_json_no_graph(tour, fname):
+    idxs_for_json = []
+    colors_for_json = []
+    for i in range(0,len(tour)-1):
+        idx1 = tour[i]
+        idx2 = tour[i+1]
+        n1 = optgraph.nodes_list[idx1]
+        n2 = optgraph.nodes_list[idx2]
+        optgraph.add_edge(n1, n2, weight=1)
+        idxs_for_json.append((n1.loc))
+        if optgraph.nodes_list[idx1].victim_type == VictimType.Yellow:
+            c = "yellow"
+        else:
+            c = "green"
+        colors_for_json.append(c+"_victim")
+
+    vcnt = 0
+    jout = open(fname, 'w') # new file only has victim locations, do we want to add back the other stuff?
+    data = {}
+    data['objects'] = []
+    for x in idxs_for_json:
+        data['objects'].append({
+            "id":"vg"+str(vcnt),
+            "type": colors_for_json[vcnt],
+            "bounds": {
+                "type" : "block",
+                "coordinates": [
+                    {
+                        "x": x[0], 
+                        "z": x[1]
+                        }
+                    ]
+                }
+            })
+        vcnt += 1
+    json.dump(data,jout,indent=True)
+    jout.close()         

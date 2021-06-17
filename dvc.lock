@@ -1,0 +1,34 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python run.py --arg_yaml_file params.yaml
+    deps:
+    - path: reinforce_baselines.py
+      md5: 78e4604e89bbbaa7a83151b2068ca05b
+      size: 8484
+    - path: run.py
+      md5: b2ccad35d1fb180abf71fe282e207f18
+      size: 7127
+    - path: train.py
+      md5: d4a9c75e190dc4162754b815895efa2d
+      size: 5308
+    params:
+      params.yaml:
+        graph_size: 20
+        high_value: 0.5
+        n_epochs: 1
+        problem: pcvrp
+        problem_params:
+          PRICE_MODE: 0
+    outs:
+    - path: logs
+      md5: 98b0c7913235253757e43d92a8720189.dir
+      size: 368
+      nfiles: 1
+    - path: outputs
+      md5: 16b303dd8408df0d346d446c84d21b4d.dir
+      size: 25465592
+      nfiles: 2
+    - path: scores/scores.json
+      md5: 204895043439b5ac15f9655bc17d6fe0
+      size: 131

@@ -8,6 +8,9 @@ dependencies:
 - tqdm
 - pytorch
 - torchvision
+- yaml
 - cuda91
+- pip
+- wandb
 - pip:
   - tensorboard_logger
