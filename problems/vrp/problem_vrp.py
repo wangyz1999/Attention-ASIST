@@ -81,7 +81,6 @@ class CVRP(object):
 
         return beam_search(state, beam_size, propose_expansions)
 
-
 class SDVRP(object):
 
     NAME = 'sdvrp'  # Split Delivery Vehicle Routing Problem

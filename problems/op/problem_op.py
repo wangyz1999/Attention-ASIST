@@ -3,6 +3,7 @@ import torch
 import os
 import pickle
 from problems.op.state_op import StateOP
+from problems.op.state_dop import StateDOP
 from utils.beam_search import beam_search
 
 
@@ -54,56 +55,6 @@ class OP(object):
         return -p.sum(-1), None
 
     @staticmethod
-    def get_costs_wj(dataset, pi):
-        print("44444444444444444444444444444444444444")
-        if pi.size(-1) == 1:  # In case all tours directly return to depot, prevent further problems
-            assert (pi == 0).all(), "If all length 1 tours, they should be zero"
-            # Return
-            return torch.zeros(pi.size(0), dtype=torch.float, device=pi.device), None
-
-        # Check that tours are valid, i.e. contain 0 to n -1
-        sorted_pi = pi.data.sort(1)[0]
-        # Make sure each node visited once at most (except for depot)
-        assert ((sorted_pi[:, 1:] == 0) | (sorted_pi[:, 1:] > sorted_pi[:, :-1])).all(), "Duplicates"
-
-        prize_with_depot = torch.cat(
-            (
-                torch.zeros_like(dataset['prize'][:, :1]),
-                dataset['prize']
-            ),
-            1
-        )
-        p = prize_with_depot.gather(1, pi)
-
-        print(p)
-
-        # Gather dataset in order of tour
-        # loc_with_depot = torch.cat((dataset['depot'][:, None, :], dataset['loc']), 1)
-        # print(loc_with_depot)
-        # d = loc_with_depot.gather(1, pi[..., None].expand(*pi.size(), loc_with_depot.size(-1)))
-        # print(d)
-        # length = (
-        #         (d[:, 1:] - d[:, :-1]).norm(p=2, dim=-1).sum(1)  # Prevent error if len 1 seq
-        #         + (d[:, 0] - dataset['depot']).norm(p=2, dim=-1)  # Depot to first
-        #         + (d[:, -1] - dataset['depot']).norm(p=2, dim=-1)  # Last to depot, will be 0 if depot is last
-        # )
-        # print("Length:", length)
-
-        with open(r'C:\Users\wyunzhe\Desktop\attention-learn-to-route-master\asist\falcon_hard_distance_matrix_noTriage.pkl', 'rb') as f:
-            distance_matrix = pickle.load(f)
-
-        length = 0
-        D = distance_matrix
-        for node in range(len(pi)-1):
-            length += D[pi[node]][pi[node+1]]
-
-        assert (length <= dataset['max_length'] + 1e-5).all(), \
-            "Max length exceeded by {}".format((length - dataset['max_length']).max())
-
-        # We want to maximize total prize but code minimizes so return negative
-        return -p.sum(-1), None
-
-    @staticmethod
     def make_dataset(*args, **kwargs):
         return OPDataset(*args, **kwargs)
 
@@ -130,6 +81,79 @@ class OP(object):
 
         return beam_search(state, beam_size, propose_expansions)
 
+class DOP(object):
+
+    NAME = 'dop'  # Discounted Orienteering problem
+
+    @staticmethod
+    def get_costs(dataset, pi):
+        # print(pi)
+        if pi.size(-1) == 1:  # In case all tours directly return to depot, prevent further problems
+            assert (pi == 0).all(), "If all length 1 tours, they should be zero"
+            # Return
+            return torch.zeros(pi.size(0), dtype=torch.float, device=pi.device), None
+
+        # Check that tours are valid, i.e. contain 0 to n -1
+        sorted_pi = pi.data.sort(1)[0]
+        # Make sure each node visited once at most (except for depot)
+        assert ((sorted_pi[:, 1:] == 0) | (sorted_pi[:, 1:] > sorted_pi[:, :-1])).all(), "Duplicates"
+
+        prize_with_depot = torch.cat(
+            (
+                torch.zeros_like(dataset['prize'][:, :1]),
+                dataset['prize']
+            ),
+            1
+        )
+        # print(prize_with_depot)
+        p = prize_with_depot.gather(1, pi)
+        # print(p)
+
+        # Gather dataset in order of tour
+        loc_with_depot = torch.cat((dataset['depot'][:, None, :], dataset['loc']), 1)
+        d = loc_with_depot.gather(1, pi[..., None].expand(*pi.size(), loc_with_depot.size(-1)))
+        # length = (
+        #     (d[:, 1:] - d[:, :-1]).norm(p=2, dim=-1).sum(1)  # Prevent error if len 1 seq
+        #     + (d[:, 0] - dataset['depot']).norm(p=2, dim=-1)  # Depot to first
+        #     + (d[:, -1] - dataset['depot']).norm(p=2, dim=-1)  # Last to depot, will be 0 if depot is last
+        # )
+        length = (
+                (d[:, 1:] - d[:, :-1]).norm(p=2, dim=-1).sum(1)  # Prevent error if len 1 seq
+                + (d[:, 0] - dataset['depot']).norm(p=2, dim=-1)  # Depot to first
+        )
+        # print("Length:", length)
+        assert (length <= dataset['max_length'] + 1e-5).all(), \
+            "Max length exceeded by {}".format((length - dataset['max_length']).max())
+
+        # We want to maximize total prize but code minimizes so return negative
+        return -p.sum(-1), None
+
+    @staticmethod
+    def make_dataset(*args, **kwargs):
+        return OPDataset(*args, **kwargs)
+
+    @staticmethod
+    def make_state(*args, **kwargs):
+        return StateDOP.initialize(*args, **kwargs)
+
+    @staticmethod
+    def beam_search(input, beam_size, expand_size=None,
+                    compress_mask=False, model=None, max_calc_batch_size=4096):
+
+        assert model is not None, "Provide model"
+
+        fixed = model.precompute_fixed(input)
+
+        def propose_expansions(beam):
+            return model.propose_expansions(
+                beam, fixed, expand_size, normalize=True, max_calc_batch_size=max_calc_batch_size
+            )
+
+        state = OP.make_state(
+            input, visited_dtype=torch.int64 if compress_mask else torch.uint8
+        )
+
+        return beam_search(state, beam_size, propose_expansions)
 
 def generate_instance(size, prize_type):
     # Details see paper
@@ -140,6 +164,17 @@ def generate_instance(size, prize_type):
         # 34: 39.
         34: 3.8,
         55: 5.5,
+        10: 1.6
+    }
+
+    THRESHOLD_LENGTHS = {
+        20: 1.,
+        50: 1.5,
+        100: 2.,
+        # 34: 39.
+        34: 1.9,
+        55: 2.75,
+        10: 1.
     }
 
 
@@ -173,7 +208,8 @@ def generate_instance(size, prize_type):
         # Uniform 1 - 9, scaled by capacities
         'prize': prize,
         'depot': depot,
-        'max_length': torch.tensor(MAX_LENGTHS[size])
+        'max_length': torch.tensor(MAX_LENGTHS[size]),
+        'threshold_length': torch.tensor(THRESHOLD_LENGTHS[size])
     }
 
 

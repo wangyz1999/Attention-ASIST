@@ -62,8 +62,9 @@ class AttentionModel(nn.Module):
         self.temp = 1.0
         self.allow_partial = problem.NAME == 'sdvrp'
         self.is_vrp = problem.NAME == 'cvrp' or problem.NAME == 'sdvrp'
-        self.is_orienteering = problem.NAME == 'op'
+        self.is_orienteering = problem.NAME == 'op' or problem.NAME == 'dop'
         self.is_pctsp = problem.NAME == 'pctsp'
+        self.is_pcvrp = problem.NAME == 'pcvrp'
 
         self.tanh_clipping = tanh_clipping
 
@@ -76,11 +77,11 @@ class AttentionModel(nn.Module):
         self.shrink_size = shrink_size
 
         # Problem specific context parameters (placeholder and step context dimension)
-        if self.is_vrp or self.is_orienteering or self.is_pctsp:
+        if self.is_vrp or self.is_orienteering or self.is_pctsp or self.is_pcvrp:
             # Embedding of last node + remaining_capacity / remaining length / remaining prize to collect
             step_context_dim = embedding_dim + 1
 
-            if self.is_pctsp:
+            if self.is_pctsp or self.is_pcvrp:
                 node_dim = 4  # x, y, expected_prize, penalty
             else:
                 node_dim = 3  # x, y, demand / prize
@@ -202,9 +203,11 @@ class AttentionModel(nn.Module):
 
     def _init_embed(self, input):
 
-        if self.is_vrp or self.is_orienteering or self.is_pctsp:
+        if self.is_vrp or self.is_orienteering or self.is_pctsp or self.is_pcvrp:
             if self.is_vrp:
                 features = ('demand', )
+            elif self.is_pcvrp:
+                features = ('demand', 'prize', )
             elif self.is_orienteering:
                 features = ('prize', )
             else:
@@ -379,7 +382,7 @@ class AttentionModel(nn.Module):
         current_node = state.get_current_node()
         batch_size, num_steps = current_node.size()
 
-        if self.is_vrp:
+        if self.is_vrp or self.is_pcvrp:
             # Embedding of previous node + remaining capacity
             if from_depot:
                 # 1st dimension is node idx, but we do not squeeze it since we want to insert step dimension

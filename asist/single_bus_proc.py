@@ -13,8 +13,8 @@ from utils import load_model
 from interface_utils import *
 
 # process triage from message bus
-modfile = '../outputs/tsp_55/tsp55_20210312T130700/epoch-12.pt'
-smap = 'data/json/Saturn_1.0_sm_with_victimsA.json'
+modfile = '/app/Attention-ASIST/asist/epoch-12.pt'
+smap = '/app/Attention-ASIST/asist/Saturn_1.0_sm_with_victimsA.json'
 #smap = 'data/json/Saturn_1.0_sm_with_victimsB.json'
 rooms = []
 
@@ -109,6 +109,56 @@ def get_next_victim_load(vx=0, vz=0, excludes=[]):
             next_room = r.name
             break
     return next_room, vx, vz, excludes
+
+def get_remaining_victims_load(vx=0, vz=0, excludes=[]):
+    load_rooms()
+    model, _ = load_model(modfile)
+    model.eval()
+
+    nvictims = 55
+    triage_room = ''
+    vid = ''
+    # find victim room
+    for r in rooms:
+        if r.in_room(vx,vz):
+            triage_room = r.name
+            break
+    # make curr triage location the start node
+    start_node = triage_room
+    # run opt to get graph info and determine optimal path
+    orig_graph, optgraph, tour, xy = get_graph_coords_json(smap, model, start_node, nvictims, excludes)
+    # get id for victim so can add to excludes
+    rescuedidx = 0
+    for n in optgraph.nodes_list:
+        x,z = n.loc
+        if x == vx and z == vz:
+            rescuedid = optgraph.victim_list[rescuedidx].id
+            vid = rescuedid
+            # got victim id
+            found = True
+            break
+        rescuedidx += 1
+    excludes.append(vid)
+    
+    # get next victim from optimal path---should it be tour[1], tour[0] is current room
+    vx = optgraph.victim_list[tour[1]].loc[0]
+    vz = optgraph.victim_list[tour[1]].loc[1]
+    vid = optgraph.victim_list[tour[1]].id
+
+    vxs = []
+    vzs = []
+    nvictims = len(optgraph.victim_list)
+    for i in range(1,nvictims):
+        vxs.append(optgraph.victim_list[tour[i]].loc[0])
+        vzs.append(optgraph.victim_list[tour[i]].loc[1])                   
+    
+    # find room for new victim where agent should go next
+    next_room = ''
+    for r in rooms:
+        if r.in_room(vx,vz):
+            next_room = r.name
+            break
+    return next_room, vxs, vzs, excludes # wont need room leaving for now
 
 # test
 if __name__ == '__main__':

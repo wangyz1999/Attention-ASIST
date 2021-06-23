@@ -6,10 +6,11 @@ Simple ASIST Agent
 Author: Roger Carff
 email:rcarff@ihmc.us
 """
-
+ 
 import os
 import json
 from helpers.ASISTAgentHelper import ASISTAgentHelper
+import time
 
 import single_bus_proc
 
@@ -32,7 +33,7 @@ def on_message(message):
     # Now handle the message based on the topic.  Refer to Message Specs for the contents of header, msg, and data
     if topic == 'trial':
         if msg['sub_type'] == 'start':
-            print("STARTING.....................")
+            print("STARTING................")
             # handle the start of a trial!!
             trial_info = data
             trial_info['experiment_id'] = msg['experiment_id']
@@ -50,9 +51,9 @@ def on_message(message):
         vx = int(data['victim_x'])
         vz = int(data['victim_z'])
         
-        print("VICTIM FOUND....calling opt code...."+str(vx)+", "+str(vz))
-        next_room, newx, newz,_ = single_bus_proc.get_next_victim_load(vx,vz)
-        print("NEXT VICTIM SHOULD BE: "+str(newx)+", "+str(newz)+" in room "+str(next_room))
+        print("VICTIM FOUND....calling NEW opt code..."+str(vx)+", "+str(vz))
+        next_room, newxs, newzs,_ = single_bus_proc.get_remaining_victims_load(vx,vz)
+        print("NEXT VICTIMS SHOULD BE: "+str(newxs)+", "+str(newzs)+" in room "+str(next_room))
 
         trial_info = data
         trial_info['experiment_id'] = msg['experiment_id']
@@ -60,22 +61,25 @@ def on_message(message):
         trial_info['replay_root_id'] = None
         trial_info['replay_id'] = None
         
-        comment = format(data['triage_state'])
+        comment = "victim to be triaged"
         # build up the message's data and publish it
         msg_data = {
             "playername": data['playername'],
             "comment": comment,
-            "next_x": str(newx),
-            "next_z": str(newz)
+            "victim_x": newxs,
+            "victim_z": newzs,
+            "color": "NEXT",
+            "triage_state": "SUCCESSFUL", # for use with viz
+            "elapsed_milliseconds": data['elapsed_milliseconds'],
+            "mission_timer": data['mission_timer']
             #"comment": "coords "+str(vx)+", "+str(vz)
         }
         #print("msg data = "+str(msg_data))
         #print("trial info = "+str(trial_info))
         #helper.subscribe('observations/events/player/tool_used')            
-        # try setting to topic we're subscribed to so can see in bus?
-        helper.send_msg_with_timestamp("Agent/Commentator",
-                                       "comment",
-                                       "xxxxx",
+        helper.send_msg_with_timestamp("agent/opt_triage",
+                                       "event",
+                                       "OPTPATH",
                                        "1.0",
                                        trial_info,
                                        msg['timestamp'],

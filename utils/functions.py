@@ -10,17 +10,25 @@ from multiprocessing import Pool
 import torch.nn.functional as F
 
 
-def load_problem(name):
-    from problems import TSP, CVRP, SDVRP, OP, PCTSPDet, PCTSPStoch
+def load_problem(name, **kwargs):
+    from problems import TSP, CVRP, SDVRP, OP, PCTSPDet, PCTSPStoch, DOP, PCVRP
     problem = {
         'tsp': TSP,
         'cvrp': CVRP,
         'sdvrp': SDVRP,
+        'pcvrp': PCVRP,
         'op': OP,
+        'dop': DOP,
         'pctsp_det': PCTSPDet,
         'pctsp_stoch': PCTSPStoch,
     }.get(name, None)
     assert problem is not None, "Currently unsupported problem: {}!".format(name)
+
+    # Set attributes of that problem if additional keyword arguments are provided
+    if kwargs is not None:
+        for key, val in kwargs.items():
+            setattr(problem, key, val)
+
     return problem
 
 

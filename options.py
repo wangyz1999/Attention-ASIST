@@ -2,11 +2,16 @@ import os
 import time
 import argparse
 import torch
+import yaml
 
 
 def get_options(args=None):
     parser = argparse.ArgumentParser(
         description="Attention based model for solving the Travelling Salesman Problem with Reinforcement Learning")
+
+    # Meta
+    parser.add_argument('--arg_yaml_file', default=None, help="If specified, load the args from the specified yaml "
+                                                              "file")
 
     # Data
     parser.add_argument('--problem', default='tsp', help="The problem to solve, default 'tsp'")
@@ -71,7 +76,19 @@ def get_options(args=None):
     parser.add_argument('--no_tensorboard', action='store_true', help='Disable logging TensorBoard files')
     parser.add_argument('--no_progress_bar', action='store_true', help='Disable progress bar')
 
+    # Some custom parameters
+    parser.add_argument('--high_value', type=float, default=0.5, help='price of triaging high value victims')
+    parser.add_argument('--cuda', type=int, default=0, help='GPU index')
+
     opts = parser.parse_args(args)
+
+    # If specified, load args from the yaml file
+    if opts.arg_yaml_file is not None:
+        with open(opts.arg_yaml_file, 'r') as arg_file:
+            yaml_args = yaml.safe_load(arg_file)
+            # Set attributes to the Namespace instance returned by the parser
+            for key, val in yaml_args.items():
+                setattr(opts, key, val)
 
     opts.use_cuda = torch.cuda.is_available() and not opts.no_cuda
     opts.run_name = "{}_{}".format(opts.run_name, time.strftime("%Y%m%dT%H%M%S"))
@@ -85,3 +102,9 @@ def get_options(args=None):
     assert (opts.bl_warmup_epochs == 0) or (opts.baseline == 'rollout')
     assert opts.epoch_size % opts.batch_size == 0, "Epoch size must be integer multiple of batch size!"
     return opts
+
+
+if __name__ == '__main__':
+    # Test calling parsing args with params.yaml\
+    opts = get_options(args=['--arg_yaml_file', "params.yaml"])
+    print(opts)
