@@ -44,12 +44,13 @@ def discrete_cmap(N, base_cmap=None):
   cmap_name = base.name + str(N)
   return base.from_list(cmap_name, color_list, N)
 
-def plot_vehicle_routes(data, route, ax1, markersize=5, visualize_demands=False, demand_scale=1, round_demand=False):
+def plot_vehicle_routes(data, route, ax1, markersize=5, visualize_demands=False, demand_scale=1, round_demand=False, return_routes=False):
     """
     Plot the vehicle routes on matplotlib axis ax1.
     """
     
     # route is one sequence, separating different routes with 0 (depot)
+    # print(route)
     routes = [r[r!=0] for r in np.split(route.cpu().numpy(), np.where(route==0)[0]) if (r != 0).any()]
     depot = data['depot'].cpu().numpy()
     locs = data['loc'].cpu().numpy()
@@ -57,7 +58,8 @@ def plot_vehicle_routes(data, route, ax1, markersize=5, visualize_demands=False,
     prizes = data['prize'].cpu().numpy()
     capacity = demand_scale # Capacity is always 1
 
-    print(prizes)
+    # print(prizes)
+    # print(routes)
     
     x_dep, y_dep = depot
     ax1.plot(x_dep, y_dep, 'sk', markersize=markersize*4)
@@ -72,21 +74,32 @@ def plot_vehicle_routes(data, route, ax1, markersize=5, visualize_demands=False,
     cap_rects = []
     qvs = []
     total_dist = 0
+    total_prize = 0
+    total_discount_prize = 0
+
+    conti_discount = 1
+    conti_discount_factor = 0.99
     for veh_number, r in enumerate(routes):
         color = cmap(len(routes) - veh_number) # Invert to have in rainbow order
-        
+
         route_demands = demands[r - 1]
         coords = locs[r - 1, :]
         xs, ys = coords.transpose()
 
         total_route_demand = sum(route_demands)
         # assert total_route_demand <= capacity
+        prize = 0
+        discount_prize = 0
         if not visualize_demands:
-            print(prizes[r-1])
+            # print(prizes[r-1])
             ax1.plot(xs, ys, 'o', mfc=color, markersize=markersize, markeredgewidth=0.0)
             for idx, (x, y) in enumerate(zip(xs, ys)):
-                label = prizes[r-1][idx]
-                plt.annotate(label, (x,y), textcoords="offset points", xytext=(0,10), ha='center')
+                p_label = prizes[r-1][idx]
+                dp_label = p_label * conti_discount
+                conti_discount *= conti_discount_factor
+                prize += float(p_label)
+                discount_prize += float(dp_label)
+                plt.annotate(f"{p_label:.1f} ({dp_label:.2f})", (x, y), textcoords="offset points", xytext=(0, 10), ha='center')
         
         dist = 0
         x_prev, y_prev = x_dep, y_dep
@@ -103,6 +116,8 @@ def plot_vehicle_routes(data, route, ax1, markersize=5, visualize_demands=False,
             
         dist += np.sqrt((x_dep - x_prev) ** 2 + (y_dep - y_prev) ** 2)
         total_dist += dist
+        total_prize += prize
+        total_discount_prize += discount_prize
         qv = ax1.quiver(
             xs[:-1],
             ys[:-1],
@@ -112,18 +127,19 @@ def plot_vehicle_routes(data, route, ax1, markersize=5, visualize_demands=False,
             angles='xy',
             scale=1,
             color=color,
-            label='R{}, # {}, c {} / {}, d {:.2f}'.format(
+            label='R{}, #{}, c {}/{}, d {:.2f} p {:.1f}'.format(
                 veh_number, 
                 len(r), 
                 int(total_route_demand) if round_demand else total_route_demand, 
                 int(capacity) if round_demand else capacity,
-                dist
+                dist,
+                prize
             )
         )
         
         qvs.append(qv)
         
-    ax1.set_title('{} routes, total distance {:.2f}'.format(len(routes), total_dist))
+    ax1.set_title('{} routes, distance {:.2f}, prize {:.1f}, discounted_prize {:.3f}, cost {:.3f}'.format(len(routes), total_dist, total_prize, total_discount_prize, total_dist-total_discount_prize))
     ax1.legend(handles=qvs)
     
     pc_cap = PatchCollection(cap_rects, facecolor='whitesmoke', alpha=1.0, edgecolor='lightgray')
@@ -135,49 +151,58 @@ def plot_vehicle_routes(data, route, ax1, markersize=5, visualize_demands=False,
         ax1.add_collection(pc_used)
         ax1.add_collection(pc_dem)
 
-
-# In[11]:
-
-high_value = 0.1
-model, _ = load_model(f'../outputs/pcvrp_20/pcvrp_test_2_high_val_{high_value}/')
-torch.manual_seed(1000)
-dataset = PCVRP.make_dataset(size=20, num_samples=1, high_value=high_value)
+    if return_routes:
+        return [[0] + i.tolist() for i in routes], total_dist-total_discount_prize
 
 
-# In[12]:
+
+if __name__ == "__main__":
+
+    high_value = 0.1
+    PRICE_MODE = 2
+
+    for high_value in [0.1, 0.4, 0.7, 1]:
+        for PRICE_MODE in [1, 2]:
+
+            model, _ = load_model(f'../outputs/2021-6-23/graph_size=55,price_mode={PRICE_MODE},high_value={high_value}')
+            torch.manual_seed(1004)
+            dataset = PCVRP.make_dataset(size=55, num_samples=1, high_value=high_value)
 
 
-# print(dir(dataset))
-# print(type(dataset.data[0]))
-# print(dataset.data[0])
+            # In[12]:
 
 
-# In[16]:
+            # print(dir(dataset))
+            # print(type(dataset.data[0]))
+            # print(dataset.data[0])
 
 
-# Need a dataloader to batch instances
-dataloader = DataLoader(dataset, batch_size=1000)
+            # In[16]:
 
-# Make var works for dicts
-batch = next(iter(dataloader))
 
-# Run the model
-model.eval()
-model.set_decode_type('greedy')
-with torch.no_grad():
-    length, log_p, pi = model(batch, return_pi=True)
-tours = pi
+            # Need a dataloader to batch instances
+            dataloader = DataLoader(dataset, batch_size=1000)
 
-print(tours.shape)
-print(tours[0])
+            # Make var works for dicts
+            batch = next(iter(dataloader))
 
-# Plot the results
-for i, (data, tour) in enumerate(zip(dataset, tours)):
-    print(data)
-    fig, ax = plt.subplots(figsize=(10, 10))
-    plot_vehicle_routes(data, tour, ax, visualize_demands=False, demand_scale=50, round_demand=True)
-    # fig.savefig(os.path.join('images', 'cvrp_{}.png'.format(i)))
-    fig.savefig(os.path.join('../images', f'pcvrp_{high_value}.png'))
+            # Run the model
+            model.eval()
+            model.set_decode_type('greedy')
+            with torch.no_grad():
+                length, log_p, pi = model(batch, return_pi=True)
+            tours = pi
+
+            # print(tours.shape)
+            # print(tours[0])
+
+            # Plot the results
+            for i, (data, tour) in enumerate(zip(dataset, tours)):
+                # print(data)
+                fig, ax = plt.subplots(figsize=(10, 10))
+                plot_vehicle_routes(data, tour, ax, visualize_demands=False, demand_scale=50, round_demand=True)
+                # fig.savefig(os.path.join('images', 'cvrp_{}.png'.format(i)))
+                fig.savefig(os.path.join('../images', f'pcvrp_price_mode={PRICE_MODE}_high_value={high_value}.png'))
 
 
 

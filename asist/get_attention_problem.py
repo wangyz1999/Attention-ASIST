@@ -2,7 +2,7 @@ import json
 import matplotlib.pyplot as plt
 import numpy as np
 import networkx as nx
-from environment import MapParser
+from asist.mapparser import MapParser
 from graph import VictimType
 import pickle
 from numpy import linalg as LA
@@ -13,7 +13,7 @@ import visualizer
 def center(pos1, pos2):
     return (pos1[0] + pos2[0])/2, (pos1[1] + pos2[1])/2
 
-def jl_transform(dataset_in,objective_dim,type_transform="basic"):
+def jl_transform(dataset_in,objective_dim,type_transform="basic", seed=1001):
     """
     This function takes the dataset_in and returns the reduced dataset. The
     output dimension is objective_dim.
@@ -31,6 +31,7 @@ def jl_transform(dataset_in,objective_dim,type_transform="basic"):
     matrix is taken at random in N(0,1), and each diagonal has a
     constant value taken from these first vector.
     """
+    np.random.seed(seed)
     if type_transform.lower() == "basic":
         jlt=(1/math.sqrt(objective_dim))*np.random.normal(0,1,size=(objective_dim,
                                                                     len(dataset_in[0])))

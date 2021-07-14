@@ -145,14 +145,15 @@ class PCVRP(object):
 
 
 def make_instance(args):
-    depot, loc, demand, capacity, *args = args
+    depot, loc, demand, prize, *args = args
     grid_size = 1
     if len(args) > 0:
         depot_types, customer_types, grid_size = args
     return {
         'loc': torch.tensor(loc, dtype=torch.float) / grid_size,
-        'demand': torch.tensor(demand, dtype=torch.float) / capacity,
-        'depot': torch.tensor(depot, dtype=torch.float) / grid_size
+        'demand': torch.tensor(demand, dtype=torch.float),
+        'depot': torch.tensor(depot, dtype=torch.float) / grid_size,
+        'prize': torch.tensor(prize, dtype=torch.float)
     }
 
 
