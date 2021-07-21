@@ -15,6 +15,7 @@ class PCVRP(object):
     VEHICLE_CAPACITY = 1  # (w.l.o.g. vehicle capacity is 1, demands should be scaled)
 
     PRICE_MODE = 0
+    DISCOUNT_FACTOR = 0.9
 
     @staticmethod
     def get_costs(dataset, pi):
@@ -81,7 +82,7 @@ class PCVRP(object):
         # print(p.sum(-1))
 
         if PCVRP.PRICE_MODE == 1:
-            discount_factor = 0.99
+            discount_factor = PCVRP.DISCOUNT_FACTOR
             discount_factor_list = [1]
             for dfl in range(p.size()[1] - 1):
                 discount_factor_list.append(discount_factor_list[-1] * discount_factor)
@@ -90,7 +91,7 @@ class PCVRP(object):
             p_discount = p_discount_matrix[None, :] * p
 
         if PCVRP.PRICE_MODE == 2:
-            stepwise_discount_factor = 0.95
+            stepwise_discount_factor = PCVRP.DISCOUNT_FACTOR
             stepwise_discount_factors = []
             for run in pi:
                 curr_factor = 1
@@ -179,8 +180,6 @@ class PCVRPDataset(Dataset):
                 50: 40.,
                 100: 50.
             }
-
-
 
             self.data = []
 
