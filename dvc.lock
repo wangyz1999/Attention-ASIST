@@ -14,21 +14,22 @@ stages:
       size: 5562
     params:
       params.yaml:
-        graph_size: 20
-        high_value: 0.7
+        graph_size: 55
+        high_value: 1
         n_epochs: 50
         problem: pcvrp
         problem_params:
           PRICE_MODE: 1
+          DISCOUNT_FACTOR: 0.8
     outs:
     - path: logs
-      md5: c7ecbf2511dd7dcd4b5309fa8b14fdb0.dir
+      md5: 81ac386d1259185c90ec790fa4205918.dir
       size: 11302
       nfiles: 1
     - path: outputs
-      md5: 1bde5035b63883f63f92e6d72d1eefb3.dir
-      size: 1277638279
+      md5: 90b454adb0b67c0c4f41a5e2782e0407.dir
+      size: 1565638634
       nfiles: 51
     - path: scores/scores.json
-      md5: af4e10d2ca0739cd287c87e7410c639d
-      size: 143
+      md5: b6a0a20f5ff0d81b96121699fbec5cf1
+      size: 137
