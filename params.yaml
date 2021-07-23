@@ -1,10 +1,12 @@
 # Parameters for DVC pipeline
 
 # Parameters specific to the problem to solve
-problem: pcvrp
+problem: cvrp
 problem_params:
   PRICE_MODE: 1
   DISCOUNT_FACTOR: 0.9
+  PLAYER_ROLE: 1  # 0: medic, 1: engineer, maybe 2: transporter?
+  tool_durability: 20
 
 # Metric file
 metric_file: scores/scores.json
