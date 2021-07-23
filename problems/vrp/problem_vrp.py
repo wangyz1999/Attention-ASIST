@@ -13,6 +13,7 @@ class CVRP(object):
     NAME = 'cvrp'  # Capacitated Vehicle Routing Problem
 
     VEHICLE_CAPACITY = 1.0  # (w.l.o.g. vehicle capacity is 1, demands should be scaled)
+    tool_durability = 20
 
     @staticmethod
     def get_costs(dataset, pi):
@@ -189,7 +190,8 @@ class VRPDataset(Dataset):
                 {
                     'loc': torch.FloatTensor(size, 2).uniform_(0, 1),
                     # Uniform 1 - 9, scaled by capacities
-                    'demand': (torch.FloatTensor(size).uniform_(0, 9).int() + 1).float() / CAPACITIES[size],
+                    # 'demand': (torch.FloatTensor(size).uniform_(0, 9).int() + 1).float() / CAPACITIES[size],
+                    'demand': torch.ones(size) / CVRP.tool_durability,
                     'depot': torch.FloatTensor(2).uniform_(0, 1)
                 }
                 for i in range(num_samples)

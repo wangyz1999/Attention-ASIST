@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import os
 import json
 import pprint as pp
@@ -151,8 +149,7 @@ def run(opts):
 
     # Start the actual training loop
     val_dataset = problem.make_dataset(
-        size=opts.graph_size, num_samples=opts.val_size, filename=opts.val_dataset, distribution=opts.data_distribution,
-        high_value=opts.high_value)
+        size=opts.graph_size, num_samples=opts.val_size, filename=opts.val_dataset, distribution=opts.data_distribution)
 
     if opts.resume:
         epoch_resume = int(os.path.splitext(os.path.split(opts.resume)[-1])[0].split("-")[1])
