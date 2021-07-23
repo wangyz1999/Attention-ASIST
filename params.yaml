@@ -3,20 +3,20 @@
 # Parameters specific to the problem to solve
 problem: cvrp
 problem_params:
-  PRICE_MODE: 1
-  DISCOUNT_FACTOR: 0.9
   PLAYER_ROLE: 1  # 0: medic, 1: engineer, maybe 2: transporter?
-  tool_durability: 20
+  PRICE_MODE: 1           # For PCVRP
+  DISCOUNT_FACTOR: 0.9    # For PCVRP
+  TOOL_DURABILITY: 20     # For CVRP
 
 # Metric file
 metric_file: scores/scores.json
 
 # Training parameters
+run_name: cvrp_baseline
 seed: 1234
 eval_only: false
 no_cuda: false
 cuda: 0         # Specify a list of int if want model be distributed across gpus, or a single int otherwise
-run_name: run
 graph_size: 55 
 batch_size: 512
 n_epochs: 50
