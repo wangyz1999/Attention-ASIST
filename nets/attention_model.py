@@ -65,6 +65,7 @@ class AttentionModel(nn.Module):
         self.is_orienteering = problem.NAME == 'op' or problem.NAME == 'dop'
         self.is_pctsp = problem.NAME == 'pctsp'
         self.is_pcvrp = problem.NAME == 'pcvrp'
+        self.for_engineer = hasattr(problem, 'player_role') and problem.player_role == 'engineer'
 
         self.tanh_clipping = tanh_clipping
 
@@ -82,7 +83,10 @@ class AttentionModel(nn.Module):
             step_context_dim = embedding_dim + 1
 
             if self.is_pctsp or self.is_pcvrp:
-                node_dim = 4  # x, y, expected_prize, penalty
+                if self.for_engineer:
+                    node_dim = 4
+                else:
+                    node_dim = 4  # x, y, expected_prize, penalty
             else:
                 node_dim = 3  # x, y, demand / prize
 
@@ -207,12 +211,21 @@ class AttentionModel(nn.Module):
             if self.is_vrp:
                 features = ('demand', )
             elif self.is_pcvrp:
-                features = ('demand', 'prize', )
+                if self.for_engineer:
+                    features = ('demand', 'prize')
+                else:
+                    features = ('demand', 'prize', )
             elif self.is_orienteering:
                 features = ('prize', )
             else:
                 assert self.is_pctsp
                 features = ('deterministic_prize', 'penalty')
+
+            # print(features)
+            # print(input['loc'].shape)
+            # print(*(input[feat][:, :, None] for feat in features))
+            # print(self.is_pcvrp, self.is_vrp, self.for_engineer)
+
             return torch.cat(
                 (
                     self.init_embed_depot(input['depot'])[:, None, :],

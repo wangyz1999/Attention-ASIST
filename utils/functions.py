@@ -9,6 +9,8 @@ from multiprocessing.dummy import Pool as ThreadPool
 from multiprocessing import Pool
 import torch.nn.functional as F
 
+# from utils import load_model
+
 
 def load_problem(name, **kwargs):
     from problems import TSP, CVRP, SDVRP, OP, PCTSPDet, PCTSPStoch, DOP, PCVRP
@@ -28,6 +30,9 @@ def load_problem(name, **kwargs):
     if kwargs is not None:
         for key, val in kwargs.items():
             setattr(problem, key, val)
+        if 'player_role' in kwargs and kwargs['player_role'] == 'engineer':
+            medic_model, _ = load_model(kwargs['medic_model_file'])
+            setattr(problem, 'medic_model', medic_model)
 
     return problem
 
