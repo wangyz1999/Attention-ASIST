@@ -277,7 +277,7 @@ def make_instance(args):
 
 class PCVRPDataset(Dataset):
     
-    def __init__(self, filename=None, size=28, num_samples=10000, offset=0, distribution=None):
+    def __init__(self, filename=None, size=28, num_samples=1000000, offset=0, distribution=None):
         assert PCVRP.PLAYER_ROLE in ["medic", "engineer"]
 
         super(PCVRPDataset, self).__init__()

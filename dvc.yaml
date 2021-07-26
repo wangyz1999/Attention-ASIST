@@ -5,6 +5,8 @@ stages:
       - run.py
       - train.py
       - reinforce_baselines.py
+      - problems
+      - pretrained_asist
     params:
       - problem
       - problem_params
