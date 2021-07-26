@@ -30,9 +30,9 @@ def load_problem(name, **kwargs):
     if kwargs is not None:
         for key, val in kwargs.items():
             setattr(problem, key, val)
-        if 'player_role' in kwargs and kwargs['player_role'] == 'engineer':
-            medic_model, _ = load_model(kwargs['medic_model_file'])
-            setattr(problem, 'medic_model', medic_model)
+        if 'PLAYER_ROLE' in kwargs and kwargs['PLAYER_ROLE'] == 'engineer':
+            medic_model, _ = load_model(kwargs['MEDIC_MODEL_FILE'])
+            setattr(problem, 'MEDIC_MODEL', medic_model)
 
     return problem
 

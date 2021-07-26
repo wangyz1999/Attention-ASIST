@@ -5,17 +5,18 @@ problem: pcvrp
 problem_params:
   PRICE_MODE: 1
   DISCOUNT_FACTOR: 0.9
-  player_role: engineer  # medic, engineer, maybe searcher?
-  medic_model_file: outputs/2021-6-23/graph_size=55,price_mode=1,high_value=1
-  medic_graph_size: 55
-  rubble_graph_size: 23
-  high_value_victim_size: 5
-  medic_speed: 0.0091
-  engineer_speed: 0.0065
-  tool_durability: 20
-  distance_ratio: 0.001663
-  high_value_mismatch_penalty_coeff: 0.004
-  late_rubble_penalty_coeff: 1.757
+  PLAYER_ROLE: engineer  # medic, engineer, maybe searcher?
+  MEDIC_MODEL_FILE: outputs/2021-6-23/graph_size=55,price_mode=1,high_value=1
+  MEDIC_GRAPH_SIZE: 55
+  RUBBLE_GRAPH_SIZE: 23
+  HIGH_VALUE_VICTIM_SIZE: 5
+  MEDIC_SPEED: 0.0091
+  ENGINEER_SPEED: 0.0065
+  MEDIC_TOOL_DURABILITY: 20
+  ENGINEER_TOOL_DURABILITY: 131
+  DISTANCE_RATIO: 0.001663
+  HIGH_VALUE_MISMATCH_PENALTY_COEFF: 0.004
+  LATE_RUBBLE_PENALTY_COEFF: 1.757
 
 # Metric file
 metric_file: scores/scores.json
