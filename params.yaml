@@ -5,7 +5,7 @@ problem: pcvrp
 problem_params:
   PRICE_MODE: 1
   DISCOUNT_FACTOR: 0.9
-  PLAYER_ROLE: 1  # 0: medic, 1: engineer, maybe 2: transporter?
+  player_role: engineer  # medic, engineer, maybe searcher?
   medic_model_file: outputs/2021-6-23/graph_size=55,price_mode=1,high_value=1
   medic_graph_size: 55
   rubble_graph_size: 23
@@ -14,6 +14,8 @@ problem_params:
   engineer_speed: 0.0065
   tool_durability: 20
   distance_ratio: 0.001663
+  high_value_mismatch_penalty_coeff: 0.004
+  late_rubble_penalty_coeff: 1.757
 
 # Metric file
 metric_file: scores/scores.json

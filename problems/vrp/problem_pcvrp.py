@@ -2,6 +2,7 @@ from torch.utils.data import Dataset
 import torch
 import os
 import pickle
+import random
 
 from problems.vrp.state_pcvrp import StatePCVRP
 from problems.vrp.state_sdvrp import StateSDVRP
@@ -29,6 +30,9 @@ class PCVRP(object):
     green_triage_time = 7.5
     yellow_triage_time = 15
     break_rubble_time = 0.5
+    high_value_mismatch_penalty_coeff = 0.004
+    late_rubble_penalty_coeff = 1.757
+
 
     @staticmethod
     def get_costs(dataset, pi):
@@ -148,6 +152,7 @@ class PCVRP(object):
             medic_triage_time[medic_tour_add_zero == 0] = 0
             medic_time = medic_move_time + medic_triage_time
 
+            # based on the medic tour, each following element of medic cumulative time represents the current time after going through the node with respestive index
             medic_cumulative_time = torch.zeros_like(medic_time)
             medic_sum_time = torch.zeros((medic_time.size(0)))
             for step in range(medic_time.size(1)):
@@ -157,7 +162,6 @@ class PCVRP(object):
             engineer_loc_with_depot = torch.cat((dataset['depot'][:, None, :], dataset['loc']), 1)
             engineer_d = engineer_loc_with_depot.gather(1, engineer_tour[..., None].expand(*engineer_tour.size(),
                                                                                   engineer_loc_with_depot.size(-1)))
-
             engineer_length = torch.cat(
                 (
                     (engineer_d[:, 0] - dataset['depot']).norm(p=2, dim=1).unsqueeze(1),
@@ -172,6 +176,7 @@ class PCVRP(object):
             engineer_rubble_time[engineer_tour_add_zero <= PCVRP.rubble_graph_size] = PCVRP.break_rubble_time
             engineer_time = engineer_move_time + engineer_rubble_time
 
+            # based on the engineer tour, each following element of engineer cumulative time represents the current time after going through the node with respestive index
             engineer_cumulative_time = torch.zeros_like(engineer_time)
             engineer_sum_time = torch.zeros((engineer_time.size(0)))
             for step in range(engineer_time.size(1)):
@@ -181,14 +186,52 @@ class PCVRP(object):
             medic_high_value_time = torch.gather(medic_cumulative_time, 1, (medic_tour_add_zero > PCVRP.medic_graph_size - PCVRP.high_value_victim_size).nonzero()[:, 1].view(-1, PCVRP.high_value_victim_size))
             engineer_high_value_time = torch.gather(engineer_cumulative_time, 1, (engineer_tour_add_zero > PCVRP.rubble_graph_size).nonzero()[:, 1].view(-1, PCVRP.high_value_victim_size))
 
-            high_value_penalty = torch.abs(engineer_high_value_time - medic_high_value_time).sum(1)
+            high_value_mismatch_penalty = torch.abs(engineer_high_value_time - medic_high_value_time).sum(1)
 
-            high_value_penalty = high_value_penalty.to(device=p.device)
+            high_value_mismatch_penalty = high_value_mismatch_penalty.to(device=p.device)
+
+            medic_tour_sorted, medic_tour_sorted_indices = torch.sort(medic_tour_add_zero, 1)
+            engineer_tour_sorted, engineer_tour_sorted_indices = torch.sort(engineer_tour_add_zero, 1)
+
+            # below represents the time point that visits victim 0,1,2,3,4...
+            medic_node_number_order_time = torch.gather(medic_cumulative_time, 1, medic_tour_sorted_indices)
+            engineer_node_number_order_time = torch.gather(engineer_cumulative_time, 1, engineer_tour_sorted_indices)
+
+            # medic_rubble_victim_time = torch.gather(medic_cumulative_time, 1, ((medic_tour_add_zero <= PCVRP.rubble_graph_size) & (medic_tour_add_zero > 0)).nonzero()[:,1].view(-1, PCVRP.rubble_graph_size))
+            # engineer_rubble_victim_time = torch.gather(engineer_cumulative_time, 1, ((engineer_to
+
+            medic_rubble_victim_time = torch.gather(medic_node_number_order_time, 1, ((medic_tour_sorted <= PCVRP.rubble_graph_size) & (medic_tour_sorted > 0)).nonzero()[:,1].view(-1, PCVRP.rubble_graph_size))
+            engineer_rubble_victim_time = torch.gather(engineer_node_number_order_time, 1, ((engineer_tour_sorted <= PCVRP.rubble_graph_size) & (engineer_tour_sorted > 0)).nonzero()[:,1].view(-1, PCVRP.rubble_graph_size))
+
+            late_rubble_penalty = torch.where(medic_rubble_victim_time < engineer_rubble_victim_time, 1, 0).sum(1)
+
+            late_rubble_penalty = late_rubble_penalty.to(device=p.device)
+
+            # jjj_a = ((medic_tour_add_zero <= PCVRP.rubble_graph_size) & (medic_tour_add_zero > 0)).nonzero()[:,1].view(-1, PCVRP.rubble_graph_size)
+            # jjj_b = ((engineer_tour_add_zero <= PCVRP.rubble_graph_size) & (engineer_tour_add_zero > 0)).nonzero()[:,1].view(-1, PCVRP.rubble_graph_size)
+            # big_mask = []
+            # for run_id, run in enumerate(medic_tour_add_zero):
+            #     inner_mask = []
+            #     for node_id, node in enumerate(run):
+            #         if node in dataset['rubbles'][run_id]:
+            #             inner_mask.append(True)indices
+            #         else:
+            #             inner_mask.append(False)
+            #     big_mask.append(inner_mask)
+            #
+            # valid_victim = torch.tensor(big_mask).nonzero()
+            # valid_indices = torch.zeros((medic_cumulative_time.size(0), PCVRP.rubble_graph_size))
+            # vii_col = 0
+            # for vii in valid_victim:
+            #     valid_indices[vii[0]][vii_col] = vii[1]
+            #     vii_col += 1
+            # medic_rubble_victim_time = torch.gather(medic_cumulative_time, 1, valid_indices)
 
 
             # print(dataset)
-
-            return length+high_value_penalty, None
+            # 228.3554 56045.7891
+            # print(length.sum(0), high_value_mismatch_penalty.sum(0), late_rubble_penalty.sum(0))
+            return length + high_value_mismatch_penalty * PCVRP.high_value_mismatch_penalty_coeff + late_rubble_penalty * PCVRP.late_rubble_penalty_coeff, None
 
     @staticmethod
     def make_dataset(*args, **kwargs):
@@ -299,9 +342,15 @@ class PCVRPDataset(Dataset):
                     PCVRP.player_role = 'engineer'
 
 
-                    rubbles = torch.randint(0, PCVRP.medic_graph_size, (PCVRP.rubble_graph_size,))
+                    # rubble_sample = sample = torch.utils.data.WeightedRandomSampler(torch.arange(PCVRP.medic_graph_size), num_samples=PCVRP.rubble_graph_size, replacement=False)
+                    # rubbles = torch.randint(0, PCVRP.medic_graph_size, (PCVRP.rubble_graph_size,))
+                    # rubbles = torch.tensor([rs for rs in rubble_sample])
+                    # rubbles = set()
+                    # while len(rubbles) != PCVRP.rubble_graph_size:
+                    #     rubbles.add(random.randint(0, PCVRP.med))
 
-                    selected_victim_loc = torch.gather(victim_loc, 0, torch.hstack((rubbles.view(-1, 1), rubbles.view(-1, 1))))
+                    # selected_victim_loc = torch.gather(victim_loc, 0, torch.hstack((rubbles.view(-1, 1), rubbles.view(-1, 1))))
+                    selected_victim_loc = victim_loc[:PCVRP.rubble_graph_size]
                     high_value_loc = victim_loc[-PCVRP.high_value_victim_size:]
                     # print(len(selected_victim_loc), len(high_value_loc))
                     # print(torch.cat((selected_victim_loc, high_value_loc)).shape)
@@ -311,6 +360,7 @@ class PCVRPDataset(Dataset):
                         # 'demand': (torch.FloatTensor(size).uniform_(0, 9).int() + 1).float() / CAPACITIES[size],
                         'medic_tour': medic_tour.squeeze(0),
                         'victim_loc': victim_loc,
+                        # 'rubbles': rubbles,
                         'demand': torch.ones(size) / PCVRP.engineer_tool_durability,
                         'depot': torch.FloatTensor(2).uniform_(0, 1),
                         'prize': torch.zeros(size)
