@@ -3,6 +3,7 @@ import torch
 import os
 import pickle
 import random
+from tqdm import tqdm
 
 from problems.vrp.state_pcvrp import StatePCVRP
 from problems.vrp.state_sdvrp import StateSDVRP
@@ -144,7 +145,7 @@ class PCVRP(object):
                 ), 1
             )
 
-            medic_tour_add_zero = torch.cat((medic_tour, torch.zeros(medic_tour.size(0), 1)), 1)
+            medic_tour_add_zero = torch.cat((medic_tour, torch.zeros(medic_tour.size(0), 1, device=p.device)), 1)
             medic_move_time = medic_length / PCVRP.MEDIC_SPEED
             medic_triage_time = torch.zeros_like(medic_move_time)
             medic_triage_time[medic_tour_add_zero > PCVRP.MEDIC_GRAPH_SIZE - PCVRP.HIGH_VALUE_VICTIM_SIZE] = PCVRP.YELLOW_TRIAGE_TIME
@@ -153,8 +154,8 @@ class PCVRP(object):
             medic_time = medic_move_time + medic_triage_time
 
             # based on the medic tour, each following element of medic cumulative time represents the current time after going through the node with respestive index
-            medic_cumulative_time = torch.zeros_like(medic_time)
-            medic_sum_time = torch.zeros((medic_time.size(0)))
+            medic_cumulative_time = torch.zeros_like(medic_time, device=p.device)
+            medic_sum_time = torch.zeros(medic_time.size(0), device=p.device)
             for step in range(medic_time.size(1)):
                 medic_sum_time += medic_time[:, step]
                 medic_cumulative_time[:, step] = medic_sum_time
@@ -170,15 +171,15 @@ class PCVRP(object):
                 ), 1
             )
 
-            engineer_tour_add_zero = torch.cat((engineer_tour, torch.zeros(engineer_tour.size(0), 1)), 1)
+            engineer_tour_add_zero = torch.cat((engineer_tour, torch.zeros(engineer_tour.size(0), 1, device=p.device)), 1)
             engineer_move_time = engineer_length / PCVRP.ENGINEER_SPEED
-            engineer_rubble_time = torch.zeros_like(engineer_move_time)
+            engineer_rubble_time = torch.zeros_like(engineer_move_time, device=p.device)
             engineer_rubble_time[engineer_tour_add_zero <= PCVRP.RUBBLE_GRAPH_SIZE] = PCVRP.BREAK_RUBBLE_TIME
             engineer_time = engineer_move_time + engineer_rubble_time
 
             # based on the engineer tour, each following element of engineer cumulative time represents the current time after going through the node with respestive index
-            engineer_cumulative_time = torch.zeros_like(engineer_time)
-            engineer_sum_time = torch.zeros((engineer_time.size(0)))
+            engineer_cumulative_time = torch.zeros_like(engineer_time, device=p.device)
+            engineer_sum_time = torch.zeros(engineer_time.size(0), device=p.device)
             for step in range(engineer_time.size(1)):
                 engineer_sum_time += engineer_time[:, step]
                 engineer_cumulative_time[:, step] = engineer_sum_time
@@ -276,7 +277,7 @@ def make_instance(args):
 
 class PCVRPDataset(Dataset):
     
-    def __init__(self, filename=None, size=28, num_samples=1000000, offset=0, distribution=None):
+    def __init__(self, filename=None, size=28, num_samples=10000, offset=0, distribution=None):
         assert PCVRP.PLAYER_ROLE in ["medic", "engineer"]
 
         super(PCVRPDataset, self).__init__()
@@ -301,7 +302,8 @@ class PCVRPDataset(Dataset):
 
             self.data = []
 
-            for i in range(num_samples):
+            print("### Collecting data for PCVRP problem: ###")
+            for i in tqdm(range(num_samples)):
                 # t = torch.ones(size) * 5/55
 
                 if PCVRP.PLAYER_ROLE == "medic":
