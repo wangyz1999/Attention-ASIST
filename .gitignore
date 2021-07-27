@@ -7,3 +7,4 @@ outputs/
 /logs
 .pyc
 /wandb
+prep_dvc_exp.sh             # temporary script for queueing DVC experiment runs

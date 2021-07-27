@@ -30,8 +30,8 @@ run_name: run
 graph_size: 28
 batch_size: 512
 n_epochs: 50
-epoch_size: 12800
-val_size: 1000             # affect num_samples when collecting problem dataset using baseline
+epoch_size: 1280
+val_size: 1280             # affect num_samples when collecting problem dataset using baseline
 val_dataset:
 eval_batch_size: 1024
 checkpoint_encoder: false
