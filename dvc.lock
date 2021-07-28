@@ -3,32 +3,53 @@ stages:
   train:
     cmd: python run.py --arg_yaml_file params.yaml
     deps:
+    - path: pretrained_asist
+      md5: b91d38613f9e4843510b509d38f18571.dir
+      size: 31313883
+      nfiles: 2
+    - path: problems
+      md5: 708eb4e1f9f2c2c8d71c3c4068f9bb2b.dir
+      size: 342219
+      nfiles: 76
     - path: reinforce_baselines.py
-      md5: 78e4604e89bbbaa7a83151b2068ca05b
-      size: 8484
+      md5: 2b85a733cf38963b95fb90b0af208a22
+      size: 8451
     - path: run.py
-      md5: dfc927f78fd3d5fd006169a313ea8176
-      size: 7384
+      md5: c2e71e759012426509a6f10b3bc1c19d
+      size: 7695
     - path: train.py
-      md5: 84b5cac39f685a79b5d544878969589d
-      size: 5562
+      md5: c39b2c7f6f1eaeadfecbaf356e95eda0
+      size: 5662
     params:
       params.yaml:
-        graph_size: 20
-        high_value: 0.7
-        n_epochs: 50
+        graph_size: 28
+        high_value: 1
+        n_epochs: 10
         problem: pcvrp
         problem_params:
           PRICE_MODE: 1
+          DISCOUNT_FACTOR: 0.9
+          PLAYER_ROLE: engineer
+          MEDIC_MODEL_FILE: pretrained_asist/medic/pcvrp_medic_PM1_HV1
+          MEDIC_GRAPH_SIZE: 55
+          RUBBLE_GRAPH_SIZE: 23
+          HIGH_VALUE_VICTIM_SIZE: 5
+          MEDIC_SPEED: 0.007
+          ENGINEER_SPEED: 0.005
+          MEDIC_TOOL_DURABILITY: 20
+          ENGINEER_TOOL_DURABILITY: 131
+          DISTANCE_RATIO: 0.001663
+          HIGH_VALUE_MISMATCH_PENALTY_COEFF: 0.004
+          LATE_RUBBLE_PENALTY_COEFF: 1.757
     outs:
     - path: logs
-      md5: c7ecbf2511dd7dcd4b5309fa8b14fdb0.dir
-      size: 11302
+      md5: 258445cb3b817adcbab8081ddaea7984.dir
+      size: 13177
       nfiles: 1
     - path: outputs
-      md5: 1bde5035b63883f63f92e6d72d1eefb3.dir
-      size: 1277638279
-      nfiles: 51
+      md5: 0d133dcc4fe23dfa7ac1cea130e1cdc8.dir
+      size: 3417054628
+      nfiles: 11
     - path: scores/scores.json
-      md5: af4e10d2ca0739cd287c87e7410c639d
-      size: 143
+      md5: 69d930e12c0987de43cdb557077a8051
+      size: 139
