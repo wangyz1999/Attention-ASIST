@@ -28,10 +28,10 @@ no_cuda: false
 cuda: 0         # Specify a list of int if want model be distributed across gpus, or a single int otherwise
 run_name: run
 graph_size: 28
-batch_size: 256
+batch_size: 512
 n_epochs: 50
-epoch_size: 2048
-val_size: 2048             # affect num_samples when collecting problem dataset using baseline
+epoch_size: 128000
+val_size: 128000             # affect num_samples when collecting problem dataset using baseline
 val_dataset:
 eval_batch_size: 1024
 checkpoint_encoder: false

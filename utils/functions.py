@@ -30,8 +30,12 @@ def load_problem(name, **kwargs):
     if kwargs is not None:
         for key, val in kwargs.items():
             setattr(problem, key, val)
+        # Load medic model if training an engineer model.
+        # Also load model to the device if specified
         if 'PLAYER_ROLE' in kwargs and kwargs['PLAYER_ROLE'] == 'engineer':
             medic_model, _ = load_model(kwargs['MEDIC_MODEL_FILE'])
+            if 'device' in kwargs.keys():
+                medic_model.to(kwargs['device'])
             setattr(problem, 'MEDIC_MODEL', medic_model)
 
     return problem

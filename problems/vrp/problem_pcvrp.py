@@ -302,11 +302,9 @@ class PCVRPDataset(Dataset):
 
             self.data = []
 
-            print("### Collecting data for PCVRP problem: ###")
-            for i in tqdm(range(num_samples)):
-                # t = torch.ones(size) * 5/55
-
-                if PCVRP.PLAYER_ROLE == "medic":
+            if PCVRP.PLAYER_ROLE == "medic":
+                print("### Collecting data for PCVRP MEDIC problem: ###")
+                for i in tqdm(range(num_samples)):
                     prob = torch.ones(size) * 4 / 20
                     prize = torch.bernoulli(prob)
                     prize[prize == 0] = 0.1
@@ -319,54 +317,61 @@ class PCVRPDataset(Dataset):
                         'depot': torch.FloatTensor(2).uniform_(0, 1),
                         'prize': prize
                     })
-                elif PCVRP.PLAYER_ROLE == "engineer":
-                    # medic_prob = torch.ones(medic_graph_size) * 4 / 20
-                    # medic_prize = torch.bernoulli(medic_prob)
+
+            elif PCVRP.PLAYER_ROLE == "engineer":
+                print("### Collecting data for PCVRP ENGINEER problem: ###")
+
+                BATCH_SIZE_MAX = 2048       # The number of inputs for medic model to compute at once
+                batch_sizes = [BATCH_SIZE_MAX] * (num_samples // BATCH_SIZE_MAX)
+                if num_samples % BATCH_SIZE_MAX > 0:
+                    batch_sizes += [num_samples % BATCH_SIZE_MAX]
+                print("### Total {} samples, {} batches with at most {} samples in one batch ###"
+                      .format(num_samples, len(batch_sizes), BATCH_SIZE_MAX))
+
+                for batch_size in batch_sizes:
                     medic_prize = torch.ones(PCVRP.MEDIC_GRAPH_SIZE) * 0.1
                     medic_prize[-PCVRP.HIGH_VALUE_VICTIM_SIZE:] = PCVRP.HIGH_VALUE
-                    victim_loc = torch.FloatTensor(PCVRP.MEDIC_GRAPH_SIZE, 2).uniform_(0, 1)
+                    medic_prize = medic_prize.unsqueeze(0).expand(batch_size, -1)   # expand the batch dimension
+
+                    victim_loc = torch.FloatTensor(batch_size, PCVRP.MEDIC_GRAPH_SIZE, 2)\
+                        .uniform_(0, 1)  # Create with batch dimension
+
+                    demand = (torch.ones(PCVRP.MEDIC_GRAPH_SIZE) / PCVRP.MEDIC_TOOL_DURABILITY).unsqueeze(0)\
+                        .expand(batch_size, -1)   # expand the batch dimension
+
+                    depot = torch.FloatTensor(batch_size, 2).uniform_(0, 1)  # Create with batch dimension
+
                     medic_batch = {
-                        'loc': victim_loc.unsqueeze(0),
-                        # Uniform 1 - 9, scaled by capacities
-                        # 'demand': (torch.FloatTensor(size).uniform_(0, 9).int() + 1).float() / CAPACITIES[size],
-                        'demand': (torch.ones(PCVRP.MEDIC_GRAPH_SIZE) / PCVRP.MEDIC_TOOL_DURABILITY).unsqueeze(0),
-                        'depot': torch.FloatTensor(2).uniform_(0, 1).unsqueeze(0),
-                        'prize': medic_prize.unsqueeze(0)
+                        'loc': victim_loc,
+                        'demand': demand,
+                        'depot': depot,
+                        'prize': medic_prize
                     }
-                    # prize = torch.cat((torch.ones(medic_graph_size-high_value_victim_size)*0.1, torch.ones(high_value_victim_size)*high_value))
 
                     PCVRP.PLAYER_ROLE = 'medic'
                     PCVRP.MEDIC_MODEL.eval()
                     PCVRP.MEDIC_MODEL.set_decode_type('greedy')
                     with torch.no_grad():
+                        # Move input to the same device that the medic model resides on
+                        device = next(PCVRP.MEDIC_MODEL.parameters()).device
+                        medic_batch = {k: v.to(device) for k, v in medic_batch.items()}  # Move input to device
                         length, log_p, pi = PCVRP.MEDIC_MODEL(medic_batch, return_pi=True)
+                        length, log_p, pi = length.to('cpu'), log_p.to('cpu'), pi.to('cpu')  # Move output back to cpu
                     medic_tour = pi
                     PCVRP.PLAYER_ROLE = 'engineer'
 
-
-                    # rubble_sample = sample = torch.utils.data.WeightedRandomSampler(torch.arange(PCVRP.medic_graph_size), num_samples=PCVRP.rubble_graph_size, replacement=False)
-                    # rubbles = torch.randint(0, PCVRP.medic_graph_size, (PCVRP.rubble_graph_size,))
-                    # rubbles = torch.tensor([rs for rs in rubble_sample])
-                    # rubbles = set()
-                    # while len(rubbles) != PCVRP.rubble_graph_size:
-                    #     rubbles.add(random.randint(0, PCVRP.med))
-
-                    # selected_victim_loc = torch.gather(victim_loc, 0, torch.hstack((rubbles.view(-1, 1), rubbles.view(-1, 1))))
-                    selected_victim_loc = victim_loc[:PCVRP.RUBBLE_GRAPH_SIZE]
-                    high_value_loc = victim_loc[-PCVRP.HIGH_VALUE_VICTIM_SIZE:]
-                    # print(len(selected_victim_loc), len(high_value_loc))
-                    # print(torch.cat((selected_victim_loc, high_value_loc)).shape)
-                    self.data.append({
-                        'loc': torch.cat((selected_victim_loc, high_value_loc)),
-                        # Uniform 1 - 9, scaled by capacities
-                        # 'demand': (torch.FloatTensor(size).uniform_(0, 9).int() + 1).float() / CAPACITIES[size],
-                        'medic_tour': medic_tour.squeeze(0),
-                        'victim_loc': victim_loc,
-                        # 'rubbles': rubbles,
-                        'demand': torch.ones(size) / PCVRP.ENGINEER_TOOL_DURABILITY,
-                        'depot': torch.FloatTensor(2).uniform_(0, 1),
-                        'prize': torch.zeros(size)
-                    })
+                    # Populate the data one instance in the batch at a time
+                    for i in range(batch_size):
+                        selected_victim_loc = victim_loc[i, :PCVRP.RUBBLE_GRAPH_SIZE, :]
+                        high_value_loc = victim_loc[i, -PCVRP.HIGH_VALUE_VICTIM_SIZE:, :]
+                        self.data.append({
+                            'loc': torch.cat((selected_victim_loc, high_value_loc)),
+                            'medic_tour': medic_tour[i],
+                            'victim_loc': victim_loc[i],
+                            'demand': (torch.ones(size) / PCVRP.ENGINEER_TOOL_DURABILITY),
+                            'depot': torch.FloatTensor(2).uniform_(0, 1),
+                            'prize': torch.zeros(size)
+                        })
 
         max_tour_length = 0
         for tour in self.data:

@@ -50,7 +50,9 @@ def run(opts):
         os.mkdir(os.path.dirname(opts.metric_file))
 
     # Figure out what's the problem
-    problem = load_problem(opts.problem, **opts.problem_params)
+    problem_kwargs = dict(**opts.problem_params)    # Copy the dict
+    problem_kwargs['device'] = opts.device      # Also provide the device if a pretrained model is to be loaded
+    problem = load_problem(opts.problem, **problem_kwargs)
 
     # Load data from load_path
     load_data = {}
@@ -149,7 +151,11 @@ def run(opts):
 
     # Start the actual training loop
     val_dataset = problem.make_dataset(
-        size=opts.graph_size, num_samples=opts.val_size, filename=opts.val_dataset, distribution=opts.data_distribution)
+        size=opts.graph_size, num_samples=opts.val_size, filename=opts.val_dataset, distribution=opts.data_distribution
+    )
+    train_dataset = problem.make_dataset(
+        size=opts.graph_size, num_samples=opts.epoch_size, distribution=opts.data_distribution
+    )
 
     if opts.resume:
         epoch_resume = int(os.path.splitext(os.path.split(opts.resume)[-1])[0].split("-")[1])
@@ -173,6 +179,7 @@ def run(opts):
                         baseline,
                         lr_scheduler,
                         epoch,
+                        train_dataset,
                         val_dataset,
                         problem,
                         tb_logger,
