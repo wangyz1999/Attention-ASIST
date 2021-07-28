@@ -328,7 +328,7 @@ class PCVRPDataset(Dataset):
                 print("### Total {} samples, {} batches with at most {} samples in one batch ###"
                       .format(num_samples, len(batch_sizes), BATCH_SIZE_MAX))
 
-                for batch_size in batch_sizes:
+                for batch_size in tqdm(batch_sizes):
                     medic_prize = torch.ones(PCVRP.MEDIC_GRAPH_SIZE) * 0.1
                     medic_prize[-PCVRP.HIGH_VALUE_VICTIM_SIZE:] = PCVRP.HIGH_VALUE
                     medic_prize = medic_prize.unsqueeze(0).expand(batch_size, -1)   # expand the batch dimension

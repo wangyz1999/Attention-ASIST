@@ -26,10 +26,10 @@ seed: 1234
 eval_only: false
 no_cuda: false
 cuda: 0         # Specify a list of int if want model be distributed across gpus, or a single int otherwise
-run_name: run
+run_name: engineer_medic
 graph_size: 28
 batch_size: 512
-n_epochs: 50
+n_epochs: 10
 epoch_size: 128000
 val_size: 128000             # affect num_samples when collecting problem dataset using baseline
 val_dataset:

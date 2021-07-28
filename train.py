@@ -65,7 +65,7 @@ def clip_grad_norms(param_groups, max_norm=math.inf):
     return grad_norms, grad_norms_clipped
 
 
-def train_epoch(model, optimizer, baseline, lr_scheduler, epoch, train_dataset, val_dataset, problem, tb_logger, opts):
+def train_epoch(model, optimizer, baseline, lr_scheduler, epoch, val_dataset, problem, tb_logger, opts):
     print("Start train epoch {}, lr={} for run {}".format(epoch, optimizer.param_groups[0]['lr'], opts.run_name))
     step = epoch * (opts.epoch_size // opts.batch_size)
     start_time = time.time()
@@ -76,9 +76,9 @@ def train_epoch(model, optimizer, baseline, lr_scheduler, epoch, train_dataset, 
         wandb.log({'learnrate_pg0': optimizer.param_groups[0]['lr']}, step=step)
 
     # # Generate new training data for each epoch
-    # training_dataset = baseline.wrap_dataset(problem.make_dataset(
-    #     size=opts.graph_size, num_samples=opts.epoch_size, distribution=opts.data_distribution))
-    training_dataset = baseline.wrap_dataset(train_dataset)
+    training_dataset = baseline.wrap_dataset(problem.make_dataset(
+        size=opts.graph_size, num_samples=opts.epoch_size, distribution=opts.data_distribution))
+    # training_dataset = baseline.wrap_dataset(train_dataset)
 
     # Use given training data
     training_dataloader = DataLoader(training_dataset, batch_size=opts.batch_size, num_workers=1)
@@ -172,6 +172,6 @@ def train_batch(
     optimizer.step()
 
     # Logging
-    if step % int(opts.log_step) == 0:
+    if (step + 1) % int(opts.log_step) == 0:
         log_values(cost, grad_norms, epoch, batch_id, step,
                    log_likelihood, reinforce_loss, bl_loss, tb_logger, opts)

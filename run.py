@@ -153,9 +153,9 @@ def run(opts):
     val_dataset = problem.make_dataset(
         size=opts.graph_size, num_samples=opts.val_size, filename=opts.val_dataset, distribution=opts.data_distribution
     )
-    train_dataset = problem.make_dataset(
-        size=opts.graph_size, num_samples=opts.epoch_size, distribution=opts.data_distribution
-    )
+    # train_dataset = problem.make_dataset(
+    #     size=opts.graph_size, num_samples=opts.epoch_size, distribution=opts.data_distribution
+    # )
 
     if opts.resume:
         epoch_resume = int(os.path.splitext(os.path.split(opts.resume)[-1])[0].split("-")[1])
@@ -179,7 +179,7 @@ def run(opts):
                         baseline,
                         lr_scheduler,
                         epoch,
-                        train_dataset,
+                        # train_dataset,
                         val_dataset,
                         problem,
                         tb_logger,
