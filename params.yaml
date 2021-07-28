@@ -15,7 +15,7 @@ problem_params:
   MEDIC_TOOL_DURABILITY: 20
   ENGINEER_TOOL_DURABILITY: 131
   DISTANCE_RATIO: 0.001663    # Saturn to 2D[0-1] conversion factor
-  HIGH_VALUE_MISMATCH_PENALTY_COEFF: 0.004  # coefficient 1
+  HIGH_VALUE_MISMATCH_PENALTY_COEFF: 0.008  # coefficient 1
   LATE_RUBBLE_PENALTY_COEFF: 1.757          # coefficient 2
 
 # Metric file
@@ -25,7 +25,7 @@ metric_file: scores/scores.json
 seed: 1234
 eval_only: false
 no_cuda: false
-cuda: 0         # Specify a list of int if want model be distributed across gpus, or a single int otherwise
+cuda: [1, 2, 3, 4, 5, 6]         # Specify a list of int if want model be distributed across gpus, or a single int otherwise
 run_name: engineer_medic
 graph_size: 28
 batch_size: 512
