@@ -261,6 +261,11 @@ class PCVRP(object):
 
         return beam_search(state, beam_size, propose_expansions)
 
+    @staticmethod
+    def switch_player_role(player_role):
+        assert player_role in ["medic", "engineer"], "Player role not supported, select medic or engineer"
+        PCVRP.PLAYER_ROLE = player_role
+
 
 def make_instance(args):
     depot, loc, demand, prize, *args = args
@@ -348,7 +353,7 @@ class PCVRPDataset(Dataset):
                         'prize': medic_prize
                     }
 
-                    PCVRP.PLAYER_ROLE = 'medic'
+                    PCVRP.switch_player_role('medic')
                     PCVRP.MEDIC_MODEL.eval()
                     PCVRP.MEDIC_MODEL.set_decode_type('greedy')
                     with torch.no_grad():
@@ -358,7 +363,7 @@ class PCVRPDataset(Dataset):
                         length, log_p, pi = PCVRP.MEDIC_MODEL(medic_batch, return_pi=True)
                         length, log_p, pi = length.to('cpu'), log_p.to('cpu'), pi.to('cpu')  # Move output back to cpu
                     medic_tour = pi
-                    PCVRP.PLAYER_ROLE = 'engineer'
+                    PCVRP.switch_player_role('engineer')
 
                     # Populate the data one instance in the batch at a time
                     for i in range(batch_size):
@@ -373,11 +378,12 @@ class PCVRPDataset(Dataset):
                             'prize': torch.zeros(size)
                         })
 
-        max_tour_length = 0
-        for tour in self.data:
-            max_tour_length = max(max_tour_length, len(tour['medic_tour']))
-        for tour in range(len(self.data)):
-            self.data[tour]['medic_tour'] = torch.cat((self.data[tour]['medic_tour'], torch.zeros(max_tour_length-len(self.data[tour]['medic_tour']))))
+        if PCVRP.PLAYER_ROLE == "engineer":
+            max_tour_length = 0
+            for tour in self.data:
+                max_tour_length = max(max_tour_length, len(tour['medic_tour']))
+            for tour in range(len(self.data)):
+                self.data[tour]['medic_tour'] = torch.cat((self.data[tour]['medic_tour'], torch.zeros(max_tour_length-len(self.data[tour]['medic_tour']))))
 
         self.size = len(self.data)
 

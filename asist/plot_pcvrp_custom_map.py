@@ -24,7 +24,10 @@ map_size = 55
 with open('data/json/Saturn/Saturn_1.5_3D_sm_with_victimsA.json') as f:
     data = json.load(f)
 
-model, _ = load_model(f'../outputs/2021-6-23/graph_size=55,price_mode={PRICE_MODE},high_value={high_value}')
+medic_model, _ = load_model(f'../outputs/2021-6-23/graph_size=55,price_mode={PRICE_MODE},high_value={high_value}') # PCVRP
+
+# engineer_model, _ = load_model(f'../outputs/2021-7-28/0')
+
 torch.manual_seed(1000)
 
 graph = MapParser.parse_saturn_map(data)
@@ -41,7 +44,7 @@ higher = distance_matrix_to_coordinate(D)
 curr_lowest_cost = 0
 length_ratio_list = []
 total_time_list = []
-for sd in range(2000, 2200):
+for sd in range(2000, 2001):
     lower = np.array(jl_transform(higher, 2, seed=sd))
 
 
@@ -81,8 +84,8 @@ for sd in range(2000, 2200):
         pickle.dump(cord2D_obj, f)
 
 
+    PCVRP.switch_player_role("medic")
     dataset = PCVRP.make_dataset(size=55, filename='saturn_A_1.5.pkl')
-
 
     # Need a dataloader to batch instances
     dataloader = DataLoader(dataset, batch_size=1)
@@ -91,17 +94,17 @@ for sd in range(2000, 2200):
     batch = next(iter(dataloader))
 
     # Run the model
-    model.eval()
-    model.set_decode_type('greedy')
+    medic_model.eval()
+    medic_model.set_decode_type('greedy')
     with torch.no_grad():
-        length, log_p, pi = model(batch, return_pi=True)
-    tours = pi
+        length, log_p, pi = medic_model(batch, return_pi=True)
+    medic_tours = pi
 
     # print(tours.shape)
     # print(tours[0])
 
     # Plot the results
-    for i, (data, tour) in enumerate(zip(dataset, tours)):
+    for i, (data, tour) in enumerate(zip(dataset, medic_tours)):
         # print(data)
         fig, ax = plt.subplots(figsize=(10, 10))
         routes, cost, path_length = plot_vehicle_routes(data, tour, ax, visualize_demands=False, demand_scale=50, round_demand=True, return_routes=True)
@@ -138,7 +141,7 @@ for sd in range(2000, 2200):
         print(f"{total_time:.2f}+{total_triage_time:.2f}={total_time+total_triage_time:.2f}")
         total_time_list.append(total_time+total_triage_time)
 
-print(np.average(total_time_list), np.min(total_time_list))
+# print(np.average(total_time_list), np.min(total_time_list))
 
 
         # print(sd, path_length, total_length, path_length/total_length)
