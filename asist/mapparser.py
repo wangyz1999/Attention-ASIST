@@ -287,6 +287,9 @@ class MapParser:
 
         g.make_ordered_node_list()
 
+        if "blocking_rubble" in data:
+            g.blocking_rubble = data["blocking_rubble"]
+
         return g
 
     @classmethod
