@@ -6,7 +6,7 @@ problem_params:
   PRICE_MODE: 1           # for pcvrp medic
   DISCOUNT_FACTOR: 0.9    # for pcvrp medic
   PLAYER_ROLE: engineer  # medic, engineer, maybe searcher?
-  MEDIC_MODEL_FILE: pretrained_asist/medic/pcvrp_medic_PM1_HV1
+  MEDIC_MODEL_FILE: pretrained_asist/medic/cvrp_baseline
   MEDIC_GRAPH_SIZE: 55        # number of victims (contains high value)
   RUBBLE_GRAPH_SIZE: 23       # number of rubbles
   HIGH_VALUE_VICTIM_SIZE: 5   # number of high value victims
