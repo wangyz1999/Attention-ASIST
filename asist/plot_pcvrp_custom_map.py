@@ -22,6 +22,8 @@ class RouteGen:
     def __init__(self, sm_data_path, medic_model_path, engineer_model_path):
         self.high_value = 1
         self.PRICE_MODE = 1
+        self.medic_speed = 4.32 * 1.3
+        self.engineer_speed = 3.02 * 1.3
         self.medic_graph_size = 55
         self.engineer_graph_size = 28
         self.MEDIC_TOOL_DURABILITY = 15
@@ -225,6 +227,112 @@ class RouteGen:
                     "medic": medic_path,
                     "engineer": engineer_path,
                 }}, json_file, indent=2)
+
+    def get_event_list(self, path_ids):
+        curr_length = 0
+        curr_time = 0
+        events = []
+        action_delta_length = 0
+        prev_node = None
+        for tmp_node in path_ids:
+            is_action_node = True if '@' in tmp_node else False
+            node_str = tmp_node.replace("@", "")
+            if prev_node is not None:
+                if node_str == 'ew_1' and prev_node == 'ew_1':
+                    continue
+                delta_length = ((self.graph[node_str].loc[0] - self.graph[prev_node].loc[0]) ** 2 + (
+                            self.graph[node_str].loc[1] - self.graph[prev_node].loc[1]) ** 2) ** 0.5
+                action_delta_length += delta_length
+                if is_action_node or node_str == 'ew_1':
+                    events.append((node_str, action_delta_length, is_action_node))
+                    action_delta_length = 0
+            prev_node = node_str
+        return events
+
+    def path_time_analysis(self, medic_path, engineer_path, time_log_file=None, print_log=True):
+        # self.rubble_normal_highvalue_victim
+        # time_log = open(time_log_file, 'w')
+        log_list = []
+        medic_path_ids = []
+        for p in medic_path:
+            medic_path_ids.append(p['node_id'] if not p['is_action'] else '@' + p['node_id'])
+
+        engineer_path_ids = []
+        for p in engineer_path:
+            engineer_path_ids.append(p['node_id'] if not p['is_action'] else '@' + p['node_id'])
+
+        # (node_id, length, is_action)
+        medic_events = self.get_event_list(medic_path_ids)
+        engineer_events = self.get_event_list(engineer_path_ids)
+
+        action_time = {
+            'med_green': 7.5,
+            'med_yellow': 15,
+            'eng_break': 0.5,
+            'med_wait': -1,
+            'eng_wait': -1
+        }
+        from itertools import zip_longest
+        for md, eg in zip_longest(medic_events, engineer_events):
+            if md is None:
+                ttt = eg[1] / self.engineer_speed
+                print(f"{''<20}{eg[0]:<10}{ttt:<10.1f}")
+            elif eg is None:
+                ttt = md[1] / self.medic_speed
+                print(f"{md[0]:<10}{ttt:<10.1f}{'':<20}")
+            else:
+                tttm = md[1] / self.medic_speed
+                ttte = eg[1] / self.engineer_speed
+                print(f"{md[0]:<10}{tttm:<10.1f}{eg[0]:<10}{ttte:<10.1f}")
+
+#         cleared_rubble_ids = set()
+
+#         medic_total_time, engineer_total_time = 0, 0
+#         log_list.append((0, 'INFO', "The game has started."))
+#         mei, eei = 0, 0
+#         medic_action, engineer_action = None, None
+#         medic_wait, engineer_wait = None, None
+#         while mei < len(medic_events) or eei < len(engineer_events):
+#             medic_time = action_time[medic_action] if medic_action is not None else medic_events[mei][1] / self.medic_speed
+#             engineer_time = action_time[engineer_action] if engineer_action is not None else engineer_events[eei][1] / self.engineer_speed
+#             if medic_total_time + medic_time < engineer_total_time + engineer_time and medic_wait is None:
+#                 medic_total_time += medic_time
+#                 if medic_action is None:
+#                     log_str = f"Medic has moved to {medic_events[mei].upper()}, cost {medic_time:.1f}s"
+#                     if 'vg' in medic_events[mei][0]:
+#                         if medic_events[mei][0] in cleared_rubble_ids:
+#                             medic_action = 'med_green'
+#                         else:
+#                             medic_action = 'med_wait'
+#                             action_time['med_wait'] = 0
+#                             medic_wait = medic_events[mei][0]
+#                         mei += 1
+#                     if 'vy' in medic_events[mei][0]:
+#                         if engineer_wait == medic_events[mei][0]:
+#                             medic_action = 'med_yellow'
+#                         else:
+#                             medic_action = 'med_wait'
+#                             action_time['med_wait'] = 0
+#                             medic_wait = medic_events[mei][0]
+#                 elif medic_action == 'med_green':
+#                     log_str = f"Medic has triaged normal victim {medic_events[mei].upper()}, cost {medic_time:.1f}s"
+#                 elif medic_action == 'med_yellow':
+#                     log_str = f"Medic has triaged high-value victim {medic_events[mei].upper()}, cost {medic_time:.1f}s"
+#                 log_list.append((medic_total_time, 'MEDI', log_str))
+#             else:
+#                 engineer_total_time += engineer_time
+#                 if engineer_action is None:
+#                     log_str = f"Engineer has moved to {engineer_events[eei].upper()}, cost {engineer_time:.1f}s"
+#                     if engineer_events[eei][0] in self.blocking_rubbles:
+#                         engineer_action = 'eng_break'
+#                     if 'vy' in engineer_events[eei][0]:
+#                         engineer_action = 'med_yellow'
+#                 elif medic_action == 'med_green':
+#                     log_str = f"Medic has triaged normal victim {medic_events[mei].upper()}, cost {medic_time:.1f}s"
+#                 elif medic_action == 'med_yellow':
+#                     log_str = f"Medic has triaged high-value victim {medic_events[mei].upper()}, cost {medic_time:.1f}s"
+#                 log_list.append((medic_total_time, 'MEDI', log_str))
+
 
 if __name__ == '__main__':
     sm_data_path = os.path.join('data', 'json', 'Saturn', 'Saturn_1.5_3D_sm_with_victimsA.json')
