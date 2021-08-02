@@ -79,6 +79,7 @@ def plot_vehicle_routes(data, route, ax1, markersize=5, visualize_demands=False,
 
     conti_discount = 1
     conti_discount_factor = 0.99
+
     for veh_number, r in enumerate(routes):
         color = cmap(len(routes) - veh_number) # Invert to have in rainbow order
 
@@ -152,7 +153,7 @@ def plot_vehicle_routes(data, route, ax1, markersize=5, visualize_demands=False,
         ax1.add_collection(pc_dem)
 
     if return_routes:
-        return [[0] + i.tolist() for i in routes], total_dist-total_discount_prize
+        return [[0] + i.tolist() for i in routes], total_dist-total_discount_prize, total_dist
 
 
 
