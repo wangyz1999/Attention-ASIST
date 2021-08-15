@@ -1,13 +1,13 @@
 # Parameters for DVC pipeline
 
 # Parameters specific to the problem to solve
-problem: pcvrp
+problem: cvrp
 problem_params:
   PRICE_MODE: 1           # for pcvrp medic
   DISCOUNT_FACTOR: 0.9    # for pcvrp medic
   PLAYER_ROLE: engineer  # medic, engineer, maybe searcher?
   MEDIC_MODEL_FILE: pretrained_asist/medic/cvrp_baseline
-  MEDIC_GRAPH_SIZE: 55        # number of victims (contains high value)
+  MEDIC_GRAPH_SIZE: 26        # number of victims (contains high value)
   RUBBLE_GRAPH_SIZE: 23       # number of rubbles
   HIGH_VALUE_VICTIM_SIZE: 5   # number of high value victims
   MEDIC_SPEED: 0.0091         # medic speed after conversion
@@ -27,7 +27,7 @@ eval_only: false
 no_cuda: false
 cuda: 0         # Specify a list of int if want model be distributed across gpus, or a single int otherwise
 run_name: engineer_medic
-graph_size: 28
+graph_size: 26
 batch_size: 512
 n_epochs: 10
 epoch_size: 128000
