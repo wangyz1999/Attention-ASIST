@@ -8,7 +8,7 @@ problem_params:
   PLAYER_ROLE: engineer  # medic, engineer, maybe searcher?
   MEDIC_MODEL_FILE: pretrained_asist/medic/cvrp_baseline
   MEDIC_GRAPH_SIZE: 55        # number of victims (contains high value)
-  RUBBLE_GRAPH_SIZE: 20       # number of rubbles
+  RUBBLE_GRAPH_SIZE: 18       # number of rubbles
   HIGH_VALUE_VICTIM_SIZE: 7   # number of freeze plate + number of high value victims
   MEDIC_SPEED: 0.0091         # medic speed after conversion
   ENGINEER_SPEED: 0.0065      # engineer speed after conversion
@@ -27,9 +27,9 @@ eval_only: false
 no_cuda: false
 cuda: 0         # Specify a list of int if want model be distributed across gpus, or a single int otherwise
 run_name: engineer_medic
-graph_size: 27
+graph_size: 25
 batch_size: 512
-n_epochs: 10
+n_epochs: 50
 epoch_size: 128000
 val_size: 128000             # affect num_samples when collecting problem dataset using baseline
 val_dataset:
