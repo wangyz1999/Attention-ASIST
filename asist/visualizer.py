@@ -45,6 +45,37 @@ def plot_graph(graph, save=None, pop_out=False, hide_portal_label=False):
     else:
         plt.savefig(save + ".png", bbox_inches='tight', pad_inches=0)
 
+def plot_paper_graph(graph, ax, save=None, pop_out=False, hide_portal_label=False):
+    if pop_out:
+        matplotlib.use("TkAgg")
+    # Get position
+    pos, fix = graph.better_layout(expand_iteration=3)
+    pos = graph.flip_z(pos)
+    pos = graph.clockwise90(pos)
+    pos = graph.clockwise90(pos)
+    weight_labels = nx.get_edge_attributes(graph,'weight')
+    # plt.figure(figsize=(18,27))
+
+    # ax.axis("off")
+    # ax.tight_layout()
+    color_map = graph.better_color()
+
+    if hide_portal_label:
+        label_dict = {}
+        for nodes in graph.nodes():
+            if nodes.id[:2] == 'c_':
+                label_dict[nodes] = ""
+            else:
+                label_dict[nodes] = nodes
+
+        nx.draw_networkx(graph, pos, ax=ax, labels=label_dict, with_labels=True, node_color=color_map, node_size=40,
+                         font_size=4, width=0.5)
+    else:
+        nx.draw_networkx(graph, pos, ax=ax, with_labels=True, node_color=color_map, node_size=40,
+                        font_size=4, width=0.5)
+    # nx.draw_networkx_edge_labels(graph, pos, edge_labels=weight_labels)
+
+
 def plot_random_graph():
     plt.figure(figsize=(8,8))
     graph = RandomGraphGenerator.generate_random_graph(5, (2,8), (0,2), (0,1))
@@ -258,7 +289,10 @@ if __name__ == '__main__':
     # with open('data/json/Falcon_v1.0_Easy_sm_clean.json') as f:
     #     data = json.load(f)
 
-    with open('data/json/Saturn/Saturn_1.5_3D_sm_with_victimsA.json') as f:
+    # with open('data/json/Saturn/Saturn_1.5_3D_sm_with_victimsA.json') as f:
+    #     data = json.load(f)
+
+    with open('data/json/Saturn/Saturn_trial_416.json') as f:
         data = json.load(f)
 
     # env = AsistEnvGym(portal_data, room_data, victim_data, "as", random_victim=False)
@@ -274,7 +308,7 @@ if __name__ == '__main__':
         max_count = max(max_count, count)
     print(len(graph.nodes_list))
 
-    plot_graph(graph, save="Semantic_Graph/Saturn_1.5_A", hide_portal_label=True)
+    plot_graph(graph, save="Semantic_Graph/Saturn_trial_416", hide_portal_label=True)
     # animate_graph()
 
     # plot_random_graph()
