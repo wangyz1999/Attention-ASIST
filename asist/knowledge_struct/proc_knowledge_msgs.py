@@ -57,6 +57,8 @@ def process_message(jmsg, kstruct):
                 # determine rubble in room & mark as seen (will update to use proximity once decide how close)
                 for rb in rm['rubble']:
                     rb['seen'] = True
+                for fp in rm['freeze_panes']:
+                    fp['seen'] = True
 
 # --- used for main
 

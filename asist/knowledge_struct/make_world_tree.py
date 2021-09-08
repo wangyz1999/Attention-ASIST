@@ -11,7 +11,7 @@ from proc_knowledge_msgs import process_json_file
 
 #msgfile = './test_data.meta'
 msgfile = '/home/skenny/usc/asist/data/opt_world_test/p2_hsr_t508_tm154_saturnb_vers4.meta'
-template_name = './saturn_a.template'
+template_name = './saturn_b.template'
 #orig_map = './Saturn_1.0_sm_with_victimsA.json'
 orig_map = './Saturn_1.0_sm_with_victimsB.json'
 reg_dicts = {}

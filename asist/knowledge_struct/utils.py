@@ -85,7 +85,7 @@ def add_fpanes_to_room(rdict):
         if froom.in_room(fx,fz):
             frz_obj['x'] = fx
             frz_obj['z'] = fz
-            frz_obj['seen'] = True
+            frz_obj['seen'] = False
             rdict['freeze_panes'].append(frz_obj)
 
 # may need to add 'name' since all other objs have one?
