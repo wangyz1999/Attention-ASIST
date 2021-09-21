@@ -153,5 +153,16 @@ def make_regions(reg_dicts):
     reg_dicts['reg_locations'].append(reg_dict5)
     reg_dicts['reg_locations'].append(reg_dict6)
     
-
-
+def get_players(fname):
+    players = []
+    jsonfile = open(fname, 'rt')
+    for line in jsonfile.readlines():
+        if line.find('playername') > -1:
+            jmsg = json.loads(line)
+            data = jmsg[u'data']
+            playerlist = data['client_info']
+            for pdict in playerlist:
+                players.append(pdict['playername'])
+            jsonfile.close()
+            break
+    return players

@@ -58,9 +58,11 @@ print("....checking resulting file....")
 jsonfile = open(template_name, 'rt')
 kstruct = json.load(jsonfile)
 
-# TODO: pull players from metadata header
-players = ['E000324', 'E000322', 'E000323']
+# get palyer names from header
+players = get_players(msgfile)
+print("players are:: "+str(players))
 # default time_of_interest is whole run, 15min (900000ms)
-time_of_interest = 900000
+#time_of_interest = 900000
+time_of_interest = 450000
 for player in players:
     new_kstrct = process_json_file(msgfile, kstruct, player, time_of_interest)
