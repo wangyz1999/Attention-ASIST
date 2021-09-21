@@ -9,16 +9,6 @@ from proc_knowledge_msgs import process_json_file
 # takes main Saturn map as input & generates nested data struct for tracking player knowledge
 # throughtout game play
 
-#msgfile = './test_data.meta'
-msgfile = '/home/skenny/usc/asist/data/opt_world_test/p2_hsr_t508_tm154_saturnb_vers4.meta'
-template_name = './saturn_b.template'
-#orig_map = './Saturn_1.0_sm_with_victimsA.json'
-orig_map = './Saturn_1.0_sm_with_victimsB.json'
-reg_dicts = {}
-reg_dicts['reg_locations'] = []
-reg_dicts['connections'] = []
-
-
 # makes template for tracking elements of interest
 def make_initial_struct(fname):
     jsonfile = open(fname, 'rt')
@@ -51,15 +41,26 @@ def make_initial_struct(fname):
     json.dump(reg_dicts,template,indent=True)
     template.close()
 
-
 #------------------MAIN
 
+#msgfile = '/home/skenny/usc/asist/data/opt_world_test/p2_hsr_t508_tm154_saturnb_vers4.meta'
+msgfile = '/home/skenny/usc/asist/data/study_2/t000416.metadata'
+template_name = './saturn_b.template'
+#orig_map = './Saturn_1.0_sm_with_victimsA.json'
+orig_map = './Saturn_1.0_sm_with_victimsB.json'
+reg_dicts = {}
+reg_dicts['reg_locations'] = []
+reg_dicts['connections'] = []
 
 make_initial_struct(orig_map)
 # make sure new file can be loaded/read
 print("....checking resulting file....")
 jsonfile = open(template_name, 'rt')
 kstruct = json.load(jsonfile)
-#for (k,v) in kstruct.items():
- #   print(k+" "+str(v))
-new_kstrct = process_json_file(msgfile, kstruct)
+
+# TODO: pull players from metadata header
+players = ['E000324', 'E000322', 'E000323']
+# default time_of_interest is whole run, 15min (900000ms)
+time_of_interest = 900000
+for player in players:
+    new_kstrct = process_json_file(msgfile, kstruct, player, time_of_interest)

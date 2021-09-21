@@ -37,7 +37,24 @@ def find_room(x,z,region):
             return rdict
     return "NONE"
 
-def process_message(jmsg, kstruct):
+# move to utils??
+def check_victims_seen(kstruct):
+    vicstats = []
+    for (k,val) in kstruct.items():
+        if k == 'reg_locations':
+            for r in val:
+                rooms = r['rooms']
+                for rm in rooms:
+                    victims = rm['victims']
+                    for v in victims:
+                        if v['seen']:
+                            #seenstr = "seen: "+str(v['seen'])
+                            #vicstats.append((v['id'],seenstr))
+                            vicstats.append(v['id'])
+    return vicstats
+                
+
+def process_message(jmsg, kstruct, toi=0):
     # first deterimine which region so can narrow down room search? and in intermim increment 'time_in' for regions (to make sure update to struct working)
     # what room are we in, need to increment time
     data = jmsg[u'data']
@@ -62,16 +79,26 @@ def process_message(jmsg, kstruct):
 
 # --- used for main
 
-def process_json_file(fname, kstruct):
+def process_json_file(fname, kstruct, player, toi):
         jsonfile = open(fname, 'rt')
         #jsonMsgs = [json.loads(line) for line in jsonfile.readlines()]
         #jsonfile.close()            
         #for jmsg in jsonMsgs:
         nlines = 0
-        for jmsg in jsonfile.readlines():
-            if jmsg.find('not initialized') == -1 and jmsg.find('data') > -1 and jmsg.find('mission_timer') > -1:
-                #print("satisfied---line = "+str(jmsg))
-                process_message(json.loads(jmsg), kstruct) # add to msglist will then iter list to calc times/items viewed, etc?
+        for line in jsonfile.readlines():
+            if line.find('not initialized') == -1 and line.find('data') > -1 and line.find('mission_timer') > -1 and line.find(player) > -1:
+                jmsg = json.loads(line)
+                data = jmsg[u'data']
+                elap_ms = data['elapsed_milliseconds']
+                if elap_ms >= toi: # have all data we care
+                    break
+                else:
+                    process_message(jmsg, kstruct) # add to msglist will then iter list to calc times/items viewed, etc?
+                # if at time of interest: break
         #dump new struct 
-        template = open('blahblah','w')
+        template = open(player,'w')
+        print("\nstats for "+player+" ::")
+        victims = check_victims_seen(kstruct)
+        print("victims seen:: "+str(victims))
         json.dump(kstruct,template,indent=True)
+        # print--> human readable version of struct: foreach vic/player stats
