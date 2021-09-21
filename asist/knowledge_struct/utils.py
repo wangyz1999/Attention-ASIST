@@ -71,6 +71,34 @@ def add_rubble_to_room(rdict,mstruct):
                         rdict['rubble'].append(obj)
                         break
 
+def check_victims_seen(kstruct):
+    vicstats = []
+    for (k,val) in kstruct.items():
+        if k == 'reg_locations':
+            for r in val:
+                rooms = r['rooms']
+                for rm in rooms:
+                    victims = rm['victims']
+                    for v in victims:
+                        if v['seen']:
+                            #seenstr = "seen: "+str(v['seen'])
+                            #vicstats.append((v['id'],seenstr))
+                            vicstats.append(v['id'])
+    return vicstats
+
+def check_rubble_seen(kstruct):
+    rubstats = []
+    for (k,val) in kstruct.items():
+        if k == 'reg_locations':
+            for r in val:
+                rooms = r['rooms']
+                for rm in rooms:
+                    rubble = rm['rubble']
+                    for rb in rubble:
+                        if rb['seen']:
+                            rubstats.append(rb['id'])
+    return rubstats
+
 # assumes saturnB
 # def add_fpanes_to_room(rdict,mstruct):
 # NOTE: room parts overlap, pane may show twice

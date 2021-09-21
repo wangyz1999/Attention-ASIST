@@ -37,21 +37,6 @@ def find_room(x,z,region):
             return rdict
     return "NONE"
 
-# move to utils??
-def check_victims_seen(kstruct):
-    vicstats = []
-    for (k,val) in kstruct.items():
-        if k == 'reg_locations':
-            for r in val:
-                rooms = r['rooms']
-                for rm in rooms:
-                    victims = rm['victims']
-                    for v in victims:
-                        if v['seen']:
-                            #seenstr = "seen: "+str(v['seen'])
-                            #vicstats.append((v['id'],seenstr))
-                            vicstats.append(v['id'])
-    return vicstats
                 
 
 def process_message(jmsg, kstruct, toi=0):
@@ -100,5 +85,6 @@ def process_json_file(fname, kstruct, player, toi):
         print("\nstats for "+player+" ::")
         victims = check_victims_seen(kstruct)
         print("victims seen:: "+str(victims))
+        rubble = check_rubble_seen(kstruct)
+        print("rubble seen:: "+str(rubble))
         json.dump(kstruct,template,indent=True)
-        # print--> human readable version of struct: foreach vic/player stats
