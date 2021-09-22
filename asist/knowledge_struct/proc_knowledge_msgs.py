@@ -40,7 +40,6 @@ def find_room(x,z,region):
                 
 
 def process_message(jmsg, kstruct, toi=0):
-    # first deterimine which region so can narrow down room search? and in intermim increment 'time_in' for regions (to make sure update to struct working)
     # what room are we in, need to increment time
     data = jmsg[u'data']
     x = 0
@@ -61,6 +60,8 @@ def process_message(jmsg, kstruct, toi=0):
                     rb['seen'] = True
                 for fp in rm['freeze_panes']:
                     fp['seen'] = True
+                for m in rm['markers']:
+                    m['seen'] = True
 
 # --- used for main
 
@@ -74,6 +75,8 @@ def process_json_file(fname, kstruct, player, toi):
             if line.find('not initialized') == -1 and line.find('data') > -1 and line.find('mission_timer') > -1 and line.find(player) > -1:
                 jmsg = json.loads(line)
                 data = jmsg[u'data']
+                if line.find('marker_placed') > -1:
+                    add_marker_placed(data,kstruct)
                 elap_ms = data['elapsed_milliseconds']
                 if elap_ms >= toi: # have all data we care
                     break
@@ -87,4 +90,7 @@ def process_json_file(fname, kstruct, player, toi):
         print("victims seen:: "+str(victims))
         rubble = check_rubble_seen(kstruct)
         print("rubble seen:: "+str(rubble))
+        markers = check_markers_seen(kstruct)
+        print("markers seen:: "+str(markers))
+
         json.dump(kstruct,template,indent=True)

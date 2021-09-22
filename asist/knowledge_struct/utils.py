@@ -99,6 +99,32 @@ def check_rubble_seen(kstruct):
                             rubstats.append(rb['id'])
     return rubstats
 
+def add_marker_placed(data,kstruct):
+    mx = data['marker_x']
+    mz = data['marker_z']
+    for (k,val) in kstruct.items():
+        if k == 'reg_locations':
+            for r in val:
+                rooms = r['rooms']
+                for rm in rooms:
+                    rmobj = room(rm)
+                    if rmobj.in_room(mx,mz):
+                        rm['markers'].append({"x":mx,"z":mz,"seen":False})
+
+
+def check_markers_seen(kstruct):
+    mstats = []
+    for (k,val) in kstruct.items():
+        if k == 'reg_locations':
+            for r in val:
+                rooms = r['rooms']
+                for rm in rooms:
+                    markers = rm['markers']
+                    for m in markers:
+                        if m['seen']:
+                            mstats.append((m['x'],m['z']))
+    return mstats
+
 # assumes saturnB
 # def add_fpanes_to_room(rdict,mstruct):
 # NOTE: room parts overlap, pane may show twice

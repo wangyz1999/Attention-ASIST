@@ -25,6 +25,7 @@ def make_initial_struct(fname):
                     k1['victims'] = []
                     k1['rubble'] = []
                     k1['freeze_panes'] = []
+                    k1['markers'] = []
                     add_victims_to_room(k1, kstruct)
                     add_rubble_to_room(k1, kstruct)
                     add_fpanes_to_room(k1)
@@ -62,7 +63,7 @@ kstruct = json.load(jsonfile)
 players = get_players(msgfile)
 print("players are:: "+str(players))
 # default time_of_interest is whole run, 15min (900000ms)
-#time_of_interest = 900000
-time_of_interest = 450000
+time_of_interest = 900000
+#time_of_interest = 450000
 for player in players:
     new_kstrct = process_json_file(msgfile, kstruct, player, time_of_interest)
