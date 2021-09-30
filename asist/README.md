@@ -28,15 +28,17 @@ The modification we made for the medic model (cvrp) and the engineer model (cvrp
 
 ### Pipeline Diagram
 
-![Pipline Diagram](ASIST-Pipline.png)
+![Pipline Diagram](pipeline-diagram.png)
 
 ### Load Json Semantic Map to create Semantic Graph and Visualize it
 
 The latest json data we use locates in the `asist/data/json/Saturn` folder. For example, the data we used for the one medic and two engineers model is `Saturn_trial_416.json`
 
-This code snippet could load the json semantic map file and create the semantic graph:
+This code snippet loads the json semantic map file and create the semantic graph:
 
 ```python
+from mapparser import MapParser
+
 with open('data/json/Saturn/Saturn_trial_416.json') as json_file:
     json_data = json.load(json_file)
 
@@ -51,7 +53,8 @@ In `params.yaml`, especially specify the following:
 problem: cvrp                   # This let the model know you want to use problem_cvrp
 problem_params:
   MEDIC_TOOL_DURABILITY: 20     # Tool durability of the medic
-graph_size: 55                  # Graph size: number of all objective nodes that medic need to consider, here it is the number of all victims
+graph_size: 55                  # Graph size: number of all objective nodes that medic need to consider, 
+                                #             here it is the number of all victims
 ```
 
 run `run.py` with the argument `--arg_yaml_file params.yaml` to use the parameters you specified.
@@ -80,5 +83,21 @@ problem_params:
   HIGH_VALUE_MISMATCH_PENALTY_COEFF: 0.004  # coefficient 1
   LATE_RUBBLE_PENALTY_COEFF: 1.757          # coefficient 2
 
-graph_size: 25                  # Graph size: number of all objective nodes that medic need to consider, here it is RUBBLE_GRAPH_SIZE + HIGH_VALUE_VICTIM_SIZE
+graph_size: 25                  # Graph size: number of all objective nodes that medic need to consider, 
+                                #             here it is RUBBLE_GRAPH_SIZE + HIGH_VALUE_VICTIM_SIZE
+```
+
+
+
+### Interchangeable Terms
+
+```
+problem_vrp = problem_cvrp
+problem_pcvrp = problem_cvrpp
+
+normal/green victim = non-critical victim
+high-value/yellow victim = critical victim
+
+medic = Medical_Specialist
+engineer = Hazardous_Material_Specialist
 ```
