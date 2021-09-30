@@ -225,9 +225,9 @@ def simulate_run(g, path):
 
 if __name__ == '__main__':
     with open('data/json/Saturn/Saturn_trial_416.json') as f:
-        data = json.load(f)
+        json_data = json.load(f)
 
-    graph = MapParser.parse_saturn_map(data)
+    graph = MapParser.parse_saturn_map(json_data)
 
     max_count = -1
     for n in graph.nodes_list:

@@ -3,8 +3,8 @@
 # Parameters specific to the problem to solve
 problem: pcvrp
 problem_params:
-  PRICE_MODE: 1           # for pcvrp medic
-  DISCOUNT_FACTOR: 0.9    # for pcvrp medic
+  PRICE_MODE: 1           # for pcvrp medic (deprecated)
+  DISCOUNT_FACTOR: 0.9    # for pcvrp medic (deprecated)
   PLAYER_ROLE: engineer  # medic, engineer, maybe searcher?
   MEDIC_MODEL_FILE: pretrained_asist/medic/cvrp_baseline
   MEDIC_GRAPH_SIZE: 55        # number of victims (contains high value)
