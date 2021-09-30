@@ -10841,6 +10841,27 @@
         "srm_1",
         "srm_2"
       ]
+    },
+    {
+      "id": "c_sd1",
+      "type": "self_defined",
+      "bounds": {
+        "type": "line",
+        "coordinates": [
+          {
+            "x": -2156,
+            "z": 33
+          },
+          {
+            "x": -2152,
+            "z": 33
+          }
+        ]
+      },
+      "connected_locations": [
+        "el_1",
+        "llc_32"
+      ]
     }
   ],
   "objects": [
@@ -31654,28 +31675,32 @@
   },
   "blocking_rubble": [
     "vg1",
-    "vg4",
-    "vg6",
-    "vg8",
-    "vg9",
     "vg11",
     "vg14",
     "vg16",
     "vg20",
     "vg21",
-    "vg23",
     "vg29",
     "vg31",
     "vg33",
     "vg36",
     "vg39",
     "vg44",
-    "vg45",
-    "vg46",
-    "vg47",
-    "vg48",
     "vg49",
-    "vg50"
-  ]
+    "vg50",
+    "vg5",
+    "vg18",
+    "vg23",
+    "vg40"
+  ],
+  "room_rubble": {
+    "vg1": "kco",
+    "vg5": "so",
+    "vg11": "rrc",
+    "vg18": "cce",
+    "vg23": "el",
+    "vg33": "sdc",
+    "vg40": "scw"
+  }
 }
 
