@@ -177,7 +177,6 @@ class VRPDataset(Dataset):
             self.data = [make_instance(args) for args in data[offset:offset+num_samples]]
 
         else:
-
             # From VRP with RL paper https://arxiv.org/abs/1802.04240
             CAPACITIES = {
                 10: 20.,

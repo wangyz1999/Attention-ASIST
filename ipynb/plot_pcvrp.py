@@ -62,11 +62,13 @@ def plot_vehicle_routes(data, route, ax1, markersize=5, visualize_demands=False,
     # print(routes)
     
     x_dep, y_dep = depot
-    ax1.plot(x_dep, y_dep, 'sk', markersize=markersize*4)
-    ax1.set_xlim(0, 1)
-    ax1.set_ylim(0, 1)
-    
-    legend = ax1.legend(loc='upper center')
+
+    if ax1 is not None:
+        ax1.plot(x_dep, y_dep, 'sk', markersize=markersize*4)
+        ax1.set_xlim(0, 1)
+        ax1.set_ylim(0, 1)
+
+        legend = ax1.legend(loc='upper center')
     
     cmap = discrete_cmap(len(routes) + 2, 'nipy_spectral')
     dem_rects = []
@@ -93,7 +95,8 @@ def plot_vehicle_routes(data, route, ax1, markersize=5, visualize_demands=False,
         discount_prize = 0
         if not visualize_demands:
             # print(prizes[r-1])
-            ax1.plot(xs, ys, 'o', mfc=color, markersize=markersize, markeredgewidth=0.0)
+            if ax1 is not None:
+                ax1.plot(xs, ys, 'o', mfc=color, markersize=markersize, markeredgewidth=0.0)
             for idx, (x, y) in enumerate(zip(xs, ys)):
                 p_label = prizes[r-1][idx]
                 dp_label = p_label * conti_discount
@@ -119,41 +122,164 @@ def plot_vehicle_routes(data, route, ax1, markersize=5, visualize_demands=False,
         total_dist += dist
         total_prize += prize
         total_discount_prize += discount_prize
-        qv = ax1.quiver(
-            xs[:-1],
-            ys[:-1],
-            xs[1:] - xs[:-1],
-            ys[1:] - ys[:-1],
-            scale_units='xy',
-            angles='xy',
-            scale=1,
-            color=color,
-            label='R{}, #{}, c {}/{}, d {:.2f} p {:.1f}'.format(
-                veh_number, 
-                len(r), 
-                int(total_route_demand) if round_demand else total_route_demand, 
-                int(capacity) if round_demand else capacity,
-                dist,
-                prize
+        if ax1 is not None:
+            qv = ax1.quiver(
+                xs[:-1],
+                ys[:-1],
+                xs[1:] - xs[:-1],
+                ys[1:] - ys[:-1],
+                scale_units='xy',
+                angles='xy',
+                scale=1,
+                color=color,
+                label='R{}, #{}, c {}/{}, d {:.2f} p {:.1f}'.format(
+                    veh_number,
+                    len(r),
+                    int(total_route_demand) if round_demand else total_route_demand,
+                    int(capacity) if round_demand else capacity,
+                    dist,
+                    prize
+                )
             )
-        )
-        
-        qvs.append(qv)
-        
-    ax1.set_title('{} routes, distance {:.2f}, prize {:.1f}, discounted_prize {:.3f}, cost {:.3f}'.format(len(routes), total_dist, total_prize, total_discount_prize, total_dist-total_discount_prize))
-    ax1.legend(handles=qvs)
+
+            qvs.append(qv)
+
+    if ax1 is not None:
+        ax1.set_title('{} routes, distance {:.2f}, prize {:.1f}, discounted_prize {:.3f}, cost {:.3f}'.format(len(routes), total_dist, total_prize, total_discount_prize, total_dist-total_discount_prize))
+        ax1.legend(handles=qvs)
     
     pc_cap = PatchCollection(cap_rects, facecolor='whitesmoke', alpha=1.0, edgecolor='lightgray')
     pc_used = PatchCollection(used_rects, facecolor='lightgray', alpha=1.0, edgecolor='lightgray')
     pc_dem = PatchCollection(dem_rects, facecolor='black', alpha=1.0, edgecolor='black')
-    
+
     if visualize_demands:
-        ax1.add_collection(pc_cap)
-        ax1.add_collection(pc_used)
-        ax1.add_collection(pc_dem)
+        if ax1 is not None:
+            ax1.add_collection(pc_cap)
+            ax1.add_collection(pc_used)
+            ax1.add_collection(pc_dem)
 
     if return_routes:
         return [[0] + i.tolist() for i in routes], total_dist-total_discount_prize, total_dist
+
+
+def plot_vehicle_routes_paper(data, node_list, route, ax1, markersize=5, visualize_demands=False, demand_scale=1, round_demand=False,
+                        return_routes=False):
+    """
+    Plot the vehicle routes on matplotlib axis ax1.
+    """
+
+    # route is one sequence, separating different routes with 0 (depot)
+    # print(route)
+    routes = [r[r != 0] for r in np.split(route.cpu().numpy(), np.where(route == 0)[0]) if (r != 0).any()]
+    depot = data['depot'].cpu().numpy()
+    locs = data['loc'].cpu().numpy()
+    demands = data['demand'].cpu().numpy() * demand_scale
+    prizes = data['prize'].cpu().numpy()
+    capacity = demand_scale  # Capacity is always 1
+
+    # print(prizes)
+
+    # print(prizes)
+    # print(routes)
+
+    x_dep, y_dep = depot
+
+    if ax1 is not None:
+        ax1.plot(x_dep, y_dep, 'sk', markersize=markersize * 4)
+        plt.annotate('ew_1', (x_dep-0.016, y_dep-0.005), color='white', size=8)
+        ax1.set_xlim(0, 1)
+        ax1.set_ylim(0, 1)
+
+        legend = ax1.legend(loc='upper center')
+
+    cmap = discrete_cmap(len(routes) + 2, 'nipy_spectral')
+    dem_rects = []
+    used_rects = []
+    cap_rects = []
+    qvs = []
+    total_dist = 0
+    total_prize = 0
+    total_discount_prize = 0
+
+    conti_discount = 1
+    conti_discount_factor = 0.99
+
+    for veh_number, r in enumerate(routes):
+        color = cmap(len(routes) - veh_number)  # Invert to have in rainbow order
+
+        route_demands = demands[r - 1]
+        coords = locs[r - 1, :]
+        xs, ys = coords.transpose()
+
+        total_route_demand = sum(route_demands)
+        # assert total_route_demand <= capacity
+        prize = 0
+        discount_prize = 0
+        if not visualize_demands:
+            # print(prizes[r-1])
+            if ax1 is not None:
+                ax1.plot(xs, ys, 'o', mfc=color, markersize=markersize, markeredgewidth=0.0)
+            for idx, (x, y) in enumerate(zip(xs, ys)):
+                node_label = node_list[r[idx]]
+                plt.annotate(f"{node_label.id}", (x, y), textcoords="offset points", xytext=(0, 8), annotation_clip=True)
+
+        dist = 0
+        x_prev, y_prev = x_dep, y_dep
+        cum_demand = 0
+        for (x, y), d in zip(coords, route_demands):
+            dist += np.sqrt((x - x_prev) ** 2 + (y - y_prev) ** 2)
+
+            cap_rects.append(Rectangle((x, y), 0.01, 0.1))
+            used_rects.append(Rectangle((x, y), 0.01, 0.1 * total_route_demand / capacity))
+            dem_rects.append(Rectangle((x, y + 0.1 * cum_demand / capacity), 0.01, 0.1 * d / capacity))
+
+            x_prev, y_prev = x, y
+            cum_demand += d
+
+        dist += np.sqrt((x_dep - x_prev) ** 2 + (y_dep - y_prev) ** 2)
+        total_dist += dist
+        total_prize += prize
+        total_discount_prize += discount_prize
+        if ax1 is not None:
+            qv = ax1.quiver(
+                xs[:-1],
+                ys[:-1],
+                xs[1:] - xs[:-1],
+                ys[1:] - ys[:-1],
+                scale_units='xy',
+                angles='xy',
+                scale=1,
+                color=color,
+                label='Route #{}, Capacity {}/20, Distance {:.2f}'.format(
+                    veh_number,
+                    len(r),
+                    dist
+                )
+            )
+
+            qvs.append(qv)
+
+    if ax1 is not None:
+        # ax1.set_title(
+        #     '{} routes, distance {:.2f}, prize {:.1f}, discounted_prize {:.3f}, cost {:.3f}'.format(len(routes),
+        #                                                                                             total_dist,
+        #                                                                                             total_prize,
+        #                                                                                             total_discount_prize,
+        #                                                                                             total_dist - total_discount_prize))
+        ax1.legend(handles=qvs)
+
+    pc_cap = PatchCollection(cap_rects, facecolor='whitesmoke', alpha=1.0, edgecolor='lightgray')
+    pc_used = PatchCollection(used_rects, facecolor='lightgray', alpha=1.0, edgecolor='lightgray')
+    pc_dem = PatchCollection(dem_rects, facecolor='black', alpha=1.0, edgecolor='black')
+
+    if visualize_demands:
+        if ax1 is not None:
+            ax1.add_collection(pc_cap)
+            ax1.add_collection(pc_used)
+            ax1.add_collection(pc_dem)
+
+    if return_routes:
+        return [[0] + i.tolist() for i in routes], total_dist - total_discount_prize, total_dist
 
 
 

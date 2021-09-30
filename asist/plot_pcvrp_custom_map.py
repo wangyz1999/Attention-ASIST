@@ -25,10 +25,10 @@ class RouteGen:
         self.medic_speed = 4.32 * 1.3
         self.engineer_speed = 3.02 * 1.3
         self.medic_graph_size = 55
-        self.engineer_graph_size = 28
-        self.MEDIC_TOOL_DURABILITY = 15
+        self.engineer_graph_size = 26
+        self.MEDIC_TOOL_DURABILITY = 20
         self.ENGINEER_TOOL_DURABILITY = 131
-        self.RUBBLE_GRAPH_SIZE = 23
+        self.RUBBLE_GRAPH_SIZE = 21
         self.HIGH_VALUE_VICTIM_SIZE = 5
         self.jl_transform_seed = 2037
         self.depot_room_id = 'ew_1'
@@ -336,8 +336,10 @@ class RouteGen:
 
 if __name__ == '__main__':
     sm_data_path = os.path.join('data', 'json', 'Saturn', 'Saturn_1.5_3D_sm_with_victimsA.json')
-    medic_model_path = os.path.join('..', 'outputs', '2021-6-23', 'graph_size=55,price_mode=1,high_value=1')
-    engineer_model_path = os.path.join('..', 'outputs', '2021-7-28', '2')
+    # medic_model_path = os.path.join('..', 'outputs', '2021-6-23', 'graph_size=55,price_mode=1,high_value=1')
+    medic_model_path = os.path.join('..', 'pretrained_asist', 'medic', 'cvrp_baseline')
+    # engineer_model_path = os.path.join('..', 'outputs', '2021-7-28', '0')
+    engineer_model_path = os.path.join('..', 'outputs', '2021-8-1', 'exp-1bc3d')
     medic_pickle_file = "saturn_A_1.5_medic.pkl"
     medic_fig_path = os.path.join('..', 'images', 'medic.png')
     engineer_fig_path = os.path.join('..', 'images', 'engineer.png')
