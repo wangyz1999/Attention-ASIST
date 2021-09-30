@@ -53,7 +53,7 @@ In `params.yaml`, especially specify the following:
 problem: cvrp                   # This let the model know you want to use problem_cvrp
 problem_params:
   MEDIC_TOOL_DURABILITY: 20     # Tool durability of the medic
-graph_size: 55                  # Graph size: number of all objective nodes that medic need to consider, 
+graph_size: 55                  # Graph size: number of all objective nodes (no depot) that medic need to consider, 
                                 #             here it is the number of all victims
 ```
 
@@ -61,7 +61,7 @@ run `run.py` with the argument `--arg_yaml_file params.yaml` to use the paramete
 
 Note: The actual training uses very large parameter size (batch size, network size), and your local machine might freeze if you train it like that. For testing, you can create a `params_test.yaml` and use small parameter size
 
-If everything goes well, you should see a new trained model pop up in the `outputs` folder. To save space in the repository, we stored all trained model on AWS and managed through Data-Version Control (DVC)
+If everything goes well, you should see a newly trained medic model pop up in the `outputs` folder. To save space in the repository, we stored all trained model on AWS and managed through Data-Version Control (DVC)
 
 ### Train an engineer model
 
@@ -83,11 +83,15 @@ problem_params:
   HIGH_VALUE_MISMATCH_PENALTY_COEFF: 0.004  # coefficient 1
   LATE_RUBBLE_PENALTY_COEFF: 1.757          # coefficient 2
 
-graph_size: 25                  # Graph size: number of all objective nodes that medic need to consider, 
+graph_size: 25                  # Graph size: number of all objective nodes (no depot) that medic need to consider, 
                                 #             here it is RUBBLE_GRAPH_SIZE + HIGH_VALUE_VICTIM_SIZE
 ```
 
+If everything goes well, you should see a newly trained engineer model pop up in the `outputs` folder.
 
+### Route Generator that takes in Trained Model and the Saturn Map and outputs optimal path and related time/distance analysis/plots
+
+See `asist/routeGenerator.ipynb`
 
 ### Interchangeable Terms
 
